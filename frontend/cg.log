@@ -1,0 +1,1603 @@
+
+Nov  5 15:33:42 JH kernel: [ 1047.873129] bdbm: bdbm_dm_stub is installed: /dev/bdbm_dm_stub (major:246 minor:0)
+Nov  5 15:33:42 JH kernel: [ 1047.878605] bdbm: =====================================================================
+Nov  5 15:33:42 JH kernel: [ 1047.878608] bdbm: DEVICE PARAMETERS
+Nov  5 15:33:42 JH kernel: [ 1047.878609] bdbm: =====================================================================
+Nov  5 15:33:42 JH kernel: [ 1047.878610] bdbm: # of channels = 8
+Nov  5 15:33:42 JH kernel: [ 1047.878611] bdbm: # of chips per channel = 4
+Nov  5 15:33:42 JH kernel: [ 1047.878612] bdbm: # of blocks per chip = 256
+Nov  5 15:33:42 JH kernel: [ 1047.878613] bdbm: # of pages per block = 128
+Nov  5 15:33:42 JH kernel: [ 1047.878614] bdbm: # of subpages per page = 4
+Nov  5 15:33:42 JH kernel: [ 1047.878615] bdbm: page main size  = 16384 bytes
+Nov  5 15:33:42 JH kernel: [ 1047.878616] bdbm: page oob size = 256 bytes
+Nov  5 15:33:42 JH kernel: [ 1047.878617] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+Nov  5 15:33:42 JH kernel: [ 1047.878618] bdbm: 
+Nov  5 15:33:42 JH kernel: [ 1047.878619] bdbm: =====================================================================
+Nov  5 15:33:42 JH kernel: [ 1047.878620] bdbm: RAM DISK INFO
+Nov  5 15:33:42 JH kernel: [ 1047.878621] bdbm: =====================================================================
+Nov  5 15:33:42 JH kernel: [ 1047.878622] bdbm: the SSD capacity: 17179869184 (B), 16777216 (KB), 16384 (MB)
+Nov  5 15:33:43 JH kernel: [ 1049.539855] bdbm: ramssd addr = ffffc9000f001000
+Nov  5 15:33:43 JH kernel: [ 1049.539858] bdbm: 
+Nov  5 15:33:43 JH kernel: [ 1049.539968] bdbm: [dm_ramdrive_probe] probe done!
+Nov  5 15:33:43 JH kernel: [ 1049.539969] bdbm: [dm_ramdrive_open] open done!
+Nov  5 15:33:44 JH kernel: [ 1049.986286] bdbm: TRIM is enabled
+Nov  5 15:33:44 JH kernel: [ 1049.986453] bdbm: =====================================================================
+Nov  5 15:33:44 JH kernel: [ 1049.986454] bdbm: DEVICE PARAMETERS
+Nov  5 15:33:44 JH kernel: [ 1049.986454] bdbm: =====================================================================
+Nov  5 15:33:44 JH kernel: [ 1049.986455] bdbm: # of channels = 8
+Nov  5 15:33:44 JH kernel: [ 1049.986457] bdbm: # of chips per channel = 4
+Nov  5 15:33:44 JH kernel: [ 1049.986458] bdbm: # of blocks per chip = 256
+Nov  5 15:33:44 JH kernel: [ 1049.986458] bdbm: # of pages per block = 128
+Nov  5 15:33:44 JH kernel: [ 1049.986459] bdbm: # of subpages per page = 4
+Nov  5 15:33:44 JH kernel: [ 1049.986459] bdbm: page main size  = 16384 bytes
+Nov  5 15:33:44 JH kernel: [ 1049.986460] bdbm: page oob size = 256 bytes
+Nov  5 15:33:44 JH kernel: [ 1049.986461] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+Nov  5 15:33:44 JH kernel: [ 1049.986461] bdbm: 
+Nov  5 15:33:44 JH kernel: [ 1049.986472] bdbm: =====================================================================
+Nov  5 15:33:44 JH kernel: [ 1049.986473] bdbm: FTL CONFIGURATION
+Nov  5 15:33:44 JH kernel: [ 1049.986473] bdbm: =====================================================================
+Nov  5 15:33:44 JH kernel: [ 1049.986474] bdbm: mapping type = 4 (1: no ftl, 2: block-mapping, 3: RSD, 4: page-mapping, 5: dftl)
+Nov  5 15:33:44 JH kernel: [ 1049.986475] bdbm: gc policy = 3 (1: merge 2: random, 3: greedy, 4: cost-benefit)
+Nov  5 15:33:44 JH kernel: [ 1049.986476] bdbm: wl policy = 1 (1: none, 2: swap)
+Nov  5 15:33:44 JH kernel: [ 1049.986476] bdbm: trim mode = 1 (1: enable, 2: disable)
+Nov  5 15:33:44 JH kernel: [ 1049.986478] bdbm: kernel sector = 512 bytes
+Nov  5 15:33:44 JH kernel: [ 1049.986479] bdbm: 
+Nov  5 15:33:44 JH kernel: [ 1049.986480] bdbm: [bdbm_drv_main] bdbm_drv is registered!
+Nov  5 15:33:44 JH kernel: [ 1049.988030] bdbm: llm_make_req: 0, 1
+Nov  5 15:33:46 JH kernel: [ 1051.997221] bdbm: llm_make_req: 50000, 94
+Nov  5 15:33:47 JH kernel: [ 1052.692174] EXT4-fs (robusta): mounted filesystem with ordered data mode. Opts: discard
+Nov  5 15:34:01 JH kernel: [ 1066.791007] bdbm: llm_make_req: 100000, 96
+Nov  5 15:34:02 JH kernel: [ 1068.501621] audit: type=1400 audit(1478327642.917:70): apparmor="STATUS" operation="profile_replace" name="/usr/sbin/mysqld" pid=12640 comm="apparmor_parser"
+Nov  5 15:34:12 JH kernel: [ 1078.174583] bdbm: llm_make_req: 150000, 32
+Nov  5 15:34:19 JH kernel: [ 1085.061907] bdbm: llm_make_req: 200000, 27
+Nov  5 15:34:25 JH kernel: [ 1091.362406] bdbm: llm_make_req: 250000, 10
+Nov  5 15:34:32 JH kernel: [ 1097.737043] bdbm: llm_make_req: 300000, 89
+Nov  5 15:34:38 JH kernel: [ 1103.835525] bdbm: llm_make_req: 350000, 27
+Nov  5 15:34:44 JH kernel: [ 1110.117939] bdbm: llm_make_req: 400000, 93
+Nov  5 15:34:50 JH kernel: [ 1116.317413] bdbm: llm_make_req: 450000, 96
+Nov  5 15:34:56 JH kernel: [ 1122.468562] bdbm: llm_make_req: 500000, 89
+Nov  5 15:35:02 JH kernel: [ 1128.503097] bdbm: llm_make_req: 550000, 96
+Nov  5 15:35:08 JH kernel: [ 1134.558210] bdbm: llm_make_req: 600000, 93
+Nov  5 15:35:15 JH kernel: [ 1140.651877] bdbm: llm_make_req: 650000, 95
+Nov  5 15:35:21 JH kernel: [ 1146.659329] bdbm: llm_make_req: 700000, 78
+Nov  5 15:35:27 JH kernel: [ 1152.655791] bdbm: llm_make_req: 750000, 96
+Nov  5 15:35:32 JH kernel: [ 1158.527153] bdbm: llm_make_req: 800000, 54
+Nov  5 15:35:39 JH kernel: [ 1164.635547] bdbm: llm_make_req: 850000, 96
+Nov  5 15:35:44 JH kernel: [ 1170.440301] bdbm: llm_make_req: 900000, 96
+Nov  5 15:35:50 JH kernel: [ 1176.497139] bdbm: llm_make_req: 950000, 54
+Nov  5 15:35:56 JH kernel: [ 1182.557377] bdbm: llm_make_req: 1000000, 2
+Nov  5 15:35:58 JH kernel: [ 1184.534007] bdbm: ----------------------------------------------
+Nov  5 15:35:58 JH kernel: [ 1184.534010] bdbm: gc-victim: 0 pages, 32 blocks, 90039 us
+Nov  5 15:35:59 JH kernel: [ 1185.073228] bdbm: ----------------------------------------------
+Nov  5 15:35:59 JH kernel: [ 1185.073232] bdbm: gc-victim: 0 pages, 32 blocks, 86805 us
+Nov  5 15:36:00 JH kernel: [ 1185.671468] bdbm: ----------------------------------------------
+Nov  5 15:36:00 JH kernel: [ 1185.671471] bdbm: gc-victim: 0 pages, 32 blocks, 88877 us
+Nov  5 15:36:00 JH kernel: [ 1186.268062] bdbm: ----------------------------------------------
+Nov  5 15:36:00 JH kernel: [ 1186.268066] bdbm: gc-victim: 0 pages, 32 blocks, 89777 us
+Nov  5 15:36:01 JH kernel: [ 1186.821831] bdbm: ----------------------------------------------
+Nov  5 15:36:01 JH kernel: [ 1186.821843] bdbm: gc-victim: 0 pages, 32 blocks, 90146 us
+Nov  5 15:36:01 JH kernel: [ 1187.392580] bdbm: ----------------------------------------------
+Nov  5 15:36:01 JH kernel: [ 1187.392585] bdbm: gc-victim: 0 pages, 32 blocks, 89785 us
+Nov  5 15:36:02 JH kernel: [ 1187.933552] bdbm: ----------------------------------------------
+Nov  5 15:36:02 JH kernel: [ 1187.933555] bdbm: gc-victim: 0 pages, 32 blocks, 87717 us
+Nov  5 15:36:02 JH kernel: [ 1188.553536] bdbm: ----------------------------------------------
+Nov  5 15:36:02 JH kernel: [ 1188.553539] bdbm: gc-victim: 0 pages, 32 blocks, 88916 us
+Nov  5 15:36:03 JH kernel: [ 1189.064354] bdbm: ----------------------------------------------
+Nov  5 15:36:03 JH kernel: [ 1189.064357] bdbm: gc-victim: 0 pages, 32 blocks, 86835 us
+Nov  5 15:36:03 JH kernel: [ 1189.208617] bdbm: llm_make_req: 1050000, 5
+Nov  5 15:36:04 JH kernel: [ 1189.632245] bdbm: ----------------------------------------------
+Nov  5 15:36:04 JH kernel: [ 1189.632248] bdbm: gc-victim: 0 pages, 32 blocks, 90146 us
+Nov  5 15:36:04 JH kernel: [ 1190.194876] bdbm: ----------------------------------------------
+Nov  5 15:36:04 JH kernel: [ 1190.194879] bdbm: gc-victim: 0 pages, 32 blocks, 89425 us
+Nov  5 15:36:05 JH kernel: [ 1190.817404] bdbm: ----------------------------------------------
+Nov  5 15:36:05 JH kernel: [ 1190.817407] bdbm: gc-victim: 0 pages, 32 blocks, 86977 us
+Nov  5 15:36:05 JH kernel: [ 1191.393808] bdbm: ----------------------------------------------
+Nov  5 15:36:05 JH kernel: [ 1191.393811] bdbm: gc-victim: 0 pages, 32 blocks, 87728 us
+Nov  5 15:36:06 JH kernel: [ 1192.017660] bdbm: ----------------------------------------------
+Nov  5 15:36:06 JH kernel: [ 1192.017664] bdbm: gc-victim: 0 pages, 32 blocks, 89852 us
+Nov  5 15:36:07 JH kernel: [ 1192.604258] bdbm: ----------------------------------------------
+Nov  5 15:36:07 JH kernel: [ 1192.604261] bdbm: gc-victim: 0 pages, 32 blocks, 88760 us
+Nov  5 15:36:07 JH kernel: [ 1193.147769] bdbm: ----------------------------------------------
+Nov  5 15:36:07 JH kernel: [ 1193.147772] bdbm: gc-victim: 0 pages, 32 blocks, 90117 us
+Nov  5 15:36:08 JH kernel: [ 1193.746903] bdbm: ----------------------------------------------
+Nov  5 15:36:08 JH kernel: [ 1193.746907] bdbm: gc-victim: 0 pages, 32 blocks, 87716 us
+Nov  5 15:36:08 JH kernel: [ 1194.327533] bdbm: ----------------------------------------------
+Nov  5 15:36:08 JH kernel: [ 1194.327537] bdbm: gc-victim: 0 pages, 32 blocks, 90123 us
+Nov  5 15:36:09 JH kernel: [ 1194.804001] bdbm: ----------------------------------------------
+Nov  5 15:36:09 JH kernel: [ 1194.804005] bdbm: gc-victim: 0 pages, 32 blocks, 88858 us
+Nov  5 15:36:09 JH kernel: [ 1195.411386] bdbm: ----------------------------------------------
+Nov  5 15:36:09 JH kernel: [ 1195.411392] bdbm: gc-victim: 0 pages, 32 blocks, 89837 us
+Nov  5 15:36:10 JH kernel: [ 1196.006870] bdbm: ----------------------------------------------
+Nov  5 15:36:10 JH kernel: [ 1196.006874] bdbm: gc-victim: 0 pages, 32 blocks, 87716 us
+Nov  5 15:36:10 JH kernel: [ 1196.204864] bdbm: llm_make_req: 1100000, 69
+Nov  5 15:36:10 JH kernel: [ 1196.559031] bdbm: ----------------------------------------------
+Nov  5 15:36:10 JH kernel: [ 1196.559035] bdbm: gc-victim: 0 pages, 32 blocks, 87726 us
+Nov  5 15:36:11 JH kernel: [ 1197.118204] bdbm: ----------------------------------------------
+Nov  5 15:36:11 JH kernel: [ 1197.118207] bdbm: gc-victim: 0 pages, 32 blocks, 89825 us
+Nov  5 15:36:12 JH kernel: [ 1197.664406] bdbm: ----------------------------------------------
+Nov  5 15:36:12 JH kernel: [ 1197.664410] bdbm: gc-victim: 0 pages, 32 blocks, 88766 us
+Nov  5 15:36:12 JH kernel: [ 1198.247638] bdbm: ----------------------------------------------
+Nov  5 15:36:12 JH kernel: [ 1198.247641] bdbm: gc-victim: 0 pages, 32 blocks, 88765 us
+Nov  5 15:36:13 JH kernel: [ 1198.815232] bdbm: ----------------------------------------------
+Nov  5 15:36:13 JH kernel: [ 1198.815236] bdbm: gc-victim: 0 pages, 32 blocks, 90132 us
+Nov  5 15:36:13 JH kernel: [ 1199.380759] bdbm: ----------------------------------------------
+Nov  5 15:36:13 JH kernel: [ 1199.380763] bdbm: gc-victim: 0 pages, 32 blocks, 89727 us
+Nov  5 15:36:14 JH kernel: [ 1199.951400] bdbm: ----------------------------------------------
+Nov  5 15:36:14 JH kernel: [ 1199.951405] bdbm: gc-victim: 0 pages, 32 blocks, 88744 us
+Nov  5 15:36:14 JH kernel: [ 1200.440963] bdbm: ----------------------------------------------
+Nov  5 15:36:14 JH kernel: [ 1200.440967] bdbm: gc-victim: 0 pages, 32 blocks, 87751 us
+Nov  5 15:36:15 JH kernel: [ 1201.021535] bdbm: ----------------------------------------------
+Nov  5 15:36:15 JH kernel: [ 1201.021539] bdbm: gc-victim: 0 pages, 32 blocks, 87743 us
+Nov  5 15:36:16 JH kernel: [ 1201.603310] bdbm: ----------------------------------------------
+Nov  5 15:36:16 JH kernel: [ 1201.603313] bdbm: gc-victim: 0 pages, 32 blocks, 89262 us
+Nov  5 15:36:16 JH kernel: [ 1202.158725] bdbm: ----------------------------------------------
+Nov  5 15:36:16 JH kernel: [ 1202.158729] bdbm: gc-victim: 0 pages, 32 blocks, 89117 us
+Nov  5 15:36:17 JH kernel: [ 1202.715366] bdbm: ----------------------------------------------
+Nov  5 15:36:17 JH kernel: [ 1202.715370] bdbm: gc-victim: 0 pages, 32 blocks, 87727 us
+Nov  5 15:36:17 JH kernel: [ 1202.991349] bdbm: llm_make_req: 1150000, 73
+Nov  5 15:36:17 JH kernel: [ 1203.357796] bdbm: ----------------------------------------------
+Nov  5 15:36:17 JH kernel: [ 1203.357800] bdbm: gc-victim: 0 pages, 32 blocks, 88939 us
+Nov  5 15:36:18 JH kernel: [ 1203.880941] bdbm: ----------------------------------------------
+Nov  5 15:36:18 JH kernel: [ 1203.880945] bdbm: gc-victim: 0 pages, 32 blocks, 90053 us
+Nov  5 15:36:18 JH kernel: [ 1204.446624] bdbm: ----------------------------------------------
+Nov  5 15:36:18 JH kernel: [ 1204.446628] bdbm: gc-victim: 0 pages, 32 blocks, 87774 us
+Nov  5 15:36:19 JH kernel: [ 1204.987599] bdbm: ----------------------------------------------
+Nov  5 15:36:19 JH kernel: [ 1204.987603] bdbm: gc-victim: 0 pages, 32 blocks, 90075 us
+Nov  5 15:36:19 JH kernel: [ 1205.560640] bdbm: ----------------------------------------------
+Nov  5 15:36:19 JH kernel: [ 1205.560642] bdbm: gc-victim: 0 pages, 32 blocks, 90063 us
+Nov  5 15:36:20 JH kernel: [ 1206.138971] bdbm: ----------------------------------------------
+Nov  5 15:36:20 JH kernel: [ 1206.138975] bdbm: gc-victim: 0 pages, 32 blocks, 89169 us
+Nov  5 15:36:21 JH kernel: [ 1206.759717] bdbm: ----------------------------------------------
+Nov  5 15:36:21 JH kernel: [ 1206.759721] bdbm: gc-victim: 0 pages, 32 blocks, 86826 us
+Nov  5 15:36:21 JH kernel: [ 1207.278385] bdbm: ----------------------------------------------
+Nov  5 15:36:21 JH kernel: [ 1207.278389] bdbm: gc-victim: 0 pages, 32 blocks, 87713 us
+Nov  5 15:36:22 JH kernel: [ 1207.886327] bdbm: ----------------------------------------------
+Nov  5 15:36:22 JH kernel: [ 1207.886331] bdbm: gc-victim: 0 pages, 32 blocks, 89549 us
+Nov  5 15:36:22 JH kernel: [ 1208.490868] bdbm: ----------------------------------------------
+Nov  5 15:36:22 JH kernel: [ 1208.490871] bdbm: gc-victim: 0 pages, 32 blocks, 87731 us
+Nov  5 15:36:23 JH kernel: [ 1208.985943] bdbm: ----------------------------------------------
+Nov  5 15:36:23 JH kernel: [ 1208.985947] bdbm: gc-victim: 0 pages, 32 blocks, 89954 us
+Nov  5 15:36:23 JH kernel: [ 1209.538815] bdbm: ----------------------------------------------
+Nov  5 15:36:23 JH kernel: [ 1209.538819] bdbm: gc-victim: 0 pages, 32 blocks, 87050 us
+Nov  5 15:36:24 JH kernel: [ 1209.859185] bdbm: llm_make_req: 1200000, 80
+Nov  5 15:36:24 JH kernel: [ 1210.150861] bdbm: ----------------------------------------------
+Nov  5 15:36:24 JH kernel: [ 1210.150866] bdbm: gc-victim: 0 pages, 32 blocks, 88728 us
+Nov  5 15:36:25 JH kernel: [ 1210.685000] bdbm: ----------------------------------------------
+Nov  5 15:36:25 JH kernel: [ 1210.685003] bdbm: gc-victim: 0 pages, 32 blocks, 87731 us
+Nov  5 15:36:25 JH kernel: [ 1211.224682] bdbm: ----------------------------------------------
+Nov  5 15:36:25 JH kernel: [ 1211.224686] bdbm: gc-victim: 0 pages, 32 blocks, 90099 us
+Nov  5 15:36:26 JH kernel: [ 1211.789408] bdbm: ----------------------------------------------
+Nov  5 15:36:26 JH kernel: [ 1211.789412] bdbm: gc-victim: 0 pages, 32 blocks, 90093 us
+Nov  5 15:36:26 JH kernel: [ 1212.331570] bdbm: ----------------------------------------------
+Nov  5 15:36:26 JH kernel: [ 1212.331575] bdbm: gc-victim: 0 pages, 32 blocks, 89978 us
+Nov  5 15:36:27 JH kernel: [ 1212.948268] bdbm: ----------------------------------------------
+Nov  5 15:36:27 JH kernel: [ 1212.948272] bdbm: gc-victim: 0 pages, 32 blocks, 90233 us
+Nov  5 15:36:27 JH kernel: [ 1213.500346] bdbm: ----------------------------------------------
+Nov  5 15:36:27 JH kernel: [ 1213.500349] bdbm: gc-victim: 0 pages, 32 blocks, 86809 us
+Nov  5 15:36:28 JH kernel: [ 1214.026496] bdbm: ----------------------------------------------
+Nov  5 15:36:28 JH kernel: [ 1214.026500] bdbm: gc-victim: 0 pages, 32 blocks, 90702 us
+Nov  5 15:36:29 JH kernel: [ 1214.658212] bdbm: ----------------------------------------------
+Nov  5 15:36:29 JH kernel: [ 1214.658215] bdbm: gc-victim: 0 pages, 32 blocks, 87653 us
+Nov  5 15:36:29 JH kernel: [ 1215.229272] bdbm: ----------------------------------------------
+Nov  5 15:36:29 JH kernel: [ 1215.229276] bdbm: gc-victim: 0 pages, 32 blocks, 90075 us
+Nov  5 15:36:30 JH kernel: [ 1215.788843] bdbm: ----------------------------------------------
+Nov  5 15:36:30 JH kernel: [ 1215.788847] bdbm: gc-victim: 0 pages, 32 blocks, 90105 us
+Nov  5 15:36:30 JH kernel: [ 1216.394481] bdbm: ----------------------------------------------
+Nov  5 15:36:30 JH kernel: [ 1216.394485] bdbm: gc-victim: 0 pages, 32 blocks, 89507 us
+Nov  5 15:36:31 JH kernel: [ 1216.686575] bdbm: llm_make_req: 1250000, 1
+Nov  5 15:36:31 JH kernel: [ 1216.915690] bdbm: ----------------------------------------------
+Nov  5 15:36:31 JH kernel: [ 1216.915693] bdbm: gc-victim: 0 pages, 32 blocks, 90037 us
+Nov  5 15:36:31 JH kernel: [ 1217.478641] bdbm: ----------------------------------------------
+Nov  5 15:36:31 JH kernel: [ 1217.478645] bdbm: gc-victim: 0 pages, 32 blocks, 90096 us
+Nov  5 15:36:32 JH kernel: [ 1218.060875] bdbm: ----------------------------------------------
+Nov  5 15:36:32 JH kernel: [ 1218.060879] bdbm: gc-victim: 0 pages, 32 blocks, 89751 us
+Nov  5 15:36:33 JH kernel: [ 1218.593083] bdbm: ----------------------------------------------
+Nov  5 15:36:33 JH kernel: [ 1218.593087] bdbm: gc-victim: 0 pages, 32 blocks, 90057 us
+Nov  5 15:36:33 JH kernel: [ 1219.177779] bdbm: ----------------------------------------------
+Nov  5 15:36:33 JH kernel: [ 1219.177783] bdbm: gc-victim: 0 pages, 32 blocks, 88757 us
+Nov  5 15:36:34 JH kernel: [ 1219.765790] bdbm: ----------------------------------------------
+Nov  5 15:36:34 JH kernel: [ 1219.765794] bdbm: gc-victim: 0 pages, 32 blocks, 88865 us
+Nov  5 15:36:34 JH kernel: [ 1220.376205] bdbm: ----------------------------------------------
+Nov  5 15:36:34 JH kernel: [ 1220.376208] bdbm: gc-victim: 0 pages, 32 blocks, 86771 us
+Nov  5 15:36:35 JH kernel: [ 1220.912502] bdbm: ----------------------------------------------
+Nov  5 15:36:35 JH kernel: [ 1220.912506] bdbm: gc-victim: 0 pages, 32 blocks, 90570 us
+Nov  5 15:36:35 JH kernel: [ 1221.511643] bdbm: ----------------------------------------------
+Nov  5 15:36:35 JH kernel: [ 1221.511646] bdbm: gc-victim: 0 pages, 32 blocks, 86825 us
+Nov  5 15:36:36 JH kernel: [ 1222.102544] bdbm: ----------------------------------------------
+Nov  5 15:36:36 JH kernel: [ 1222.102547] bdbm: gc-victim: 0 pages, 32 blocks, 90121 us
+Nov  5 15:36:37 JH kernel: [ 1222.609916] bdbm: ----------------------------------------------
+Nov  5 15:36:37 JH kernel: [ 1222.609919] bdbm: gc-victim: 0 pages, 32 blocks, 87758 us
+Nov  5 15:36:37 JH kernel: [ 1223.246619] bdbm: ----------------------------------------------
+Nov  5 15:36:37 JH kernel: [ 1223.246623] bdbm: gc-victim: 0 pages, 32 blocks, 90098 us
+Nov  5 15:36:38 JH kernel: [ 1223.687936] bdbm: llm_make_req: 1300000, 61
+Nov  5 15:36:38 JH kernel: [ 1223.851455] bdbm: ----------------------------------------------
+Nov  5 15:36:38 JH kernel: [ 1223.851459] bdbm: gc-victim: 0 pages, 32 blocks, 88718 us
+Nov  5 15:36:38 JH kernel: [ 1224.382269] bdbm: ----------------------------------------------
+Nov  5 15:36:38 JH kernel: [ 1224.382273] bdbm: gc-victim: 0 pages, 32 blocks, 89814 us
+Nov  5 15:36:39 JH kernel: [ 1224.949157] bdbm: ----------------------------------------------
+Nov  5 15:36:39 JH kernel: [ 1224.949161] bdbm: gc-victim: 0 pages, 32 blocks, 89069 us
+Nov  5 15:36:39 JH kernel: [ 1225.519371] bdbm: ----------------------------------------------
+Nov  5 15:36:39 JH kernel: [ 1225.519374] bdbm: gc-victim: 0 pages, 32 blocks, 89902 us
+Nov  5 15:36:40 JH kernel: [ 1226.080104] bdbm: ----------------------------------------------
+Nov  5 15:36:40 JH kernel: [ 1226.080107] bdbm: gc-victim: 0 pages, 32 blocks, 90023 us
+Nov  5 15:36:41 JH kernel: [ 1226.605742] bdbm: ----------------------------------------------
+Nov  5 15:36:41 JH kernel: [ 1226.605746] bdbm: gc-victim: 0 pages, 32 blocks, 87725 us
+Nov  5 15:36:41 JH kernel: [ 1227.203830] bdbm: ----------------------------------------------
+Nov  5 15:36:41 JH kernel: [ 1227.203834] bdbm: gc-victim: 0 pages, 32 blocks, 90122 us
+Nov  5 15:36:42 JH kernel: [ 1227.759283] bdbm: ----------------------------------------------
+Nov  5 15:36:42 JH kernel: [ 1227.759285] bdbm: gc-victim: 0 pages, 32 blocks, 89856 us
+Nov  5 15:36:42 JH kernel: [ 1228.297198] bdbm: ----------------------------------------------
+Nov  5 15:36:42 JH kernel: [ 1228.297204] bdbm: gc-victim: 0 pages, 32 blocks, 87744 us
+Nov  5 15:36:43 JH kernel: [ 1228.855940] bdbm: ----------------------------------------------
+Nov  5 15:36:43 JH kernel: [ 1228.855943] bdbm: gc-victim: 0 pages, 32 blocks, 87748 us
+Nov  5 15:36:43 JH kernel: [ 1229.435477] bdbm: ----------------------------------------------
+Nov  5 15:36:43 JH kernel: [ 1229.435480] bdbm: gc-victim: 0 pages, 32 blocks, 86839 us
+Nov  5 15:36:44 JH kernel: [ 1230.005113] bdbm: ----------------------------------------------
+Nov  5 15:36:44 JH kernel: [ 1230.005117] bdbm: gc-victim: 0 pages, 32 blocks, 86778 us
+Nov  5 15:36:44 JH kernel: [ 1230.449464] bdbm: llm_make_req: 1350000, 81
+Nov  5 15:36:44 JH kernel: [ 1230.562683] bdbm: ----------------------------------------------
+Nov  5 15:36:44 JH kernel: [ 1230.562688] bdbm: gc-victim: 0 pages, 32 blocks, 88873 us
+Nov  5 15:36:45 JH kernel: [ 1231.151540] bdbm: ----------------------------------------------
+Nov  5 15:36:45 JH kernel: [ 1231.151544] bdbm: gc-victim: 0 pages, 32 blocks, 86852 us
+Nov  5 15:36:46 JH kernel: [ 1231.749409] bdbm: ----------------------------------------------
+Nov  5 15:36:46 JH kernel: [ 1231.749412] bdbm: gc-victim: 0 pages, 32 blocks, 87763 us
+Nov  5 15:36:46 JH kernel: [ 1232.304943] bdbm: ----------------------------------------------
+Nov  5 15:36:46 JH kernel: [ 1232.304946] bdbm: gc-victim: 0 pages, 32 blocks, 89813 us
+Nov  5 15:36:47 JH kernel: [ 1232.877878] bdbm: ----------------------------------------------
+Nov  5 15:36:47 JH kernel: [ 1232.877881] bdbm: gc-victim: 0 pages, 32 blocks, 90085 us
+Nov  5 15:36:47 JH kernel: [ 1233.426184] bdbm: ----------------------------------------------
+Nov  5 15:36:47 JH kernel: [ 1233.426187] bdbm: gc-victim: 0 pages, 32 blocks, 89390 us
+Nov  5 15:36:48 JH kernel: [ 1233.994268] bdbm: ----------------------------------------------
+Nov  5 15:36:48 JH kernel: [ 1233.994272] bdbm: gc-victim: 0 pages, 32 blocks, 90040 us
+Nov  5 15:36:49 JH kernel: [ 1234.580577] bdbm: ----------------------------------------------
+Nov  5 15:36:49 JH kernel: [ 1234.580580] bdbm: gc-victim: 0 pages, 32 blocks, 89679 us
+Nov  5 15:36:49 JH kernel: [ 1235.138024] bdbm: ----------------------------------------------
+Nov  5 15:36:49 JH kernel: [ 1235.138028] bdbm: gc-victim: 0 pages, 32 blocks, 86779 us
+Nov  5 15:36:50 JH kernel: [ 1235.681077] bdbm: ----------------------------------------------
+Nov  5 15:36:50 JH kernel: [ 1235.681081] bdbm: gc-victim: 0 pages, 32 blocks, 89360 us
+Nov  5 15:36:50 JH kernel: [ 1236.319941] bdbm: ----------------------------------------------
+Nov  5 15:36:50 JH kernel: [ 1236.319945] bdbm: gc-victim: 0 pages, 32 blocks, 88925 us
+Nov  5 15:36:51 JH kernel: [ 1236.864996] bdbm: ----------------------------------------------
+Nov  5 15:36:51 JH kernel: [ 1236.864999] bdbm: gc-victim: 0 pages, 32 blocks, 88930 us
+Nov  5 15:36:51 JH kernel: [ 1237.380067] bdbm: ----------------------------------------------
+Nov  5 15:36:51 JH kernel: [ 1237.380070] bdbm: gc-victim: 0 pages, 32 blocks, 86920 us
+Nov  5 15:36:51 JH kernel: [ 1237.390989] bdbm: llm_make_req: 1400000, 83
+Nov  5 15:36:52 JH kernel: [ 1237.969113] bdbm: ----------------------------------------------
+Nov  5 15:36:52 JH kernel: [ 1237.969117] bdbm: gc-victim: 0 pages, 32 blocks, 88868 us
+Nov  5 15:36:52 JH kernel: [ 1238.555564] bdbm: ----------------------------------------------
+Nov  5 15:36:52 JH kernel: [ 1238.555568] bdbm: gc-victim: 0 pages, 32 blocks, 87715 us
+Nov  5 15:36:53 JH kernel: [ 1239.149409] bdbm: ----------------------------------------------
+Nov  5 15:36:53 JH kernel: [ 1239.149412] bdbm: gc-victim: 0 pages, 32 blocks, 89016 us
+Nov  5 15:36:54 JH kernel: [ 1239.647886] bdbm: ----------------------------------------------
+Nov  5 15:36:54 JH kernel: [ 1239.647889] bdbm: gc-victim: 0 pages, 32 blocks, 90045 us
+Nov  5 15:36:54 JH kernel: [ 1240.176069] bdbm: ----------------------------------------------
+Nov  5 15:36:54 JH kernel: [ 1240.176073] bdbm: gc-victim: 0 pages, 32 blocks, 90082 us
+Nov  5 15:36:55 JH kernel: [ 1240.772232] bdbm: ----------------------------------------------
+Nov  5 15:36:55 JH kernel: [ 1240.772236] bdbm: gc-victim: 0 pages, 32 blocks, 90100 us
+Nov  5 15:36:55 JH kernel: [ 1241.249686] bdbm: ----------------------------------------------
+Nov  5 15:36:55 JH kernel: [ 1241.249689] bdbm: gc-victim: 0 pages, 32 blocks, 87747 us
+Nov  5 15:36:56 JH kernel: [ 1241.848215] bdbm: ----------------------------------------------
+Nov  5 15:36:56 JH kernel: [ 1241.848225] bdbm: gc-victim: 0 pages, 32 blocks, 90075 us
+Nov  5 15:36:56 JH kernel: [ 1242.422544] bdbm: ----------------------------------------------
+Nov  5 15:36:56 JH kernel: [ 1242.422547] bdbm: gc-victim: 0 pages, 32 blocks, 88846 us
+Nov  5 15:36:57 JH kernel: [ 1242.912754] bdbm: ----------------------------------------------
+Nov  5 15:36:57 JH kernel: [ 1242.912759] bdbm: gc-victim: 0 pages, 32 blocks, 90125 us
+Nov  5 15:36:57 JH kernel: [ 1243.495138] bdbm: ----------------------------------------------
+Nov  5 15:36:57 JH kernel: [ 1243.495142] bdbm: gc-victim: 0 pages, 32 blocks, 89828 us
+Nov  5 15:36:58 JH kernel: [ 1244.049396] bdbm: ----------------------------------------------
+Nov  5 15:36:58 JH kernel: [ 1244.049400] bdbm: gc-victim: 0 pages, 32 blocks, 90496 us
+Nov  5 15:36:58 JH kernel: [ 1244.118121] bdbm: llm_make_req: 1450000, 40
+Nov  5 15:36:59 JH kernel: [ 1244.619610] bdbm: ----------------------------------------------
+Nov  5 15:36:59 JH kernel: [ 1244.619613] bdbm: gc-victim: 0 pages, 32 blocks, 86781 us
+Nov  5 15:36:59 JH kernel: [ 1245.213218] bdbm: ----------------------------------------------
+Nov  5 15:36:59 JH kernel: [ 1245.213221] bdbm: gc-victim: 0 pages, 32 blocks, 90114 us
+Nov  5 15:37:00 JH kernel: [ 1245.767944] bdbm: ----------------------------------------------
+Nov  5 15:37:00 JH kernel: [ 1245.767947] bdbm: gc-victim: 0 pages, 32 blocks, 88916 us
+Nov  5 15:37:00 JH kernel: [ 1246.365045] bdbm: ----------------------------------------------
+Nov  5 15:37:00 JH kernel: [ 1246.365049] bdbm: gc-victim: 0 pages, 32 blocks, 87716 us
+Nov  5 15:37:01 JH kernel: [ 1246.879846] bdbm: ----------------------------------------------
+Nov  5 15:37:01 JH kernel: [ 1246.879851] bdbm: gc-victim: 0 pages, 32 blocks, 88733 us
+Nov  5 15:37:01 JH kernel: [ 1247.451208] bdbm: ----------------------------------------------
+Nov  5 15:37:01 JH kernel: [ 1247.451212] bdbm: gc-victim: 0 pages, 32 blocks, 90083 us
+Nov  5 15:37:02 JH kernel: [ 1248.068071] bdbm: ----------------------------------------------
+Nov  5 15:37:02 JH kernel: [ 1248.068076] bdbm: gc-victim: 0 pages, 32 blocks, 90172 us
+Nov  5 15:37:03 JH kernel: [ 1248.581049] bdbm: ----------------------------------------------
+Nov  5 15:37:03 JH kernel: [ 1248.581053] bdbm: gc-victim: 0 pages, 32 blocks, 86838 us
+Nov  5 15:37:03 JH kernel: [ 1249.163109] bdbm: ----------------------------------------------
+Nov  5 15:37:03 JH kernel: [ 1249.163113] bdbm: gc-victim: 0 pages, 32 blocks, 87790 us
+Nov  5 15:37:04 JH kernel: [ 1249.773242] bdbm: ----------------------------------------------
+Nov  5 15:37:04 JH kernel: [ 1249.773246] bdbm: gc-victim: 0 pages, 32 blocks, 86806 us
+Nov  5 15:37:04 JH kernel: [ 1250.307013] bdbm: ----------------------------------------------
+Nov  5 15:37:04 JH kernel: [ 1250.307018] bdbm: gc-victim: 0 pages, 32 blocks, 89902 us
+Nov  5 15:37:05 JH kernel: [ 1250.857573] bdbm: ----------------------------------------------
+Nov  5 15:37:05 JH kernel: [ 1250.857577] bdbm: gc-victim: 0 pages, 32 blocks, 89460 us
+Nov  5 15:37:05 JH kernel: [ 1250.981870] bdbm: llm_make_req: 1500000, 2
+Nov  5 15:37:05 JH kernel: [ 1251.475794] bdbm: ----------------------------------------------
+Nov  5 15:37:05 JH kernel: [ 1251.475798] bdbm: gc-victim: 0 pages, 32 blocks, 89619 us
+Nov  5 15:37:06 JH kernel: [ 1252.019367] bdbm: ----------------------------------------------
+Nov  5 15:37:06 JH kernel: [ 1252.019372] bdbm: gc-victim: 0 pages, 32 blocks, 89802 us
+Nov  5 15:37:06 JH kernel: [ 1252.541509] bdbm: ----------------------------------------------
+Nov  5 15:37:06 JH kernel: [ 1252.541512] bdbm: gc-victim: 0 pages, 32 blocks, 86785 us
+Nov  5 15:37:07 JH kernel: [ 1253.161678] bdbm: ----------------------------------------------
+Nov  5 15:37:07 JH kernel: [ 1253.161682] bdbm: gc-victim: 0 pages, 32 blocks, 87741 us
+Nov  5 15:37:08 JH kernel: [ 1253.680824] bdbm: ----------------------------------------------
+Nov  5 15:37:08 JH kernel: [ 1253.680828] bdbm: gc-victim: 0 pages, 32 blocks, 88756 us
+Nov  5 15:37:08 JH kernel: [ 1254.213284] bdbm: ----------------------------------------------
+Nov  5 15:37:08 JH kernel: [ 1254.213287] bdbm: gc-victim: 0 pages, 32 blocks, 89707 us
+Nov  5 15:37:09 JH kernel: [ 1254.761158] bdbm: ----------------------------------------------
+Nov  5 15:37:09 JH kernel: [ 1254.761161] bdbm: gc-victim: 0 pages, 32 blocks, 86790 us
+Nov  5 15:37:09 JH kernel: [ 1255.305288] bdbm: ----------------------------------------------
+Nov  5 15:37:09 JH kernel: [ 1255.305293] bdbm: gc-victim: 0 pages, 32 blocks, 87724 us
+Nov  5 15:37:10 JH kernel: [ 1255.879541] bdbm: ----------------------------------------------
+Nov  5 15:37:10 JH kernel: [ 1255.879545] bdbm: gc-victim: 0 pages, 32 blocks, 89799 us
+Nov  5 15:37:10 JH kernel: [ 1256.402503] bdbm: ----------------------------------------------
+Nov  5 15:37:10 JH kernel: [ 1256.402507] bdbm: gc-victim: 0 pages, 32 blocks, 88930 us
+Nov  5 15:37:11 JH kernel: [ 1256.983470] bdbm: ----------------------------------------------
+Nov  5 15:37:11 JH kernel: [ 1256.983473] bdbm: gc-victim: 0 pages, 32 blocks, 87785 us
+Nov  5 15:37:12 JH kernel: [ 1257.610044] bdbm: ----------------------------------------------
+Nov  5 15:37:12 JH kernel: [ 1257.610048] bdbm: gc-victim: 0 pages, 32 blocks, 89478 us
+Nov  5 15:37:12 JH kernel: [ 1257.767730] bdbm: llm_make_req: 1550000, 96
+Nov  5 15:37:12 JH kernel: [ 1258.116076] bdbm: ----------------------------------------------
+Nov  5 15:37:12 JH kernel: [ 1258.116079] bdbm: gc-victim: 0 pages, 32 blocks, 86803 us
+Nov  5 15:37:13 JH kernel: [ 1258.715748] bdbm: ----------------------------------------------
+Nov  5 15:37:13 JH kernel: [ 1258.715752] bdbm: gc-victim: 0 pages, 32 blocks, 89911 us
+Nov  5 15:37:13 JH kernel: [ 1259.284182] bdbm: ----------------------------------------------
+Nov  5 15:37:13 JH kernel: [ 1259.284185] bdbm: gc-victim: 0 pages, 32 blocks, 89799 us
+Nov  5 15:37:14 JH kernel: [ 1259.848471] bdbm: ----------------------------------------------
+Nov  5 15:37:14 JH kernel: [ 1259.848475] bdbm: gc-victim: 0 pages, 32 blocks, 90168 us
+Nov  5 15:37:14 JH kernel: [ 1260.438829] bdbm: ----------------------------------------------
+Nov  5 15:37:14 JH kernel: [ 1260.438832] bdbm: gc-victim: 0 pages, 32 blocks, 89268 us
+Nov  5 15:37:15 JH kernel: [ 1261.048806] bdbm: ----------------------------------------------
+Nov  5 15:37:15 JH kernel: [ 1261.048817] bdbm: gc-victim: 0 pages, 32 blocks, 90105 us
+Nov  5 15:37:16 JH kernel: [ 1261.585292] bdbm: ----------------------------------------------
+Nov  5 15:37:16 JH kernel: [ 1261.585296] bdbm: gc-victim: 0 pages, 32 blocks, 86816 us
+Nov  5 15:37:16 JH kernel: [ 1262.159187] bdbm: ----------------------------------------------
+Nov  5 15:37:16 JH kernel: [ 1262.159192] bdbm: gc-victim: 0 pages, 32 blocks, 89642 us
+Nov  5 15:37:17 JH kernel: [ 1262.738099] bdbm: ----------------------------------------------
+Nov  5 15:37:17 JH kernel: [ 1262.738103] bdbm: gc-victim: 0 pages, 32 blocks, 87732 us
+Nov  5 15:37:17 JH kernel: [ 1263.275305] bdbm: ----------------------------------------------
+Nov  5 15:37:17 JH kernel: [ 1263.275309] bdbm: gc-victim: 0 pages, 32 blocks, 90008 us
+Nov  5 15:37:18 JH kernel: [ 1263.840369] bdbm: ----------------------------------------------
+Nov  5 15:37:18 JH kernel: [ 1263.840373] bdbm: gc-victim: 0 pages, 32 blocks, 90120 us
+Nov  5 15:37:18 JH kernel: [ 1264.394308] bdbm: ----------------------------------------------
+Nov  5 15:37:18 JH kernel: [ 1264.394313] bdbm: gc-victim: 0 pages, 32 blocks, 90077 us
+Nov  5 15:37:19 JH kernel: [ 1264.628651] bdbm: llm_make_req: 1600000, 68
+Nov  5 15:37:19 JH kernel: [ 1264.955317] bdbm: ----------------------------------------------
+Nov  5 15:37:19 JH kernel: [ 1264.955321] bdbm: gc-victim: 0 pages, 32 blocks, 89903 us
+Nov  5 15:37:19 JH kernel: [ 1265.517816] bdbm: ----------------------------------------------
+Nov  5 15:37:19 JH kernel: [ 1265.517821] bdbm: gc-victim: 0 pages, 32 blocks, 86795 us
+Nov  5 15:37:20 JH kernel: [ 1266.049904] bdbm: ----------------------------------------------
+Nov  5 15:37:20 JH kernel: [ 1266.049907] bdbm: gc-victim: 0 pages, 32 blocks, 90112 us
+Nov  5 15:37:21 JH kernel: [ 1266.577781] bdbm: ----------------------------------------------
+Nov  5 15:37:21 JH kernel: [ 1266.577784] bdbm: gc-victim: 0 pages, 32 blocks, 88714 us
+Nov  5 15:37:21 JH kernel: [ 1267.142278] bdbm: ----------------------------------------------
+Nov  5 15:37:21 JH kernel: [ 1267.142282] bdbm: gc-victim: 0 pages, 32 blocks, 90424 us
+Nov  5 15:37:22 JH kernel: [ 1267.736206] bdbm: ----------------------------------------------
+Nov  5 15:37:22 JH kernel: [ 1267.736210] bdbm: gc-victim: 0 pages, 32 blocks, 88787 us
+Nov  5 15:37:22 JH kernel: [ 1268.304363] bdbm: ----------------------------------------------
+Nov  5 15:37:22 JH kernel: [ 1268.304366] bdbm: gc-victim: 0 pages, 32 blocks, 88944 us
+Nov  5 15:37:23 JH kernel: [ 1268.801774] bdbm: ----------------------------------------------
+Nov  5 15:37:23 JH kernel: [ 1268.801778] bdbm: gc-victim: 0 pages, 32 blocks, 90070 us
+Nov  5 15:37:23 JH kernel: [ 1269.403745] bdbm: ----------------------------------------------
+Nov  5 15:37:23 JH kernel: [ 1269.403750] bdbm: gc-victim: 0 pages, 32 blocks, 88898 us
+Nov  5 15:37:24 JH kernel: [ 1269.965457] bdbm: ----------------------------------------------
+Nov  5 15:37:24 JH kernel: [ 1269.965461] bdbm: gc-victim: 0 pages, 32 blocks, 89266 us
+Nov  5 15:37:24 JH kernel: [ 1270.493138] bdbm: ----------------------------------------------
+Nov  5 15:37:24 JH kernel: [ 1270.493142] bdbm: gc-victim: 0 pages, 32 blocks, 90006 us
+Nov  5 15:37:25 JH kernel: [ 1271.081123] bdbm: ----------------------------------------------
+Nov  5 15:37:25 JH kernel: [ 1271.081127] bdbm: gc-victim: 0 pages, 32 blocks, 86941 us
+Nov  5 15:37:25 JH kernel: [ 1271.361666] bdbm: llm_make_req: 1650000, 65
+Nov  5 15:37:26 JH kernel: [ 1271.654414] bdbm: ----------------------------------------------
+Nov  5 15:37:26 JH kernel: [ 1271.654419] bdbm: gc-victim: 0 pages, 32 blocks, 89121 us
+Nov  5 15:37:26 JH kernel: [ 1272.232199] bdbm: ----------------------------------------------
+Nov  5 15:37:26 JH kernel: [ 1272.232203] bdbm: gc-victim: 0 pages, 32 blocks, 88938 us
+Nov  5 15:37:27 JH kernel: [ 1272.780091] bdbm: ----------------------------------------------
+Nov  5 15:37:27 JH kernel: [ 1272.780094] bdbm: gc-victim: 0 pages, 32 blocks, 87207 us
+Nov  5 15:37:27 JH kernel: [ 1273.328120] bdbm: ----------------------------------------------
+Nov  5 15:37:27 JH kernel: [ 1273.328124] bdbm: gc-victim: 0 pages, 32 blocks, 87718 us
+Nov  5 15:37:28 JH kernel: [ 1273.905058] bdbm: ----------------------------------------------
+Nov  5 15:37:28 JH kernel: [ 1273.905062] bdbm: gc-victim: 0 pages, 32 blocks, 89909 us
+Nov  5 15:37:28 JH kernel: [ 1274.467768] bdbm: ----------------------------------------------
+Nov  5 15:37:28 JH kernel: [ 1274.467774] bdbm: gc-victim: 0 pages, 32 blocks, 87723 us
+Nov  5 15:37:29 JH kernel: [ 1274.975266] bdbm: ----------------------------------------------
+Nov  5 15:37:29 JH kernel: [ 1274.975270] bdbm: gc-victim: 0 pages, 32 blocks, 87746 us
+Nov  5 15:37:29 JH kernel: [ 1275.529827] bdbm: ----------------------------------------------
+Nov  5 15:37:29 JH kernel: [ 1275.529832] bdbm: gc-victim: 0 pages, 32 blocks, 89735 us
+Nov  5 15:37:30 JH kernel: [ 1276.081513] bdbm: ----------------------------------------------
+Nov  5 15:37:30 JH kernel: [ 1276.081518] bdbm: gc-victim: 0 pages, 32 blocks, 89828 us
+Nov  5 15:37:31 JH kernel: [ 1276.659097] bdbm: ----------------------------------------------
+Nov  5 15:37:31 JH kernel: [ 1276.659100] bdbm: gc-victim: 0 pages, 32 blocks, 89794 us
+Nov  5 15:37:31 JH kernel: [ 1277.176299] bdbm: ----------------------------------------------
+Nov  5 15:37:31 JH kernel: [ 1277.176303] bdbm: gc-victim: 0 pages, 32 blocks, 86848 us
+Nov  5 15:37:32 JH kernel: [ 1277.748858] bdbm: ----------------------------------------------
+Nov  5 15:37:32 JH kernel: [ 1277.748862] bdbm: gc-victim: 0 pages, 32 blocks, 90045 us
+Nov  5 15:37:32 JH kernel: [ 1278.102039] bdbm: llm_make_req: 1700000, 3
+Nov  5 15:37:32 JH kernel: [ 1278.330153] bdbm: ----------------------------------------------
+Nov  5 15:37:32 JH kernel: [ 1278.330156] bdbm: gc-victim: 0 pages, 32 blocks, 88760 us
+Nov  5 15:37:33 JH kernel: [ 1278.922023] bdbm: ----------------------------------------------
+Nov  5 15:37:33 JH kernel: [ 1278.922027] bdbm: gc-victim: 0 pages, 32 blocks, 87741 us
+Nov  5 15:37:33 JH kernel: [ 1279.460724] bdbm: ----------------------------------------------
+Nov  5 15:37:33 JH kernel: [ 1279.460728] bdbm: gc-victim: 0 pages, 32 blocks, 87705 us
+Nov  5 15:37:34 JH kernel: [ 1280.073623] bdbm: ----------------------------------------------
+Nov  5 15:37:34 JH kernel: [ 1280.073627] bdbm: gc-victim: 0 pages, 32 blocks, 87768 us
+Nov  5 15:37:35 JH kernel: [ 1280.575645] bdbm: ----------------------------------------------
+Nov  5 15:37:35 JH kernel: [ 1280.575649] bdbm: gc-victim: 0 pages, 32 blocks, 90046 us
+Nov  5 15:37:35 JH kernel: [ 1281.186844] bdbm: ----------------------------------------------
+Nov  5 15:37:35 JH kernel: [ 1281.186848] bdbm: gc-victim: 0 pages, 32 blocks, 88774 us
+Nov  5 15:37:36 JH kernel: [ 1281.708235] bdbm: ----------------------------------------------
+Nov  5 15:37:36 JH kernel: [ 1281.708239] bdbm: gc-victim: 0 pages, 32 blocks, 86867 us
+Nov  5 15:37:36 JH kernel: [ 1282.288933] bdbm: ----------------------------------------------
+Nov  5 15:37:36 JH kernel: [ 1282.288937] bdbm: gc-victim: 0 pages, 32 blocks, 90148 us
+Nov  5 15:37:37 JH kernel: [ 1282.859984] bdbm: ----------------------------------------------
+Nov  5 15:37:37 JH kernel: [ 1282.859988] bdbm: gc-victim: 0 pages, 32 blocks, 90074 us
+Nov  5 15:37:37 JH kernel: [ 1283.397915] bdbm: ----------------------------------------------
+Nov  5 15:37:37 JH kernel: [ 1283.397919] bdbm: gc-victim: 0 pages, 32 blocks, 89817 us
+Nov  5 15:37:38 JH kernel: [ 1283.953866] bdbm: ----------------------------------------------
+Nov  5 15:37:38 JH kernel: [ 1283.953870] bdbm: gc-victim: 0 pages, 32 blocks, 88784 us
+Nov  5 15:37:38 JH kernel: [ 1284.501978] bdbm: ----------------------------------------------
+Nov  5 15:37:38 JH kernel: [ 1284.501982] bdbm: gc-victim: 0 pages, 32 blocks, 88751 us
+Nov  5 15:37:39 JH kernel: [ 1284.893911] bdbm: llm_make_req: 1750000, 9
+Nov  5 15:37:39 JH kernel: [ 1285.034049] bdbm: ----------------------------------------------
+Nov  5 15:37:39 JH kernel: [ 1285.034052] bdbm: gc-victim: 0 pages, 32 blocks, 89516 us
+Nov  5 15:37:40 JH kernel: [ 1285.619559] bdbm: ----------------------------------------------
+Nov  5 15:37:40 JH kernel: [ 1285.619562] bdbm: gc-victim: 0 pages, 32 blocks, 89993 us
+Nov  5 15:37:40 JH kernel: [ 1286.211461] bdbm: ----------------------------------------------
+Nov  5 15:37:40 JH kernel: [ 1286.211465] bdbm: gc-victim: 0 pages, 32 blocks, 91042 us
+Nov  5 15:37:41 JH kernel: [ 1286.747293] bdbm: ----------------------------------------------
+Nov  5 15:37:41 JH kernel: [ 1286.747297] bdbm: gc-victim: 0 pages, 32 blocks, 90111 us
+Nov  5 15:37:41 JH kernel: [ 1287.334875] bdbm: ----------------------------------------------
+Nov  5 15:37:41 JH kernel: [ 1287.334879] bdbm: gc-victim: 0 pages, 32 blocks, 89332 us
+Nov  5 15:37:42 JH kernel: [ 1287.857143] bdbm: ----------------------------------------------
+Nov  5 15:37:42 JH kernel: [ 1287.857146] bdbm: gc-victim: 0 pages, 32 blocks, 89254 us
+Nov  5 15:37:42 JH kernel: [ 1288.430206] bdbm: ----------------------------------------------
+Nov  5 15:37:42 JH kernel: [ 1288.430210] bdbm: gc-victim: 0 pages, 32 blocks, 90082 us
+Nov  5 15:37:43 JH kernel: [ 1289.014563] bdbm: ----------------------------------------------
+Nov  5 15:37:43 JH kernel: [ 1289.014566] bdbm: gc-victim: 0 pages, 32 blocks, 88825 us
+Nov  5 15:37:44 JH kernel: [ 1289.625848] bdbm: ----------------------------------------------
+Nov  5 15:37:44 JH kernel: [ 1289.625852] bdbm: gc-victim: 0 pages, 32 blocks, 90174 us
+Nov  5 15:37:44 JH kernel: [ 1290.174766] bdbm: ----------------------------------------------
+Nov  5 15:37:44 JH kernel: [ 1290.174771] bdbm: gc-victim: 0 pages, 32 blocks, 90093 us
+Nov  5 15:37:45 JH kernel: [ 1290.741890] bdbm: ----------------------------------------------
+Nov  5 15:37:45 JH kernel: [ 1290.741893] bdbm: gc-victim: 0 pages, 32 blocks, 90076 us
+Nov  5 15:37:45 JH kernel: [ 1291.273346] bdbm: ----------------------------------------------
+Nov  5 15:37:45 JH kernel: [ 1291.273350] bdbm: gc-victim: 0 pages, 32 blocks, 87753 us
+Nov  5 15:37:46 JH kernel: [ 1291.694725] bdbm: llm_make_req: 1800000, 96
+Nov  5 15:37:46 JH kernel: [ 1291.796150] bdbm: ----------------------------------------------
+Nov  5 15:37:46 JH kernel: [ 1291.796153] bdbm: gc-victim: 0 pages, 32 blocks, 93926 us
+Nov  5 15:37:46 JH kernel: [ 1292.424884] bdbm: ----------------------------------------------
+Nov  5 15:37:46 JH kernel: [ 1292.424888] bdbm: gc-victim: 0 pages, 32 blocks, 87727 us
+Nov  5 15:37:47 JH kernel: [ 1292.999070] bdbm: ----------------------------------------------
+Nov  5 15:37:47 JH kernel: [ 1292.999074] bdbm: gc-victim: 0 pages, 32 blocks, 90101 us
+Nov  5 15:37:47 JH kernel: [ 1293.529438] bdbm: ----------------------------------------------
+Nov  5 15:37:47 JH kernel: [ 1293.529442] bdbm: gc-victim: 0 pages, 32 blocks, 87741 us
+Nov  5 15:37:48 JH kernel: [ 1294.113698] bdbm: ----------------------------------------------
+Nov  5 15:37:48 JH kernel: [ 1294.113702] bdbm: gc-victim: 0 pages, 32 blocks, 88950 us
+Nov  5 15:37:49 JH kernel: [ 1294.674118] bdbm: ----------------------------------------------
+Nov  5 15:37:49 JH kernel: [ 1294.674122] bdbm: gc-victim: 0 pages, 32 blocks, 89730 us
+Nov  5 15:37:49 JH kernel: [ 1295.235945] bdbm: ----------------------------------------------
+Nov  5 15:37:49 JH kernel: [ 1295.235949] bdbm: gc-victim: 0 pages, 32 blocks, 88986 us
+Nov  5 15:37:50 JH kernel: [ 1295.807131] bdbm: ----------------------------------------------
+Nov  5 15:37:50 JH kernel: [ 1295.807134] bdbm: gc-victim: 0 pages, 32 blocks, 89619 us
+Nov  5 15:37:50 JH kernel: [ 1296.391675] bdbm: ----------------------------------------------
+Nov  5 15:37:50 JH kernel: [ 1296.391679] bdbm: gc-victim: 0 pages, 32 blocks, 89372 us
+Nov  5 15:37:51 JH kernel: [ 1296.953596] bdbm: ----------------------------------------------
+Nov  5 15:37:51 JH kernel: [ 1296.953599] bdbm: gc-victim: 0 pages, 32 blocks, 88716 us
+Nov  5 15:37:51 JH kernel: [ 1297.455954] bdbm: ----------------------------------------------
+Nov  5 15:37:51 JH kernel: [ 1297.455958] bdbm: gc-victim: 0 pages, 32 blocks, 88771 us
+Nov  5 15:37:52 JH kernel: [ 1298.087769] bdbm: ----------------------------------------------
+Nov  5 15:37:52 JH kernel: [ 1298.087773] bdbm: gc-victim: 0 pages, 32 blocks, 89052 us
+Nov  5 15:37:53 JH kernel: [ 1298.664026] bdbm: ----------------------------------------------
+Nov  5 15:37:53 JH kernel: [ 1298.664029] bdbm: gc-victim: 0 pages, 32 blocks, 88737 us
+Nov  5 15:37:53 JH kernel: [ 1298.690884] bdbm: llm_make_req: 1850000, 65
+Nov  5 15:37:53 JH kernel: [ 1299.159405] bdbm: ----------------------------------------------
+Nov  5 15:37:53 JH kernel: [ 1299.159409] bdbm: gc-victim: 0 pages, 32 blocks, 89085 us
+Nov  5 15:37:54 JH kernel: [ 1299.695646] bdbm: ----------------------------------------------
+Nov  5 15:37:54 JH kernel: [ 1299.695650] bdbm: gc-victim: 0 pages, 32 blocks, 88783 us
+Nov  5 15:37:54 JH kernel: [ 1300.242659] bdbm: ----------------------------------------------
+Nov  5 15:37:54 JH kernel: [ 1300.242664] bdbm: gc-victim: 0 pages, 32 blocks, 86839 us
+Nov  5 15:37:55 JH kernel: [ 1300.793764] bdbm: ----------------------------------------------
+Nov  5 15:37:55 JH kernel: [ 1300.793768] bdbm: gc-victim: 0 pages, 32 blocks, 88797 us
+Nov  5 15:37:55 JH kernel: [ 1301.344516] bdbm: ----------------------------------------------
+Nov  5 15:37:55 JH kernel: [ 1301.344520] bdbm: gc-victim: 0 pages, 32 blocks, 90064 us
+Nov  5 15:37:56 JH kernel: [ 1301.960406] bdbm: ----------------------------------------------
+Nov  5 15:37:56 JH kernel: [ 1301.960412] bdbm: gc-victim: 0 pages, 32 blocks, 88980 us
+Nov  5 15:37:56 JH kernel: [ 1302.507414] bdbm: ----------------------------------------------
+Nov  5 15:37:56 JH kernel: [ 1302.507417] bdbm: gc-victim: 0 pages, 32 blocks, 89326 us
+Nov  5 15:37:57 JH kernel: [ 1303.091191] bdbm: ----------------------------------------------
+Nov  5 15:37:57 JH kernel: [ 1303.091195] bdbm: gc-victim: 0 pages, 32 blocks, 90044 us
+Nov  5 15:37:58 JH kernel: [ 1303.641109] bdbm: ----------------------------------------------
+Nov  5 15:37:58 JH kernel: [ 1303.641113] bdbm: gc-victim: 0 pages, 32 blocks, 90053 us
+Nov  5 15:37:58 JH kernel: [ 1304.256406] bdbm: ----------------------------------------------
+Nov  5 15:37:58 JH kernel: [ 1304.256409] bdbm: gc-victim: 0 pages, 32 blocks, 88944 us
+Nov  5 15:37:59 JH kernel: [ 1304.795955] bdbm: ----------------------------------------------
+Nov  5 15:37:59 JH kernel: [ 1304.795959] bdbm: gc-victim: 0 pages, 32 blocks, 87747 us
+Nov  5 15:37:59 JH kernel: [ 1305.398099] bdbm: ----------------------------------------------
+Nov  5 15:37:59 JH kernel: [ 1305.398103] bdbm: gc-victim: 0 pages, 32 blocks, 88903 us
+Nov  5 15:37:59 JH kernel: [ 1305.487951] bdbm: llm_make_req: 1900000, 95
+Nov  5 15:38:00 JH kernel: [ 1305.961052] bdbm: ----------------------------------------------
+Nov  5 15:38:00 JH kernel: [ 1305.961056] bdbm: gc-victim: 0 pages, 32 blocks, 89335 us
+Nov  5 15:38:00 JH kernel: [ 1306.538756] bdbm: ----------------------------------------------
+Nov  5 15:38:00 JH kernel: [ 1306.538769] bdbm: gc-victim: 0 pages, 32 blocks, 89466 us
+Nov  5 15:38:01 JH kernel: [ 1307.071931] bdbm: ----------------------------------------------
+Nov  5 15:38:01 JH kernel: [ 1307.071936] bdbm: gc-victim: 0 pages, 32 blocks, 90100 us
+Nov  5 15:38:02 JH kernel: [ 1307.660345] bdbm: ----------------------------------------------
+Nov  5 15:38:02 JH kernel: [ 1307.660348] bdbm: gc-victim: 0 pages, 32 blocks, 90087 us
+Nov  5 15:38:02 JH kernel: [ 1308.249737] bdbm: ----------------------------------------------
+Nov  5 15:38:02 JH kernel: [ 1308.249741] bdbm: gc-victim: 0 pages, 32 blocks, 88904 us
+Nov  5 15:38:03 JH kernel: [ 1308.795631] bdbm: ----------------------------------------------
+Nov  5 15:38:03 JH kernel: [ 1308.795636] bdbm: gc-victim: 0 pages, 32 blocks, 90101 us
+Nov  5 15:38:03 JH kernel: [ 1309.320109] bdbm: ----------------------------------------------
+Nov  5 15:38:03 JH kernel: [ 1309.320114] bdbm: gc-victim: 0 pages, 32 blocks, 90111 us
+Nov  5 15:38:04 JH kernel: [ 1309.919531] bdbm: ----------------------------------------------
+Nov  5 15:38:04 JH kernel: [ 1309.919534] bdbm: gc-victim: 0 pages, 32 blocks, 89844 us
+Nov  5 15:38:04 JH kernel: [ 1310.467189] bdbm: ----------------------------------------------
+Nov  5 15:38:04 JH kernel: [ 1310.467201] bdbm: gc-victim: 0 pages, 32 blocks, 86813 us
+Nov  5 15:38:05 JH kernel: [ 1311.014871] bdbm: ----------------------------------------------
+Nov  5 15:38:05 JH kernel: [ 1311.014875] bdbm: gc-victim: 0 pages, 32 blocks, 88688 us
+Nov  5 15:38:06 JH kernel: [ 1311.593400] bdbm: ----------------------------------------------
+Nov  5 15:38:06 JH kernel: [ 1311.593403] bdbm: gc-victim: 0 pages, 32 blocks, 86801 us
+Nov  5 15:38:06 JH kernel: [ 1312.153030] bdbm: ----------------------------------------------
+Nov  5 15:38:06 JH kernel: [ 1312.153034] bdbm: gc-victim: 0 pages, 32 blocks, 89807 us
+Nov  5 15:38:06 JH kernel: [ 1312.296565] bdbm: llm_make_req: 1950000, 95
+Nov  5 15:38:07 JH kernel: [ 1312.695272] bdbm: ----------------------------------------------
+Nov  5 15:38:07 JH kernel: [ 1312.695276] bdbm: gc-victim: 0 pages, 32 blocks, 89717 us
+Nov  5 15:38:07 JH kernel: [ 1313.288535] bdbm: ----------------------------------------------
+Nov  5 15:38:07 JH kernel: [ 1313.288538] bdbm: gc-victim: 0 pages, 32 blocks, 89211 us
+Nov  5 15:38:08 JH kernel: [ 1313.823287] bdbm: ----------------------------------------------
+Nov  5 15:38:08 JH kernel: [ 1313.823290] bdbm: gc-victim: 0 pages, 32 blocks, 86804 us
+Nov  5 15:38:08 JH kernel: [ 1314.352278] bdbm: ----------------------------------------------
+Nov  5 15:38:08 JH kernel: [ 1314.352281] bdbm: gc-victim: 0 pages, 32 blocks, 90086 us
+Nov  5 15:38:09 JH kernel: [ 1314.923069] bdbm: ----------------------------------------------
+Nov  5 15:38:09 JH kernel: [ 1314.923073] bdbm: gc-victim: 0 pages, 32 blocks, 89696 us
+Nov  5 15:38:09 JH kernel: [ 1315.482160] bdbm: ----------------------------------------------
+Nov  5 15:38:09 JH kernel: [ 1315.482164] bdbm: gc-victim: 0 pages, 32 blocks, 86802 us
+Nov  5 15:38:10 JH kernel: [ 1316.056604] bdbm: ----------------------------------------------
+Nov  5 15:38:10 JH kernel: [ 1316.056609] bdbm: gc-victim: 0 pages, 32 blocks, 89796 us
+Nov  5 15:38:10 JH kernel: [ 1316.567117] bdbm: ----------------------------------------------
+Nov  5 15:38:10 JH kernel: [ 1316.567120] bdbm: gc-victim: 0 pages, 32 blocks, 86809 us
+Nov  5 15:38:11 JH kernel: [ 1317.155115] bdbm: ----------------------------------------------
+Nov  5 15:38:11 JH kernel: [ 1317.155118] bdbm: gc-victim: 0 pages, 32 blocks, 89826 us
+Nov  5 15:38:12 JH kernel: [ 1317.761669] bdbm: ----------------------------------------------
+Nov  5 15:38:12 JH kernel: [ 1317.761673] bdbm: gc-victim: 0 pages, 32 blocks, 86819 us
+Nov  5 15:38:12 JH kernel: [ 1318.295491] bdbm: ----------------------------------------------
+Nov  5 15:38:12 JH kernel: [ 1318.295495] bdbm: gc-victim: 0 pages, 32 blocks, 90051 us
+Nov  5 15:38:13 JH kernel: [ 1318.836536] bdbm: ----------------------------------------------
+Nov  5 15:38:13 JH kernel: [ 1318.836540] bdbm: gc-victim: 0 pages, 32 blocks, 86823 us
+Nov  5 15:38:13 JH kernel: [ 1319.013572] bdbm: llm_make_req: 2000000, 33
+Nov  5 15:38:13 JH kernel: [ 1319.408563] bdbm: ----------------------------------------------
+Nov  5 15:38:13 JH kernel: [ 1319.408568] bdbm: gc-victim: 0 pages, 32 blocks, 90078 us
+Nov  5 15:38:14 JH kernel: [ 1319.989213] bdbm: ----------------------------------------------
+Nov  5 15:38:14 JH kernel: [ 1319.989217] bdbm: gc-victim: 0 pages, 32 blocks, 87718 us
+Nov  5 15:38:14 JH kernel: [ 1320.540891] bdbm: ----------------------------------------------
+Nov  5 15:38:14 JH kernel: [ 1320.540895] bdbm: gc-victim: 0 pages, 32 blocks, 87766 us
+Nov  5 15:38:15 JH kernel: [ 1321.119051] bdbm: ----------------------------------------------
+Nov  5 15:38:15 JH kernel: [ 1321.119055] bdbm: gc-victim: 0 pages, 32 blocks, 90116 us
+Nov  5 15:38:16 JH kernel: [ 1321.699933] bdbm: ----------------------------------------------
+Nov  5 15:38:16 JH kernel: [ 1321.699936] bdbm: gc-victim: 0 pages, 32 blocks, 86809 us
+Nov  5 15:38:16 JH kernel: [ 1322.265931] bdbm: ----------------------------------------------
+Nov  5 15:38:16 JH kernel: [ 1322.265934] bdbm: gc-victim: 0 pages, 32 blocks, 90305 us
+Nov  5 15:38:17 JH kernel: [ 1322.809380] bdbm: ----------------------------------------------
+Nov  5 15:38:17 JH kernel: [ 1322.809384] bdbm: gc-victim: 0 pages, 32 blocks, 90045 us
+Nov  5 15:38:17 JH kernel: [ 1323.377059] bdbm: ----------------------------------------------
+Nov  5 15:38:17 JH kernel: [ 1323.377062] bdbm: gc-victim: 0 pages, 32 blocks, 87750 us
+Nov  5 15:38:18 JH kernel: [ 1323.963744] bdbm: ----------------------------------------------
+Nov  5 15:38:18 JH kernel: [ 1323.963749] bdbm: gc-victim: 0 pages, 32 blocks, 90080 us
+Nov  5 15:38:18 JH kernel: [ 1324.474841] bdbm: ----------------------------------------------
+Nov  5 15:38:18 JH kernel: [ 1324.474844] bdbm: gc-victim: 0 pages, 32 blocks, 87727 us
+Nov  5 15:38:19 JH kernel: [ 1325.076264] bdbm: ----------------------------------------------
+Nov  5 15:38:19 JH kernel: [ 1325.076268] bdbm: gc-victim: 0 pages, 32 blocks, 90147 us
+Nov  5 15:38:20 JH kernel: [ 1325.638734] bdbm: ----------------------------------------------
+Nov  5 15:38:20 JH kernel: [ 1325.638737] bdbm: gc-victim: 0 pages, 32 blocks, 90081 us
+Nov  5 15:38:20 JH kernel: [ 1325.856711] bdbm: llm_make_req: 2050000, 36
+Nov  5 15:38:20 JH kernel: [ 1326.219419] bdbm: ----------------------------------------------
+Nov  5 15:38:20 JH kernel: [ 1326.219422] bdbm: gc-victim: 0 pages, 32 blocks, 89993 us
+Nov  5 15:38:21 JH kernel: [ 1326.752826] bdbm: ----------------------------------------------
+Nov  5 15:38:21 JH kernel: [ 1326.752830] bdbm: gc-victim: 0 pages, 32 blocks, 90112 us
+Nov  5 15:38:21 JH kernel: [ 1327.330348] bdbm: ----------------------------------------------
+Nov  5 15:38:21 JH kernel: [ 1327.330351] bdbm: gc-victim: 0 pages, 32 blocks, 90109 us
+Nov  5 15:38:22 JH kernel: [ 1327.897788] bdbm: ----------------------------------------------
+Nov  5 15:38:22 JH kernel: [ 1327.897791] bdbm: gc-victim: 0 pages, 32 blocks, 89221 us
+Nov  5 15:38:22 JH kernel: [ 1328.399100] bdbm: ----------------------------------------------
+Nov  5 15:38:22 JH kernel: [ 1328.399104] bdbm: gc-victim: 0 pages, 32 blocks, 89412 us
+Nov  5 15:38:23 JH kernel: [ 1328.987870] bdbm: ----------------------------------------------
+Nov  5 15:38:23 JH kernel: [ 1328.987874] bdbm: gc-victim: 0 pages, 32 blocks, 89760 us
+Nov  5 15:38:23 JH kernel: [ 1329.541136] bdbm: ----------------------------------------------
+Nov  5 15:38:23 JH kernel: [ 1329.541139] bdbm: gc-victim: 0 pages, 32 blocks, 86829 us
+Nov  5 15:38:24 JH kernel: [ 1330.073051] bdbm: ----------------------------------------------
+Nov  5 15:38:24 JH kernel: [ 1330.073055] bdbm: gc-victim: 0 pages, 32 blocks, 88913 us
+Nov  5 15:38:25 JH kernel: [ 1330.683892] bdbm: ----------------------------------------------
+Nov  5 15:38:25 JH kernel: [ 1330.683895] bdbm: gc-victim: 0 pages, 32 blocks, 90023 us
+Nov  5 15:38:25 JH kernel: [ 1331.292237] bdbm: ----------------------------------------------
+Nov  5 15:38:25 JH kernel: [ 1331.292241] bdbm: gc-victim: 0 pages, 32 blocks, 89165 us
+Nov  5 15:38:26 JH kernel: [ 1331.816068] bdbm: ----------------------------------------------
+Nov  5 15:38:26 JH kernel: [ 1331.816072] bdbm: gc-victim: 0 pages, 32 blocks, 86858 us
+Nov  5 15:38:26 JH kernel: [ 1332.446366] bdbm: ----------------------------------------------
+Nov  5 15:38:26 JH kernel: [ 1332.446370] bdbm: gc-victim: 0 pages, 32 blocks, 86869 us
+Nov  5 15:38:27 JH kernel: [ 1332.745423] bdbm: llm_make_req: 2100000, 84
+Nov  5 15:38:27 JH kernel: [ 1333.019349] bdbm: ----------------------------------------------
+Nov  5 15:38:27 JH kernel: [ 1333.019353] bdbm: gc-victim: 0 pages, 32 blocks, 90005 us
+Nov  5 15:38:28 JH kernel: [ 1333.620675] bdbm: ----------------------------------------------
+Nov  5 15:38:28 JH kernel: [ 1333.620678] bdbm: gc-victim: 0 pages, 32 blocks, 90100 us
+Nov  5 15:38:28 JH kernel: [ 1334.162995] bdbm: ----------------------------------------------
+Nov  5 15:38:28 JH kernel: [ 1334.162999] bdbm: gc-victim: 0 pages, 32 blocks, 90051 us
+Nov  5 15:38:29 JH kernel: [ 1334.728365] bdbm: ----------------------------------------------
+Nov  5 15:38:29 JH kernel: [ 1334.728369] bdbm: gc-victim: 0 pages, 32 blocks, 90059 us
+Nov  5 15:38:29 JH kernel: [ 1335.314214] bdbm: ----------------------------------------------
+Nov  5 15:38:29 JH kernel: [ 1335.314218] bdbm: gc-victim: 0 pages, 32 blocks, 89711 us
+Nov  5 15:38:30 JH kernel: [ 1335.876375] bdbm: ----------------------------------------------
+Nov  5 15:38:30 JH kernel: [ 1335.876378] bdbm: gc-victim: 0 pages, 32 blocks, 90074 us
+Nov  5 15:38:30 JH kernel: [ 1336.442297] bdbm: ----------------------------------------------
+Nov  5 15:38:30 JH kernel: [ 1336.442301] bdbm: gc-victim: 0 pages, 32 blocks, 86817 us
+Nov  5 15:38:31 JH kernel: [ 1337.032005] bdbm: ----------------------------------------------
+Nov  5 15:38:31 JH kernel: [ 1337.032009] bdbm: gc-victim: 0 pages, 32 blocks, 90076 us
+Nov  5 15:38:31 JH kernel: [ 1337.561403] bdbm: ----------------------------------------------
+Nov  5 15:38:31 JH kernel: [ 1337.561407] bdbm: gc-victim: 0 pages, 32 blocks, 90119 us
+Nov  5 15:38:32 JH kernel: [ 1338.124874] bdbm: ----------------------------------------------
+Nov  5 15:38:32 JH kernel: [ 1338.124878] bdbm: gc-victim: 0 pages, 32 blocks, 86798 us
+Nov  5 15:38:33 JH kernel: [ 1338.683719] bdbm: ----------------------------------------------
+Nov  5 15:38:33 JH kernel: [ 1338.683722] bdbm: gc-victim: 0 pages, 32 blocks, 90085 us
+Nov  5 15:38:33 JH kernel: [ 1339.258946] bdbm: ----------------------------------------------
+Nov  5 15:38:33 JH kernel: [ 1339.258950] bdbm: gc-victim: 0 pages, 32 blocks, 86907 us
+Nov  5 15:38:34 JH kernel: [ 1339.592720] bdbm: llm_make_req: 2150000, 2
+Nov  5 15:38:34 JH kernel: [ 1339.837849] bdbm: ----------------------------------------------
+Nov  5 15:38:34 JH kernel: [ 1339.837853] bdbm: gc-victim: 0 pages, 32 blocks, 87760 us
+Nov  5 15:38:34 JH kernel: [ 1340.390166] bdbm: ----------------------------------------------
+Nov  5 15:38:34 JH kernel: [ 1340.390170] bdbm: gc-victim: 0 pages, 32 blocks, 88741 us
+Nov  5 15:38:35 JH kernel: [ 1340.998001] bdbm: ----------------------------------------------
+Nov  5 15:38:35 JH kernel: [ 1340.998005] bdbm: gc-victim: 0 pages, 32 blocks, 87729 us
+Nov  5 15:38:35 JH kernel: [ 1341.554316] bdbm: ----------------------------------------------
+Nov  5 15:38:35 JH kernel: [ 1341.554322] bdbm: gc-victim: 0 pages, 32 blocks, 88744 us
+Nov  5 15:38:36 JH kernel: [ 1342.085358] bdbm: ----------------------------------------------
+Nov  5 15:38:36 JH kernel: [ 1342.085362] bdbm: gc-victim: 0 pages, 32 blocks, 87739 us
+Nov  5 15:38:37 JH kernel: [ 1342.667075] bdbm: ----------------------------------------------
+Nov  5 15:38:37 JH kernel: [ 1342.667078] bdbm: gc-victim: 0 pages, 32 blocks, 87760 us
+Nov  5 15:38:37 JH kernel: [ 1343.277681] bdbm: ----------------------------------------------
+Nov  5 15:38:37 JH kernel: [ 1343.277684] bdbm: gc-victim: 0 pages, 32 blocks, 89136 us
+Nov  5 15:38:38 JH kernel: [ 1343.815287] bdbm: ----------------------------------------------
+Nov  5 15:38:38 JH kernel: [ 1343.815290] bdbm: gc-victim: 0 pages, 32 blocks, 89629 us
+Nov  5 15:38:38 JH kernel: [ 1344.345102] bdbm: ----------------------------------------------
+Nov  5 15:38:38 JH kernel: [ 1344.345107] bdbm: gc-victim: 0 pages, 32 blocks, 88946 us
+Nov  5 15:38:39 JH kernel: [ 1344.953232] bdbm: ----------------------------------------------
+Nov  5 15:38:39 JH kernel: [ 1344.953235] bdbm: gc-victim: 0 pages, 32 blocks, 89077 us
+Nov  5 15:38:39 JH kernel: [ 1345.523186] bdbm: ----------------------------------------------
+Nov  5 15:38:39 JH kernel: [ 1345.523190] bdbm: gc-victim: 0 pages, 32 blocks, 88976 us
+Nov  5 15:38:40 JH kernel: [ 1346.076995] bdbm: ----------------------------------------------
+Nov  5 15:38:40 JH kernel: [ 1346.076999] bdbm: gc-victim: 0 pages, 32 blocks, 89726 us
+Nov  5 15:38:40 JH kernel: [ 1346.423752] bdbm: llm_make_req: 2200000, 11
+Nov  5 15:38:41 JH kernel: [ 1346.574155] bdbm: ----------------------------------------------
+Nov  5 15:38:41 JH kernel: [ 1346.574159] bdbm: gc-victim: 0 pages, 32 blocks, 88823 us
+Nov  5 15:38:41 JH kernel: [ 1347.143616] bdbm: ----------------------------------------------
+Nov  5 15:38:41 JH kernel: [ 1347.143619] bdbm: gc-victim: 0 pages, 32 blocks, 87753 us
+Nov  5 15:38:42 JH kernel: [ 1347.665882] bdbm: ----------------------------------------------
+Nov  5 15:38:42 JH kernel: [ 1347.665886] bdbm: gc-victim: 0 pages, 32 blocks, 87739 us
+Nov  5 15:38:42 JH kernel: [ 1348.244920] bdbm: ----------------------------------------------
+Nov  5 15:38:42 JH kernel: [ 1348.244924] bdbm: gc-victim: 0 pages, 32 blocks, 89249 us
+Nov  5 15:38:43 JH kernel: [ 1348.822116] bdbm: ----------------------------------------------
+Nov  5 15:38:43 JH kernel: [ 1348.822119] bdbm: gc-victim: 0 pages, 32 blocks, 90082 us
+Nov  5 15:38:43 JH kernel: [ 1349.355431] bdbm: ----------------------------------------------
+Nov  5 15:38:43 JH kernel: [ 1349.355435] bdbm: gc-victim: 0 pages, 32 blocks, 89534 us
+Nov  5 15:38:44 JH kernel: [ 1349.944448] bdbm: ----------------------------------------------
+Nov  5 15:38:44 JH kernel: [ 1349.944452] bdbm: gc-victim: 0 pages, 32 blocks, 90084 us
+Nov  5 15:38:44 JH kernel: [ 1350.507134] bdbm: ----------------------------------------------
+Nov  5 15:38:44 JH kernel: [ 1350.507138] bdbm: gc-victim: 0 pages, 32 blocks, 87725 us
+Nov  5 15:38:45 JH kernel: [ 1351.072275] bdbm: ----------------------------------------------
+Nov  5 15:38:45 JH kernel: [ 1351.072280] bdbm: gc-victim: 0 pages, 32 blocks, 87743 us
+Nov  5 15:38:46 JH kernel: [ 1351.626742] bdbm: ----------------------------------------------
+Nov  5 15:38:46 JH kernel: [ 1351.626745] bdbm: gc-victim: 0 pages, 32 blocks, 87709 us
+Nov  5 15:38:46 JH kernel: [ 1352.195907] bdbm: ----------------------------------------------
+Nov  5 15:38:46 JH kernel: [ 1352.195910] bdbm: gc-victim: 0 pages, 32 blocks, 87744 us
+Nov  5 15:38:47 JH kernel: [ 1352.709608] bdbm: ----------------------------------------------
+Nov  5 15:38:47 JH kernel: [ 1352.709611] bdbm: gc-victim: 0 pages, 32 blocks, 90083 us
+Nov  5 15:38:47 JH kernel: [ 1353.153829] bdbm: llm_make_req: 2250000, 11
+Nov  5 15:38:47 JH kernel: [ 1353.247978] bdbm: ----------------------------------------------
+Nov  5 15:38:47 JH kernel: [ 1353.247981] bdbm: gc-victim: 0 pages, 32 blocks, 86801 us
+Nov  5 15:38:48 JH kernel: [ 1353.828411] bdbm: ----------------------------------------------
+Nov  5 15:38:48 JH kernel: [ 1353.828415] bdbm: gc-victim: 0 pages, 32 blocks, 90124 us
+Nov  5 15:38:48 JH kernel: [ 1354.388126] bdbm: ----------------------------------------------
+Nov  5 15:38:48 JH kernel: [ 1354.388130] bdbm: gc-victim: 0 pages, 32 blocks, 90080 us
+Nov  5 15:38:49 JH kernel: [ 1354.922720] bdbm: ----------------------------------------------
+Nov  5 15:38:49 JH kernel: [ 1354.922724] bdbm: gc-victim: 0 pages, 32 blocks, 89467 us
+Nov  5 15:38:49 JH kernel: [ 1355.498229] bdbm: ----------------------------------------------
+Nov  5 15:38:49 JH kernel: [ 1355.498232] bdbm: gc-victim: 0 pages, 32 blocks, 89505 us
+Nov  5 15:38:50 JH kernel: [ 1356.063919] bdbm: ----------------------------------------------
+Nov  5 15:38:50 JH kernel: [ 1356.063924] bdbm: gc-victim: 0 pages, 32 blocks, 90089 us
+Nov  5 15:38:51 JH kernel: [ 1356.619666] bdbm: ----------------------------------------------
+Nov  5 15:38:51 JH kernel: [ 1356.619670] bdbm: gc-victim: 0 pages, 32 blocks, 89300 us
+Nov  5 15:38:51 JH kernel: [ 1357.165551] bdbm: ----------------------------------------------
+Nov  5 15:38:51 JH kernel: [ 1357.165554] bdbm: gc-victim: 0 pages, 32 blocks, 90286 us
+Nov  5 15:38:52 JH kernel: [ 1357.645211] bdbm: ----------------------------------------------
+Nov  5 15:38:52 JH kernel: [ 1357.645214] bdbm: gc-victim: 0 pages, 32 blocks, 86820 us
+Nov  5 15:38:52 JH kernel: [ 1358.176261] bdbm: ----------------------------------------------
+Nov  5 15:38:52 JH kernel: [ 1358.176265] bdbm: gc-victim: 0 pages, 32 blocks, 89703 us
+Nov  5 15:38:53 JH kernel: [ 1358.709327] bdbm: ----------------------------------------------
+Nov  5 15:38:53 JH kernel: [ 1358.709331] bdbm: gc-victim: 0 pages, 32 blocks, 90064 us
+Nov  5 15:38:53 JH kernel: [ 1359.289053] bdbm: ----------------------------------------------
+Nov  5 15:38:53 JH kernel: [ 1359.289056] bdbm: gc-victim: 0 pages, 32 blocks, 89447 us
+Nov  5 15:38:54 JH kernel: [ 1359.826895] bdbm: ----------------------------------------------
+Nov  5 15:38:54 JH kernel: [ 1359.826899] bdbm: gc-victim: 0 pages, 32 blocks, 90059 us
+Nov  5 15:38:54 JH kernel: [ 1359.863443] bdbm: llm_make_req: 2300000, 75
+Nov  5 15:38:54 JH kernel: [ 1360.397785] bdbm: ----------------------------------------------
+Nov  5 15:38:54 JH kernel: [ 1360.397790] bdbm: gc-victim: 0 pages, 32 blocks, 88963 us
+Nov  5 15:38:55 JH kernel: [ 1360.974798] bdbm: ----------------------------------------------
+Nov  5 15:38:55 JH kernel: [ 1360.974802] bdbm: gc-victim: 0 pages, 32 blocks, 87722 us
+Nov  5 15:38:55 JH kernel: [ 1361.511991] bdbm: ----------------------------------------------
+Nov  5 15:38:55 JH kernel: [ 1361.511995] bdbm: gc-victim: 0 pages, 32 blocks, 89423 us
+Nov  5 15:38:56 JH kernel: [ 1362.006230] bdbm: ----------------------------------------------
+Nov  5 15:38:56 JH kernel: [ 1362.006234] bdbm: gc-victim: 0 pages, 32 blocks, 89694 us
+Nov  5 15:38:56 JH kernel: [ 1362.554864] bdbm: ----------------------------------------------
+Nov  5 15:38:56 JH kernel: [ 1362.554867] bdbm: gc-victim: 0 pages, 32 blocks, 89708 us
+Nov  5 15:38:57 JH kernel: [ 1363.098383] bdbm: ----------------------------------------------
+Nov  5 15:38:57 JH kernel: [ 1363.098388] bdbm: gc-victim: 0 pages, 32 blocks, 89739 us
+Nov  5 15:38:58 JH kernel: [ 1363.677029] bdbm: ----------------------------------------------
+Nov  5 15:38:58 JH kernel: [ 1363.677032] bdbm: gc-victim: 0 pages, 32 blocks, 90062 us
+Nov  5 15:38:58 JH kernel: [ 1364.259949] bdbm: ----------------------------------------------
+Nov  5 15:38:58 JH kernel: [ 1364.259953] bdbm: gc-victim: 0 pages, 32 blocks, 90069 us
+Nov  5 15:38:59 JH kernel: [ 1364.798425] bdbm: ----------------------------------------------
+Nov  5 15:38:59 JH kernel: [ 1364.798429] bdbm: gc-victim: 0 pages, 32 blocks, 90091 us
+Nov  5 15:38:59 JH kernel: [ 1365.338948] bdbm: ----------------------------------------------
+Nov  5 15:38:59 JH kernel: [ 1365.338951] bdbm: gc-victim: 0 pages, 32 blocks, 90047 us
+Nov  5 15:39:00 JH kernel: [ 1365.949672] bdbm: ----------------------------------------------
+Nov  5 15:39:00 JH kernel: [ 1365.949676] bdbm: gc-victim: 0 pages, 32 blocks, 88969 us
+Nov  5 15:39:00 JH kernel: [ 1366.459240] bdbm: ----------------------------------------------
+Nov  5 15:39:00 JH kernel: [ 1366.459243] bdbm: gc-victim: 0 pages, 32 blocks, 87755 us
+Nov  5 15:39:00 JH kernel: [ 1366.547780] bdbm: llm_make_req: 2350000, 65
+Nov  5 15:39:01 JH kernel: [ 1366.996219] bdbm: ----------------------------------------------
+Nov  5 15:39:01 JH kernel: [ 1366.996223] bdbm: gc-victim: 0 pages, 32 blocks, 90084 us
+Nov  5 15:39:01 JH kernel: [ 1367.529513] bdbm: ----------------------------------------------
+Nov  5 15:39:01 JH kernel: [ 1367.529516] bdbm: gc-victim: 0 pages, 32 blocks, 88740 us
+Nov  5 15:39:02 JH kernel: [ 1368.119611] bdbm: ----------------------------------------------
+Nov  5 15:39:02 JH kernel: [ 1368.119615] bdbm: gc-victim: 0 pages, 32 blocks, 90106 us
+Nov  5 15:39:03 JH kernel: [ 1368.665816] bdbm: ----------------------------------------------
+Nov  5 15:39:03 JH kernel: [ 1368.665820] bdbm: gc-victim: 0 pages, 32 blocks, 89854 us
+Nov  5 15:39:03 JH kernel: [ 1369.198248] bdbm: ----------------------------------------------
+Nov  5 15:39:03 JH kernel: [ 1369.198252] bdbm: gc-victim: 0 pages, 32 blocks, 87716 us
+Nov  5 15:39:04 JH kernel: [ 1369.747702] bdbm: ----------------------------------------------
+Nov  5 15:39:04 JH kernel: [ 1369.747706] bdbm: gc-victim: 0 pages, 32 blocks, 90098 us
+Nov  5 15:39:04 JH kernel: [ 1370.339885] bdbm: ----------------------------------------------
+Nov  5 15:39:04 JH kernel: [ 1370.339889] bdbm: gc-victim: 0 pages, 32 blocks, 86854 us
+Nov  5 15:39:05 JH kernel: [ 1370.890179] bdbm: ----------------------------------------------
+Nov  5 15:39:05 JH kernel: [ 1370.890181] bdbm: gc-victim: 0 pages, 32 blocks, 89732 us
+Nov  5 15:39:05 JH kernel: [ 1371.471503] bdbm: ----------------------------------------------
+Nov  5 15:39:05 JH kernel: [ 1371.471507] bdbm: gc-victim: 0 pages, 32 blocks, 86876 us
+Nov  5 15:39:06 JH kernel: [ 1372.006173] bdbm: ----------------------------------------------
+Nov  5 15:39:06 JH kernel: [ 1372.006177] bdbm: gc-victim: 0 pages, 32 blocks, 89349 us
+Nov  5 15:39:07 JH kernel: [ 1372.580699] bdbm: ----------------------------------------------
+Nov  5 15:39:07 JH kernel: [ 1372.580702] bdbm: gc-victim: 0 pages, 32 blocks, 89665 us
+Nov  5 15:39:07 JH kernel: [ 1373.152190] bdbm: ----------------------------------------------
+Nov  5 15:39:07 JH kernel: [ 1373.152194] bdbm: gc-victim: 0 pages, 32 blocks, 90071 us
+Nov  5 15:39:07 JH kernel: [ 1373.279655] bdbm: llm_make_req: 2400000, 2
+Nov  5 15:39:08 JH kernel: [ 1373.696055] bdbm: ----------------------------------------------
+Nov  5 15:39:08 JH kernel: [ 1373.696059] bdbm: gc-victim: 0 pages, 32 blocks, 88707 us
+Nov  5 15:39:08 JH kernel: [ 1374.274147] bdbm: ----------------------------------------------
+Nov  5 15:39:08 JH kernel: [ 1374.274150] bdbm: gc-victim: 0 pages, 32 blocks, 87760 us
+Nov  5 15:39:09 JH kernel: [ 1374.861133] bdbm: ----------------------------------------------
+Nov  5 15:39:09 JH kernel: [ 1374.861137] bdbm: gc-victim: 0 pages, 32 blocks, 90066 us
+Nov  5 15:39:09 JH kernel: [ 1375.419620] bdbm: ----------------------------------------------
+Nov  5 15:39:09 JH kernel: [ 1375.419623] bdbm: gc-victim: 0 pages, 32 blocks, 90086 us
+Nov  5 15:39:10 JH kernel: [ 1375.990344] bdbm: ----------------------------------------------
+Nov  5 15:39:10 JH kernel: [ 1375.990348] bdbm: gc-victim: 0 pages, 32 blocks, 87717 us
+Nov  5 15:39:10 JH kernel: [ 1376.528743] bdbm: ----------------------------------------------
+Nov  5 15:39:10 JH kernel: [ 1376.528747] bdbm: gc-victim: 0 pages, 32 blocks, 90086 us
+Nov  5 15:39:11 JH kernel: [ 1377.040093] bdbm: ----------------------------------------------
+Nov  5 15:39:11 JH kernel: [ 1377.040097] bdbm: gc-victim: 0 pages, 32 blocks, 89767 us
+Nov  5 15:39:12 JH kernel: [ 1377.585418] bdbm: ----------------------------------------------
+Nov  5 15:39:12 JH kernel: [ 1377.585422] bdbm: gc-victim: 0 pages, 32 blocks, 89787 us
+Nov  5 15:39:12 JH kernel: [ 1378.202551] bdbm: ----------------------------------------------
+Nov  5 15:39:12 JH kernel: [ 1378.202555] bdbm: gc-victim: 0 pages, 32 blocks, 88725 us
+Nov  5 15:39:13 JH kernel: [ 1378.750442] bdbm: ----------------------------------------------
+Nov  5 15:39:13 JH kernel: [ 1378.750446] bdbm: gc-victim: 0 pages, 32 blocks, 90118 us
+Nov  5 15:39:13 JH kernel: [ 1379.311184] bdbm: ----------------------------------------------
+Nov  5 15:39:13 JH kernel: [ 1379.311187] bdbm: gc-victim: 0 pages, 32 blocks, 89887 us
+Nov  5 15:39:14 JH kernel: [ 1379.856002] bdbm: ----------------------------------------------
+Nov  5 15:39:14 JH kernel: [ 1379.856005] bdbm: gc-victim: 0 pages, 32 blocks, 86845 us
+Nov  5 15:39:14 JH kernel: [ 1380.062165] bdbm: llm_make_req: 2450000, 74
+Nov  5 15:39:14 JH kernel: [ 1380.439129] bdbm: ----------------------------------------------
+Nov  5 15:39:14 JH kernel: [ 1380.439133] bdbm: gc-victim: 0 pages, 32 blocks, 89987 us
+Nov  5 15:39:15 JH kernel: [ 1380.976375] bdbm: ----------------------------------------------
+Nov  5 15:39:15 JH kernel: [ 1380.976379] bdbm: gc-victim: 0 pages, 32 blocks, 89212 us
+Nov  5 15:39:15 JH kernel: [ 1381.564960] bdbm: ----------------------------------------------
+Nov  5 15:39:15 JH kernel: [ 1381.564964] bdbm: gc-victim: 0 pages, 32 blocks, 90118 us
+Nov  5 15:39:16 JH kernel: [ 1382.097442] bdbm: ----------------------------------------------
+Nov  5 15:39:16 JH kernel: [ 1382.097447] bdbm: gc-victim: 0 pages, 32 blocks, 90036 us
+Nov  5 15:39:17 JH kernel: [ 1382.660605] bdbm: ----------------------------------------------
+Nov  5 15:39:17 JH kernel: [ 1382.660609] bdbm: gc-victim: 0 pages, 32 blocks, 86825 us
+Nov  5 15:39:17 JH kernel: [ 1383.175288] bdbm: ----------------------------------------------
+Nov  5 15:39:17 JH kernel: [ 1383.175291] bdbm: gc-victim: 0 pages, 32 blocks, 90073 us
+Nov  5 15:39:18 JH kernel: [ 1383.764326] bdbm: ----------------------------------------------
+Nov  5 15:39:18 JH kernel: [ 1383.764329] bdbm: gc-victim: 0 pages, 32 blocks, 89778 us
+Nov  5 15:39:18 JH kernel: [ 1384.332840] bdbm: ----------------------------------------------
+Nov  5 15:39:18 JH kernel: [ 1384.332843] bdbm: gc-victim: 0 pages, 32 blocks, 89204 us
+Nov  5 15:39:19 JH kernel: [ 1384.870359] bdbm: ----------------------------------------------
+Nov  5 15:39:19 JH kernel: [ 1384.870362] bdbm: gc-victim: 0 pages, 32 blocks, 87704 us
+Nov  5 15:39:19 JH kernel: [ 1385.451685] bdbm: ----------------------------------------------
+Nov  5 15:39:19 JH kernel: [ 1385.451688] bdbm: gc-victim: 0 pages, 32 blocks, 88742 us
+Nov  5 15:39:20 JH kernel: [ 1385.988830] bdbm: ----------------------------------------------
+Nov  5 15:39:20 JH kernel: [ 1385.988834] bdbm: gc-victim: 0 pages, 32 blocks, 90061 us
+Nov  5 15:39:21 JH kernel: [ 1386.588289] bdbm: ----------------------------------------------
+Nov  5 15:39:21 JH kernel: [ 1386.588292] bdbm: gc-victim: 0 pages, 32 blocks, 89793 us
+Nov  5 15:39:21 JH kernel: [ 1386.794917] bdbm: llm_make_req: 2500000, 94
+Nov  5 15:39:21 JH kernel: [ 1387.129974] bdbm: ----------------------------------------------
+Nov  5 15:39:21 JH kernel: [ 1387.129979] bdbm: gc-victim: 0 pages, 32 blocks, 87719 us
+Nov  5 15:39:22 JH kernel: [ 1387.757794] bdbm: ----------------------------------------------
+Nov  5 15:39:22 JH kernel: [ 1387.757798] bdbm: gc-victim: 0 pages, 32 blocks, 89825 us
+Nov  5 15:39:22 JH kernel: [ 1388.323716] bdbm: ----------------------------------------------
+Nov  5 15:39:22 JH kernel: [ 1388.323720] bdbm: gc-victim: 0 pages, 32 blocks, 89768 us
+Nov  5 15:39:23 JH kernel: [ 1388.833859] bdbm: ----------------------------------------------
+Nov  5 15:39:23 JH kernel: [ 1388.833863] bdbm: gc-victim: 0 pages, 32 blocks, 90106 us
+Nov  5 15:39:23 JH kernel: [ 1389.403074] bdbm: ----------------------------------------------
+Nov  5 15:39:23 JH kernel: [ 1389.403078] bdbm: gc-victim: 0 pages, 32 blocks, 86812 us
+Nov  5 15:39:24 JH kernel: [ 1389.973693] bdbm: ----------------------------------------------
+Nov  5 15:39:24 JH kernel: [ 1389.973697] bdbm: gc-victim: 0 pages, 32 blocks, 89433 us
+Nov  5 15:39:24 JH kernel: [ 1390.523865] bdbm: ----------------------------------------------
+Nov  5 15:39:24 JH kernel: [ 1390.523869] bdbm: gc-victim: 0 pages, 32 blocks, 90075 us
+Nov  5 15:39:25 JH kernel: [ 1391.060110] bdbm: ----------------------------------------------
+Nov  5 15:39:25 JH kernel: [ 1391.060113] bdbm: gc-victim: 0 pages, 32 blocks, 86854 us
+Nov  5 15:39:25 JH kernel: [ 1391.567575] bdbm: ----------------------------------------------
+Nov  5 15:39:25 JH kernel: [ 1391.567579] bdbm: gc-victim: 0 pages, 32 blocks, 89187 us
+Nov  5 15:39:26 JH kernel: [ 1392.145337] bdbm: ----------------------------------------------
+Nov  5 15:39:26 JH kernel: [ 1392.145340] bdbm: gc-victim: 0 pages, 32 blocks, 87815 us
+Nov  5 15:39:27 JH kernel: [ 1392.695040] bdbm: ----------------------------------------------
+Nov  5 15:39:27 JH kernel: [ 1392.695043] bdbm: gc-victim: 0 pages, 32 blocks, 90111 us
+Nov  5 15:39:27 JH kernel: [ 1393.241562] bdbm: ----------------------------------------------
+Nov  5 15:39:27 JH kernel: [ 1393.241567] bdbm: gc-victim: 0 pages, 32 blocks, 87713 us
+Nov  5 15:39:27 JH kernel: [ 1393.553423] bdbm: llm_make_req: 2550000, 86
+Nov  5 15:39:28 JH kernel: [ 1393.836990] bdbm: ----------------------------------------------
+Nov  5 15:39:28 JH kernel: [ 1393.836994] bdbm: gc-victim: 0 pages, 32 blocks, 87726 us
+Nov  5 15:39:28 JH kernel: [ 1394.294572] bdbm: ----------------------------------------------
+Nov  5 15:39:28 JH kernel: [ 1394.294576] bdbm: gc-victim: 0 pages, 32 blocks, 89804 us
+Nov  5 15:39:29 JH kernel: [ 1394.828315] bdbm: ----------------------------------------------
+Nov  5 15:39:29 JH kernel: [ 1394.828319] bdbm: gc-victim: 0 pages, 32 blocks, 89313 us
+Nov  5 15:39:29 JH kernel: [ 1395.410975] bdbm: ----------------------------------------------
+Nov  5 15:39:29 JH kernel: [ 1395.410978] bdbm: gc-victim: 0 pages, 32 blocks, 88938 us
+Nov  5 15:39:30 JH kernel: [ 1395.954387] bdbm: ----------------------------------------------
+Nov  5 15:39:30 JH kernel: [ 1395.954390] bdbm: gc-victim: 0 pages, 32 blocks, 90037 us
+Nov  5 15:39:30 JH kernel: [ 1396.457056] bdbm: ----------------------------------------------
+Nov  5 15:39:30 JH kernel: [ 1396.457060] bdbm: gc-victim: 0 pages, 32 blocks, 87739 us
+Nov  5 15:39:31 JH kernel: [ 1397.040417] bdbm: ----------------------------------------------
+Nov  5 15:39:31 JH kernel: [ 1397.040421] bdbm: gc-victim: 0 pages, 32 blocks, 87448 us
+Nov  5 15:39:32 JH kernel: [ 1397.579794] bdbm: ----------------------------------------------
+Nov  5 15:39:32 JH kernel: [ 1397.579798] bdbm: gc-victim: 0 pages, 32 blocks, 86875 us
+Nov  5 15:39:32 JH kernel: [ 1398.108975] bdbm: ----------------------------------------------
+Nov  5 15:39:32 JH kernel: [ 1398.108978] bdbm: gc-victim: 0 pages, 32 blocks, 87969 us
+Nov  5 15:39:33 JH kernel: [ 1398.641583] bdbm: ----------------------------------------------
+Nov  5 15:39:33 JH kernel: [ 1398.641586] bdbm: gc-victim: 0 pages, 32 blocks, 86880 us
+Nov  5 15:39:33 JH kernel: [ 1399.169907] bdbm: ----------------------------------------------
+Nov  5 15:39:33 JH kernel: [ 1399.169910] bdbm: gc-victim: 0 pages, 32 blocks, 87779 us
+Nov  5 15:39:34 JH kernel: [ 1399.693066] bdbm: ----------------------------------------------
+Nov  5 15:39:34 JH kernel: [ 1399.693070] bdbm: gc-victim: 0 pages, 32 blocks, 89997 us
+Nov  5 15:39:34 JH kernel: [ 1400.080971] bdbm: llm_make_req: 2600000, 76
+Nov  5 15:39:34 JH kernel: [ 1400.274382] bdbm: ----------------------------------------------
+Nov  5 15:39:34 JH kernel: [ 1400.274385] bdbm: gc-victim: 0 pages, 32 blocks, 90153 us
+Nov  5 15:39:35 JH kernel: [ 1400.854077] bdbm: ----------------------------------------------
+Nov  5 15:39:35 JH kernel: [ 1400.854081] bdbm: gc-victim: 0 pages, 32 blocks, 90091 us
+Nov  5 15:39:35 JH kernel: [ 1401.407896] bdbm: ----------------------------------------------
+Nov  5 15:39:35 JH kernel: [ 1401.407899] bdbm: gc-victim: 0 pages, 32 blocks, 90094 us
+Nov  5 15:39:36 JH kernel: [ 1401.886064] bdbm: ----------------------------------------------
+Nov  5 15:39:36 JH kernel: [ 1401.886068] bdbm: gc-victim: 0 pages, 32 blocks, 89193 us
+Nov  5 15:39:36 JH kernel: [ 1402.458777] bdbm: ----------------------------------------------
+Nov  5 15:39:36 JH kernel: [ 1402.458782] bdbm: gc-victim: 0 pages, 32 blocks, 90019 us
+Nov  5 15:39:37 JH kernel: [ 1403.045179] bdbm: ----------------------------------------------
+Nov  5 15:39:37 JH kernel: [ 1403.045183] bdbm: gc-victim: 0 pages, 32 blocks, 87711 us
+Nov  5 15:39:38 JH kernel: [ 1403.595348] bdbm: ----------------------------------------------
+Nov  5 15:39:38 JH kernel: [ 1403.595352] bdbm: gc-victim: 1 pages, 32 blocks, 88387 us
+Nov  5 15:39:38 JH kernel: [ 1404.134942] bdbm: ----------------------------------------------
+Nov  5 15:39:38 JH kernel: [ 1404.134946] bdbm: gc-victim: 2 pages, 32 blocks, 91556 us
+Nov  5 15:39:39 JH kernel: [ 1404.723640] bdbm: ----------------------------------------------
+Nov  5 15:39:39 JH kernel: [ 1404.723644] bdbm: gc-victim: 2 pages, 32 blocks, 90275 us
+Nov  5 15:39:39 JH kernel: [ 1405.230435] bdbm: ----------------------------------------------
+Nov  5 15:39:39 JH kernel: [ 1405.230438] bdbm: gc-victim: 2 pages, 32 blocks, 89506 us
+Nov  5 15:39:40 JH kernel: [ 1405.740432] bdbm: ----------------------------------------------
+Nov  5 15:39:40 JH kernel: [ 1405.740435] bdbm: gc-victim: 2 pages, 32 blocks, 90251 us
+Nov  5 15:39:40 JH kernel: [ 1406.286690] bdbm: ----------------------------------------------
+Nov  5 15:39:40 JH kernel: [ 1406.286693] bdbm: gc-victim: 2 pages, 32 blocks, 89206 us
+Nov  5 15:39:41 JH kernel: [ 1406.719985] bdbm: llm_make_req: 2650000, 3
+Nov  5 15:39:41 JH kernel: [ 1406.862983] bdbm: ----------------------------------------------
+Nov  5 15:39:41 JH kernel: [ 1406.862988] bdbm: gc-victim: 1 pages, 32 blocks, 91835 us
+Nov  5 15:39:41 JH kernel: [ 1407.414211] bdbm: ----------------------------------------------
+Nov  5 15:39:41 JH kernel: [ 1407.414214] bdbm: gc-victim: 0 pages, 32 blocks, 86828 us
+Nov  5 15:39:42 JH kernel: [ 1407.913109] bdbm: ----------------------------------------------
+Nov  5 15:39:42 JH kernel: [ 1407.913113] bdbm: gc-victim: 0 pages, 32 blocks, 88675 us
+Nov  5 15:39:42 JH kernel: [ 1408.466465] bdbm: ----------------------------------------------
+Nov  5 15:39:42 JH kernel: [ 1408.466468] bdbm: gc-victim: 2 pages, 32 blocks, 91780 us
+Nov  5 15:39:43 JH kernel: [ 1409.018440] bdbm: ----------------------------------------------
+Nov  5 15:39:43 JH kernel: [ 1409.018445] bdbm: gc-victim: 0 pages, 32 blocks, 90063 us
+Nov  5 15:39:43 JH kernel: [ 1409.537907] bdbm: ----------------------------------------------
+Nov  5 15:39:43 JH kernel: [ 1409.537910] bdbm: gc-victim: 2 pages, 32 blocks, 91293 us
+Nov  5 15:39:44 JH kernel: [ 1410.158460] bdbm: ----------------------------------------------
+Nov  5 15:39:44 JH kernel: [ 1410.158465] bdbm: gc-victim: 1 pages, 32 blocks, 91609 us
+Nov  5 15:39:45 JH kernel: [ 1410.731535] bdbm: ----------------------------------------------
+Nov  5 15:39:45 JH kernel: [ 1410.731539] bdbm: gc-victim: 2 pages, 32 blocks, 88404 us
+Nov  5 15:39:45 JH kernel: [ 1411.298332] bdbm: ----------------------------------------------
+Nov  5 15:39:45 JH kernel: [ 1411.298335] bdbm: gc-victim: 0 pages, 32 blocks, 86850 us
+Nov  5 15:39:46 JH kernel: [ 1411.873400] bdbm: ----------------------------------------------
+Nov  5 15:39:46 JH kernel: [ 1411.873404] bdbm: gc-victim: 2 pages, 32 blocks, 90386 us
+Nov  5 15:39:46 JH kernel: [ 1412.502854] bdbm: ----------------------------------------------
+Nov  5 15:39:46 JH kernel: [ 1412.502858] bdbm: gc-victim: 2 pages, 32 blocks, 90938 us
+Nov  5 15:39:47 JH kernel: [ 1413.046704] bdbm: ----------------------------------------------
+Nov  5 15:39:47 JH kernel: [ 1413.046708] bdbm: gc-victim: 3 pages, 32 blocks, 89530 us
+Nov  5 15:39:47 JH kernel: [ 1413.519599] bdbm: llm_make_req: 2700000, 6
+Nov  5 15:39:48 JH kernel: [ 1413.614364] bdbm: ----------------------------------------------
+Nov  5 15:39:48 JH kernel: [ 1413.614367] bdbm: gc-victim: 5 pages, 32 blocks, 90602 us
+Nov  5 15:39:48 JH kernel: [ 1414.189366] bdbm: ----------------------------------------------
+Nov  5 15:39:48 JH kernel: [ 1414.189378] bdbm: gc-victim: 2 pages, 32 blocks, 91389 us
+Nov  5 15:39:49 JH kernel: [ 1414.742497] bdbm: ----------------------------------------------
+Nov  5 15:39:49 JH kernel: [ 1414.742502] bdbm: gc-victim: 3 pages, 32 blocks, 91399 us
+Nov  5 15:39:49 JH kernel: [ 1415.232515] bdbm: ----------------------------------------------
+Nov  5 15:39:49 JH kernel: [ 1415.232518] bdbm: gc-victim: 5 pages, 32 blocks, 91628 us
+Nov  5 15:39:50 JH kernel: [ 1415.794361] bdbm: ----------------------------------------------
+Nov  5 15:39:50 JH kernel: [ 1415.794365] bdbm: gc-victim: 6 pages, 32 blocks, 92044 us
+Nov  5 15:39:50 JH kernel: [ 1416.343265] bdbm: ----------------------------------------------
+Nov  5 15:39:50 JH kernel: [ 1416.343269] bdbm: gc-victim: 4 pages, 32 blocks, 88665 us
+Nov  5 15:39:51 JH kernel: [ 1416.928884] bdbm: ----------------------------------------------
+Nov  5 15:39:51 JH kernel: [ 1416.928889] bdbm: gc-victim: 5 pages, 32 blocks, 88958 us
+Nov  5 15:39:51 JH kernel: [ 1417.450637] bdbm: ----------------------------------------------
+Nov  5 15:39:51 JH kernel: [ 1417.450641] bdbm: gc-victim: 7 pages, 32 blocks, 91339 us
+Nov  5 15:39:52 JH kernel: [ 1418.010601] bdbm: ----------------------------------------------
+Nov  5 15:39:52 JH kernel: [ 1418.010605] bdbm: gc-victim: 5 pages, 32 blocks, 92212 us
+Nov  5 15:39:53 JH kernel: [ 1418.571307] bdbm: ----------------------------------------------
+Nov  5 15:39:53 JH kernel: [ 1418.571311] bdbm: gc-victim: 10 pages, 32 blocks, 92575 us
+Nov  5 15:39:53 JH kernel: [ 1419.116347] bdbm: ----------------------------------------------
+Nov  5 15:39:53 JH kernel: [ 1419.116351] bdbm: gc-victim: 9 pages, 32 blocks, 91020 us
+Nov  5 15:39:54 JH kernel: [ 1419.671454] bdbm: ----------------------------------------------
+Nov  5 15:39:54 JH kernel: [ 1419.671466] bdbm: gc-victim: 10 pages, 32 blocks, 90057 us
+Nov  5 15:39:54 JH kernel: [ 1420.226879] bdbm: ----------------------------------------------
+Nov  5 15:39:54 JH kernel: [ 1420.226884] bdbm: gc-victim: 8 pages, 32 blocks, 91095 us
+Nov  5 15:39:54 JH kernel: [ 1420.243460] bdbm: llm_make_req: 2750000, 46
+Nov  5 15:39:55 JH kernel: [ 1420.763233] bdbm: ----------------------------------------------
+Nov  5 15:39:55 JH kernel: [ 1420.763236] bdbm: gc-victim: 10 pages, 32 blocks, 92078 us
+Nov  5 15:39:55 JH kernel: [ 1421.322428] bdbm: ----------------------------------------------
+Nov  5 15:39:55 JH kernel: [ 1421.322431] bdbm: gc-victim: 11 pages, 32 blocks, 92462 us
+Nov  5 15:39:56 JH kernel: [ 1421.897094] bdbm: ----------------------------------------------
+Nov  5 15:39:56 JH kernel: [ 1421.897098] bdbm: gc-victim: 8 pages, 32 blocks, 89573 us
+Nov  5 15:39:56 JH kernel: [ 1422.489339] bdbm: ----------------------------------------------
+Nov  5 15:39:56 JH kernel: [ 1422.489342] bdbm: gc-victim: 7 pages, 32 blocks, 92012 us
+Nov  5 15:39:57 JH kernel: [ 1423.011651] bdbm: ----------------------------------------------
+Nov  5 15:39:57 JH kernel: [ 1423.011655] bdbm: gc-victim: 5 pages, 32 blocks, 90869 us
+Nov  5 15:39:58 JH kernel: [ 1423.602269] bdbm: ----------------------------------------------
+Nov  5 15:39:58 JH kernel: [ 1423.602273] bdbm: gc-victim: 6 pages, 32 blocks, 91684 us
+Nov  5 15:39:58 JH kernel: [ 1424.163018] bdbm: ----------------------------------------------
+Nov  5 15:39:58 JH kernel: [ 1424.163022] bdbm: gc-victim: 6 pages, 32 blocks, 88974 us
+Nov  5 15:39:59 JH kernel: [ 1424.713316] bdbm: ----------------------------------------------
+Nov  5 15:39:59 JH kernel: [ 1424.713321] bdbm: gc-victim: 10 pages, 32 blocks, 91633 us
+Nov  5 15:39:59 JH kernel: [ 1425.205775] bdbm: ----------------------------------------------
+Nov  5 15:39:59 JH kernel: [ 1425.205778] bdbm: gc-victim: 13 pages, 32 blocks, 92770 us
+Nov  5 15:40:00 JH kernel: [ 1425.738067] bdbm: ----------------------------------------------
+Nov  5 15:40:00 JH kernel: [ 1425.738070] bdbm: gc-victim: 13 pages, 32 blocks, 92766 us
+Nov  5 15:40:00 JH kernel: [ 1426.307864] bdbm: ----------------------------------------------
+Nov  5 15:40:00 JH kernel: [ 1426.307868] bdbm: gc-victim: 6 pages, 32 blocks, 88882 us
+Nov  5 15:40:01 JH kernel: [ 1426.877869] bdbm: ----------------------------------------------
+Nov  5 15:40:01 JH kernel: [ 1426.877873] bdbm: gc-victim: 13 pages, 32 blocks, 92268 us
+Nov  5 15:40:01 JH kernel: [ 1426.946454] bdbm: llm_make_req: 2800000, 95
+Nov  5 15:40:01 JH kernel: [ 1427.434577] bdbm: ----------------------------------------------
+Nov  5 15:40:01 JH kernel: [ 1427.434588] bdbm: gc-victim: 6 pages, 32 blocks, 91614 us
+Nov  5 15:40:02 JH kernel: [ 1428.029635] bdbm: ----------------------------------------------
+Nov  5 15:40:02 JH kernel: [ 1428.029638] bdbm: gc-victim: 10 pages, 32 blocks, 92403 us
+Nov  5 15:40:02 JH kernel: [ 1428.527187] bdbm: ----------------------------------------------
+Nov  5 15:40:02 JH kernel: [ 1428.527190] bdbm: gc-victim: 13 pages, 32 blocks, 92793 us
+Nov  5 15:40:03 JH kernel: [ 1429.118944] bdbm: ----------------------------------------------
+Nov  5 15:40:03 JH kernel: [ 1429.118947] bdbm: gc-victim: 13 pages, 32 blocks, 89445 us
+Nov  5 15:40:04 JH kernel: [ 1429.696947] bdbm: ----------------------------------------------
+Nov  5 15:40:04 JH kernel: [ 1429.696950] bdbm: gc-victim: 12 pages, 32 blocks, 92528 us
+Nov  5 15:40:04 JH kernel: [ 1430.252343] bdbm: ----------------------------------------------
+Nov  5 15:40:04 JH kernel: [ 1430.252347] bdbm: gc-victim: 15 pages, 32 blocks, 89726 us
+Nov  5 15:40:05 JH kernel: [ 1430.808269] bdbm: ----------------------------------------------
+Nov  5 15:40:05 JH kernel: [ 1430.808272] bdbm: gc-victim: 16 pages, 32 blocks, 90524 us
+Nov  5 15:40:05 JH kernel: [ 1431.396682] bdbm: ----------------------------------------------
+Nov  5 15:40:05 JH kernel: [ 1431.396685] bdbm: gc-victim: 11 pages, 32 blocks, 91962 us
+Nov  5 15:40:06 JH kernel: [ 1431.862619] bdbm: ----------------------------------------------
+Nov  5 15:40:06 JH kernel: [ 1431.862623] bdbm: gc-victim: 14 pages, 32 blocks, 94101 us
+Nov  5 15:40:06 JH kernel: [ 1432.416904] bdbm: ----------------------------------------------
+Nov  5 15:40:06 JH kernel: [ 1432.416907] bdbm: gc-victim: 14 pages, 32 blocks, 90392 us
+Nov  5 15:40:07 JH kernel: [ 1432.991203] bdbm: ----------------------------------------------
+Nov  5 15:40:07 JH kernel: [ 1432.991207] bdbm: gc-victim: 11 pages, 32 blocks, 92492 us
+Nov  5 15:40:07 JH kernel: [ 1433.516119] bdbm: ----------------------------------------------
+Nov  5 15:40:07 JH kernel: [ 1433.516122] bdbm: gc-victim: 14 pages, 32 blocks, 89783 us
+Nov  5 15:40:08 JH kernel: [ 1433.628343] bdbm: llm_make_req: 2850000, 96
+Nov  5 15:40:08 JH kernel: [ 1434.115746] bdbm: ----------------------------------------------
+Nov  5 15:40:08 JH kernel: [ 1434.115750] bdbm: gc-victim: 14 pages, 32 blocks, 92061 us
+Nov  5 15:40:09 JH kernel: [ 1434.702709] bdbm: ----------------------------------------------
+Nov  5 15:40:09 JH kernel: [ 1434.702712] bdbm: gc-victim: 14 pages, 32 blocks, 89952 us
+Nov  5 15:40:09 JH kernel: [ 1435.243669] bdbm: ----------------------------------------------
+Nov  5 15:40:09 JH kernel: [ 1435.243673] bdbm: gc-victim: 18 pages, 32 blocks, 93162 us
+Nov  5 15:40:10 JH kernel: [ 1435.832600] bdbm: ----------------------------------------------
+Nov  5 15:40:10 JH kernel: [ 1435.832604] bdbm: gc-victim: 15 pages, 32 blocks, 91863 us
+Nov  5 15:40:10 JH kernel: [ 1436.394299] bdbm: ----------------------------------------------
+Nov  5 15:40:10 JH kernel: [ 1436.394302] bdbm: gc-victim: 15 pages, 32 blocks, 92884 us
+Nov  5 15:40:11 JH kernel: [ 1436.983225] bdbm: ----------------------------------------------
+Nov  5 15:40:11 JH kernel: [ 1436.983229] bdbm: gc-victim: 18 pages, 32 blocks, 93093 us
+Nov  5 15:40:11 JH kernel: [ 1437.457565] bdbm: ----------------------------------------------
+Nov  5 15:40:11 JH kernel: [ 1437.457568] bdbm: gc-victim: 19 pages, 32 blocks, 90911 us
+Nov  5 15:40:12 JH kernel: [ 1437.986017] bdbm: ----------------------------------------------
+Nov  5 15:40:12 JH kernel: [ 1437.986020] bdbm: gc-victim: 16 pages, 32 blocks, 93177 us
+Nov  5 15:40:12 JH kernel: [ 1438.547120] bdbm: ----------------------------------------------
+Nov  5 15:40:12 JH kernel: [ 1438.547124] bdbm: gc-victim: 13 pages, 32 blocks, 90259 us
+Nov  5 15:40:13 JH kernel: [ 1439.057731] bdbm: ----------------------------------------------
+Nov  5 15:40:13 JH kernel: [ 1439.057734] bdbm: gc-victim: 16 pages, 32 blocks, 91793 us
+Nov  5 15:40:14 JH kernel: [ 1439.568063] bdbm: ----------------------------------------------
+Nov  5 15:40:14 JH kernel: [ 1439.568075] bdbm: gc-victim: 22 pages, 32 blocks, 90628 us
+Nov  5 15:40:14 JH kernel: [ 1440.149166] bdbm: ----------------------------------------------
+Nov  5 15:40:14 JH kernel: [ 1440.149169] bdbm: gc-victim: 17 pages, 32 blocks, 93031 us
+Nov  5 15:40:14 JH kernel: [ 1440.282039] bdbm: llm_make_req: 2900000, 91
+Nov  5 15:40:15 JH kernel: [ 1440.647405] bdbm: ----------------------------------------------
+Nov  5 15:40:15 JH kernel: [ 1440.647409] bdbm: gc-victim: 13 pages, 32 blocks, 92663 us
+Nov  5 15:40:15 JH kernel: [ 1441.202700] bdbm: ----------------------------------------------
+Nov  5 15:40:15 JH kernel: [ 1441.202704] bdbm: gc-victim: 17 pages, 32 blocks, 91776 us
+Nov  5 15:40:16 JH kernel: [ 1441.748899] bdbm: ----------------------------------------------
+Nov  5 15:40:16 JH kernel: [ 1441.748903] bdbm: gc-victim: 18 pages, 32 blocks, 93230 us
+Nov  5 15:40:16 JH kernel: [ 1442.298162] bdbm: ----------------------------------------------
+Nov  5 15:40:16 JH kernel: [ 1442.298166] bdbm: gc-victim: 21 pages, 32 blocks, 91120 us
+Nov  5 15:40:17 JH kernel: [ 1442.894170] bdbm: ----------------------------------------------
+Nov  5 15:40:17 JH kernel: [ 1442.894174] bdbm: gc-victim: 20 pages, 32 blocks, 90215 us
+Nov  5 15:40:17 JH kernel: [ 1443.447837] bdbm: ----------------------------------------------
+Nov  5 15:40:17 JH kernel: [ 1443.447840] bdbm: gc-victim: 19 pages, 32 blocks, 92189 us
+Nov  5 15:40:18 JH kernel: [ 1443.980545] bdbm: ----------------------------------------------
+Nov  5 15:40:18 JH kernel: [ 1443.980556] bdbm: gc-victim: 22 pages, 32 blocks, 93529 us
+Nov  5 15:40:19 JH kernel: [ 1444.589516] bdbm: ----------------------------------------------
+Nov  5 15:40:19 JH kernel: [ 1444.589519] bdbm: gc-victim: 25 pages, 32 blocks, 91470 us
+Nov  5 15:40:19 JH kernel: [ 1445.144325] bdbm: ----------------------------------------------
+Nov  5 15:40:19 JH kernel: [ 1445.144330] bdbm: gc-victim: 22 pages, 32 blocks, 92412 us
+Nov  5 15:40:20 JH kernel: [ 1445.756575] bdbm: ----------------------------------------------
+Nov  5 15:40:20 JH kernel: [ 1445.756579] bdbm: gc-victim: 23 pages, 32 blocks, 93683 us
+Nov  5 15:40:20 JH kernel: [ 1446.304760] bdbm: ----------------------------------------------
+Nov  5 15:40:20 JH kernel: [ 1446.304764] bdbm: gc-victim: 19 pages, 32 blocks, 93318 us
+Nov  5 15:40:21 JH kernel: [ 1446.845573] bdbm: ----------------------------------------------
+Nov  5 15:40:21 JH kernel: [ 1446.845577] bdbm: gc-victim: 25 pages, 32 blocks, 90643 us
+Nov  5 15:40:21 JH kernel: [ 1447.028640] bdbm: llm_make_req: 2950000, 67
+Nov  5 15:40:21 JH kernel: [ 1447.429327] bdbm: ----------------------------------------------
+Nov  5 15:40:21 JH kernel: [ 1447.429331] bdbm: gc-victim: 19 pages, 32 blocks, 90620 us
+Nov  5 15:40:22 JH kernel: [ 1447.966763] bdbm: ----------------------------------------------
+Nov  5 15:40:22 JH kernel: [ 1447.966768] bdbm: gc-victim: 21 pages, 32 blocks, 93466 us
+Nov  5 15:40:22 JH kernel: [ 1448.508465] bdbm: ----------------------------------------------
+Nov  5 15:40:22 JH kernel: [ 1448.508468] bdbm: gc-victim: 21 pages, 32 blocks, 90315 us
+Nov  5 15:40:23 JH kernel: [ 1449.026937] bdbm: ----------------------------------------------
+Nov  5 15:40:23 JH kernel: [ 1449.026941] bdbm: gc-victim: 20 pages, 32 blocks, 93389 us
+Nov  5 15:40:24 JH kernel: [ 1449.616673] bdbm: ----------------------------------------------
+Nov  5 15:40:24 JH kernel: [ 1449.616676] bdbm: gc-victim: 20 pages, 32 blocks, 92468 us
+Nov  5 15:40:24 JH kernel: [ 1450.144684] bdbm: ----------------------------------------------
+Nov  5 15:40:24 JH kernel: [ 1450.144688] bdbm: gc-victim: 16 pages, 32 blocks, 91007 us
+Nov  5 15:40:25 JH kernel: [ 1450.702382] bdbm: ----------------------------------------------
+Nov  5 15:40:25 JH kernel: [ 1450.702386] bdbm: gc-victim: 25 pages, 32 blocks, 93892 us
+Nov  5 15:40:25 JH kernel: [ 1451.292419] bdbm: ----------------------------------------------
+Nov  5 15:40:25 JH kernel: [ 1451.292423] bdbm: gc-victim: 23 pages, 32 blocks, 90522 us
+Nov  5 15:40:26 JH kernel: [ 1451.836393] bdbm: ----------------------------------------------
+Nov  5 15:40:26 JH kernel: [ 1451.836397] bdbm: gc-victim: 20 pages, 32 blocks, 92196 us
+Nov  5 15:40:26 JH kernel: [ 1452.359882] bdbm: ----------------------------------------------
+Nov  5 15:40:26 JH kernel: [ 1452.359885] bdbm: gc-victim: 25 pages, 32 blocks, 93639 us
+Nov  5 15:40:27 JH kernel: [ 1452.906110] bdbm: ----------------------------------------------
+Nov  5 15:40:27 JH kernel: [ 1452.906114] bdbm: gc-victim: 26 pages, 32 blocks, 91128 us
+Nov  5 15:40:27 JH kernel: [ 1453.470353] bdbm: ----------------------------------------------
+Nov  5 15:40:27 JH kernel: [ 1453.470357] bdbm: gc-victim: 25 pages, 32 blocks, 93548 us
+Nov  5 15:40:28 JH kernel: [ 1453.669166] bdbm: llm_make_req: 3000000, 33
+Nov  5 15:40:28 JH kernel: [ 1453.988042] bdbm: ----------------------------------------------
+Nov  5 15:40:28 JH kernel: [ 1453.988045] bdbm: gc-victim: 23 pages, 32 blocks, 93846 us
+Nov  5 15:40:28 JH kernel: [ 1454.563132] bdbm: ----------------------------------------------
+Nov  5 15:40:28 JH kernel: [ 1454.563135] bdbm: gc-victim: 23 pages, 32 blocks, 90512 us
+Nov  5 15:40:29 JH kernel: [ 1455.139303] bdbm: ----------------------------------------------
+Nov  5 15:40:29 JH kernel: [ 1455.139307] bdbm: gc-victim: 23 pages, 32 blocks, 92380 us
+Nov  5 15:40:30 JH kernel: [ 1455.721107] bdbm: ----------------------------------------------
+Nov  5 15:40:30 JH kernel: [ 1455.721112] bdbm: gc-victim: 29 pages, 32 blocks, 92933 us
+Nov  5 15:40:30 JH kernel: [ 1456.274170] bdbm: ----------------------------------------------
+Nov  5 15:40:30 JH kernel: [ 1456.274173] bdbm: gc-victim: 22 pages, 32 blocks, 93584 us
+Nov  5 15:40:31 JH kernel: [ 1456.864904] bdbm: ----------------------------------------------
+Nov  5 15:40:31 JH kernel: [ 1456.864907] bdbm: gc-victim: 21 pages, 32 blocks, 93637 us
+Nov  5 15:40:31 JH kernel: [ 1457.391955] bdbm: ----------------------------------------------
+Nov  5 15:40:31 JH kernel: [ 1457.391959] bdbm: gc-victim: 22 pages, 32 blocks, 93636 us
+Nov  5 15:40:32 JH kernel: [ 1457.931486] bdbm: ----------------------------------------------
+Nov  5 15:40:32 JH kernel: [ 1457.931491] bdbm: gc-victim: 23 pages, 32 blocks, 92479 us
+Nov  5 15:40:32 JH kernel: [ 1458.517720] bdbm: ----------------------------------------------
+Nov  5 15:40:32 JH kernel: [ 1458.517724] bdbm: gc-victim: 22 pages, 32 blocks, 91134 us
+Nov  5 15:40:33 JH kernel: [ 1459.032852] bdbm: ----------------------------------------------
+Nov  5 15:40:33 JH kernel: [ 1459.032857] bdbm: gc-victim: 26 pages, 32 blocks, 94143 us
+Nov  5 15:40:34 JH kernel: [ 1459.597619] bdbm: ----------------------------------------------
+Nov  5 15:40:34 JH kernel: [ 1459.597622] bdbm: gc-victim: 25 pages, 32 blocks, 93974 us
+Nov  5 15:40:34 JH kernel: [ 1460.258924] bdbm: ----------------------------------------------
+Nov  5 15:40:34 JH kernel: [ 1460.258928] bdbm: gc-victim: 23 pages, 32 blocks, 92369 us
+Nov  5 15:40:34 JH kernel: [ 1460.470384] bdbm: llm_make_req: 3050000, 53
+Nov  5 15:40:35 JH kernel: [ 1460.824064] bdbm: ----------------------------------------------
+Nov  5 15:40:35 JH kernel: [ 1460.824067] bdbm: gc-victim: 24 pages, 32 blocks, 93809 us
+Nov  5 15:40:35 JH kernel: [ 1461.369671] bdbm: ----------------------------------------------
+Nov  5 15:40:35 JH kernel: [ 1461.369675] bdbm: gc-victim: 25 pages, 32 blocks, 90799 us
+Nov  5 15:40:36 JH kernel: [ 1461.991556] bdbm: ----------------------------------------------
+Nov  5 15:40:36 JH kernel: [ 1461.991559] bdbm: gc-victim: 27 pages, 32 blocks, 92144 us
+Nov  5 15:40:36 JH kernel: [ 1462.520252] bdbm: ----------------------------------------------
+Nov  5 15:40:36 JH kernel: [ 1462.520256] bdbm: gc-victim: 27 pages, 32 blocks, 94038 us
+Nov  5 15:40:37 JH kernel: [ 1463.154228] bdbm: ----------------------------------------------
+Nov  5 15:40:37 JH kernel: [ 1463.154232] bdbm: gc-victim: 26 pages, 32 blocks, 93353 us
+Nov  5 15:40:38 JH kernel: [ 1463.769443] bdbm: ----------------------------------------------
+Nov  5 15:40:38 JH kernel: [ 1463.769447] bdbm: gc-victim: 23 pages, 32 blocks, 93117 us
+Nov  5 15:40:39 JH kernel: [ 1464.777465] bdbm: ----------------------------------------------
+Nov  5 15:40:39 JH kernel: [ 1464.777469] bdbm: gc-victim: 29 pages, 32 blocks, 91242 us
+Nov  5 15:40:41 JH kernel: [ 1466.791824] bdbm: ----------------------------------------------
+Nov  5 15:40:41 JH kernel: [ 1466.791828] bdbm: gc-victim: 29 pages, 32 blocks, 92902 us
+Nov  5 15:40:41 JH kernel: [ 1467.511084] bdbm: ----------------------------------------------
+Nov  5 15:40:41 JH kernel: [ 1467.511088] bdbm: gc-victim: 28 pages, 32 blocks, 94340 us
+Nov  5 15:40:42 JH kernel: [ 1468.211512] bdbm: ----------------------------------------------
+Nov  5 15:40:42 JH kernel: [ 1468.211516] bdbm: gc-victim: 3 pages, 32 blocks, 91193 us
+Nov  5 15:40:43 JH kernel: [ 1468.923267] bdbm: ----------------------------------------------
+Nov  5 15:40:43 JH kernel: [ 1468.923271] bdbm: gc-victim: 10 pages, 32 blocks, 93088 us
+Nov  5 15:40:44 JH kernel: [ 1469.584766] bdbm: ----------------------------------------------
+Nov  5 15:40:44 JH kernel: [ 1469.584770] bdbm: gc-victim: 11 pages, 32 blocks, 93044 us
+Nov  5 15:40:44 JH kernel: [ 1469.827318] bdbm: llm_make_req: 3100000, 80
+Nov  5 15:40:44 JH kernel: [ 1470.150051] bdbm: ----------------------------------------------
+Nov  5 15:40:44 JH kernel: [ 1470.150055] bdbm: gc-victim: 17 pages, 32 blocks, 90355 us
+Nov  5 15:40:45 JH kernel: [ 1470.813718] bdbm: ----------------------------------------------
+Nov  5 15:40:45 JH kernel: [ 1470.813722] bdbm: gc-victim: 21 pages, 32 blocks, 93501 us
+Nov  5 15:40:45 JH kernel: [ 1471.425953] bdbm: ----------------------------------------------
+Nov  5 15:40:45 JH kernel: [ 1471.425957] bdbm: gc-victim: 23 pages, 32 blocks, 93817 us
+Nov  5 15:40:46 JH kernel: [ 1472.058538] bdbm: ----------------------------------------------
+Nov  5 15:40:46 JH kernel: [ 1472.058541] bdbm: gc-victim: 15 pages, 32 blocks, 92408 us
+Nov  5 15:40:47 JH kernel: [ 1472.707178] bdbm: ----------------------------------------------
+Nov  5 15:40:47 JH kernel: [ 1472.707182] bdbm: gc-victim: 21 pages, 32 blocks, 92595 us
+Nov  5 15:40:47 JH kernel: [ 1473.305927] bdbm: ----------------------------------------------
+Nov  5 15:40:47 JH kernel: [ 1473.305931] bdbm: gc-victim: 21 pages, 32 blocks, 91163 us
+Nov  5 15:40:48 JH kernel: [ 1473.931811] bdbm: ----------------------------------------------
+Nov  5 15:40:48 JH kernel: [ 1473.931814] bdbm: gc-victim: 25 pages, 32 blocks, 94613 us
+Nov  5 15:40:48 JH kernel: [ 1474.476538] bdbm: ----------------------------------------------
+Nov  5 15:40:48 JH kernel: [ 1474.476542] bdbm: gc-victim: 25 pages, 32 blocks, 93668 us
+Nov  5 15:40:49 JH kernel: [ 1475.079215] bdbm: ----------------------------------------------
+Nov  5 15:40:49 JH kernel: [ 1475.079219] bdbm: gc-victim: 27 pages, 32 blocks, 94287 us
+Nov  5 15:40:50 JH kernel: [ 1475.710913] bdbm: ----------------------------------------------
+Nov  5 15:40:50 JH kernel: [ 1475.710917] bdbm: gc-victim: 26 pages, 32 blocks, 94193 us
+Nov  5 15:40:50 JH kernel: [ 1476.383712] bdbm: ----------------------------------------------
+Nov  5 15:40:50 JH kernel: [ 1476.383716] bdbm: gc-victim: 28 pages, 32 blocks, 91884 us
+Nov  5 15:40:51 JH kernel: [ 1477.044871] bdbm: ----------------------------------------------
+Nov  5 15:40:51 JH kernel: [ 1477.044875] bdbm: gc-victim: 30 pages, 32 blocks, 94141 us
+Nov  5 15:40:51 JH kernel: [ 1477.315150] bdbm: llm_make_req: 3150000, 47
+Nov  5 15:40:52 JH kernel: [ 1477.637990] bdbm: ----------------------------------------------
+Nov  5 15:40:52 JH kernel: [ 1477.637994] bdbm: gc-victim: 26 pages, 32 blocks, 93525 us
+Nov  5 15:40:52 JH kernel: [ 1478.205037] bdbm: ----------------------------------------------
+Nov  5 15:40:52 JH kernel: [ 1478.205040] bdbm: gc-victim: 27 pages, 32 blocks, 91713 us
+Nov  5 15:40:53 JH kernel: [ 1478.847195] bdbm: ----------------------------------------------
+Nov  5 15:40:53 JH kernel: [ 1478.847198] bdbm: gc-victim: 27 pages, 32 blocks, 91722 us
+Nov  5 15:40:53 JH kernel: [ 1479.491070] bdbm: ----------------------------------------------
+Nov  5 15:40:53 JH kernel: [ 1479.491074] bdbm: gc-victim: 27 pages, 32 blocks, 90919 us
+Nov  5 15:40:54 JH kernel: [ 1480.139966] bdbm: ----------------------------------------------
+Nov  5 15:40:54 JH kernel: [ 1480.139969] bdbm: gc-victim: 28 pages, 32 blocks, 91837 us
+Nov  5 15:40:55 JH kernel: [ 1480.786098] bdbm: ----------------------------------------------
+Nov  5 15:40:55 JH kernel: [ 1480.786103] bdbm: gc-victim: 29 pages, 32 blocks, 94402 us
+Nov  5 15:40:55 JH kernel: [ 1481.409680] bdbm: ----------------------------------------------
+Nov  5 15:40:55 JH kernel: [ 1481.409684] bdbm: gc-victim: 27 pages, 32 blocks, 92841 us
+Nov  5 15:40:56 JH kernel: [ 1482.023638] bdbm: ----------------------------------------------
+Nov  5 15:40:56 JH kernel: [ 1482.023641] bdbm: gc-victim: 28 pages, 32 blocks, 91907 us
+Nov  5 15:40:57 JH kernel: [ 1482.685893] bdbm: ----------------------------------------------
+Nov  5 15:40:57 JH kernel: [ 1482.685898] bdbm: gc-victim: 32 pages, 32 blocks, 94572 us
+Nov  5 15:40:57 JH kernel: [ 1483.333669] bdbm: ----------------------------------------------
+Nov  5 15:40:57 JH kernel: [ 1483.333672] bdbm: gc-victim: 30 pages, 32 blocks, 93912 us
+Nov  5 15:40:58 JH kernel: [ 1483.956636] bdbm: ----------------------------------------------
+Nov  5 15:40:58 JH kernel: [ 1483.956639] bdbm: gc-victim: 30 pages, 32 blocks, 91550 us
+Nov  5 15:40:59 JH kernel: [ 1484.591388] bdbm: ----------------------------------------------
+Nov  5 15:40:59 JH kernel: [ 1484.591392] bdbm: gc-victim: 25 pages, 32 blocks, 93718 us
+Nov  5 15:40:59 JH kernel: [ 1484.878334] bdbm: llm_make_req: 3200000, 1
+Nov  5 15:40:59 JH kernel: [ 1485.145083] bdbm: ----------------------------------------------
+Nov  5 15:40:59 JH kernel: [ 1485.145086] bdbm: gc-victim: 24 pages, 32 blocks, 93920 us
+Nov  5 15:41:00 JH kernel: [ 1485.766215] bdbm: ----------------------------------------------
+Nov  5 15:41:00 JH kernel: [ 1485.766218] bdbm: gc-victim: 1 pages, 32 blocks, 89276 us
+Nov  5 15:41:00 JH kernel: [ 1486.442524] bdbm: ----------------------------------------------
+Nov  5 15:41:00 JH kernel: [ 1486.442528] bdbm: gc-victim: 19 pages, 32 blocks, 93335 us
+Nov  5 15:41:01 JH kernel: [ 1487.094358] bdbm: ----------------------------------------------
+Nov  5 15:41:01 JH kernel: [ 1487.094362] bdbm: gc-victim: 29 pages, 32 blocks, 91219 us
+Nov  5 15:41:02 JH kernel: [ 1487.720084] bdbm: ----------------------------------------------
+Nov  5 15:41:02 JH kernel: [ 1487.720087] bdbm: gc-victim: 27 pages, 32 blocks, 93967 us
+Nov  5 15:41:02 JH kernel: [ 1488.324992] bdbm: ----------------------------------------------
+Nov  5 15:41:02 JH kernel: [ 1488.324996] bdbm: gc-victim: 30 pages, 32 blocks, 91347 us
+Nov  5 15:41:03 JH kernel: [ 1488.904863] bdbm: ----------------------------------------------
+Nov  5 15:41:03 JH kernel: [ 1488.904867] bdbm: gc-victim: 28 pages, 32 blocks, 93840 us
+Nov  5 15:41:03 JH kernel: [ 1489.526177] bdbm: ----------------------------------------------
+Nov  5 15:41:03 JH kernel: [ 1489.526180] bdbm: gc-victim: 27 pages, 32 blocks, 91702 us
+Nov  5 15:41:04 JH kernel: [ 1490.157423] bdbm: ----------------------------------------------
+Nov  5 15:41:04 JH kernel: [ 1490.157426] bdbm: gc-victim: 30 pages, 32 blocks, 93729 us
+Nov  5 15:41:05 JH kernel: [ 1490.820943] bdbm: ----------------------------------------------
+Nov  5 15:41:05 JH kernel: [ 1490.820947] bdbm: gc-victim: 31 pages, 32 blocks, 94094 us
+Nov  5 15:41:05 JH kernel: [ 1491.453393] bdbm: ----------------------------------------------
+Nov  5 15:41:05 JH kernel: [ 1491.453396] bdbm: gc-victim: 29 pages, 32 blocks, 94418 us
+Nov  5 15:41:06 JH kernel: [ 1492.093037] bdbm: ----------------------------------------------
+Nov  5 15:41:06 JH kernel: [ 1492.093041] bdbm: gc-victim: 31 pages, 32 blocks, 93944 us
+Nov  5 15:41:06 JH kernel: [ 1492.432345] bdbm: llm_make_req: 3250000, 31
+Nov  5 15:41:07 JH kernel: [ 1492.721192] bdbm: ----------------------------------------------
+Nov  5 15:41:07 JH kernel: [ 1492.721196] bdbm: gc-victim: 27 pages, 32 blocks, 95743 us
+Nov  5 15:41:07 JH kernel: [ 1493.344146] bdbm: ----------------------------------------------
+Nov  5 15:41:07 JH kernel: [ 1493.344149] bdbm: gc-victim: 27 pages, 32 blocks, 93603 us
+Nov  5 15:41:08 JH kernel: [ 1494.009232] bdbm: ----------------------------------------------
+Nov  5 15:41:08 JH kernel: [ 1494.009234] bdbm: gc-victim: 31 pages, 32 blocks, 94516 us
+Nov  5 15:41:09 JH kernel: [ 1494.635585] bdbm: ----------------------------------------------
+Nov  5 15:41:09 JH kernel: [ 1494.635589] bdbm: gc-victim: 28 pages, 32 blocks, 92831 us
+Nov  5 15:41:09 JH kernel: [ 1495.265218] bdbm: ----------------------------------------------
+Nov  5 15:41:09 JH kernel: [ 1495.265222] bdbm: gc-victim: 29 pages, 32 blocks, 91970 us
+Nov  5 15:41:10 JH kernel: [ 1495.792052] bdbm: ----------------------------------------------
+Nov  5 15:41:10 JH kernel: [ 1495.792055] bdbm: gc-victim: 31 pages, 32 blocks, 93068 us
+Nov  5 15:41:10 JH kernel: [ 1496.424664] bdbm: ----------------------------------------------
+Nov  5 15:41:10 JH kernel: [ 1496.424668] bdbm: gc-victim: 32 pages, 32 blocks, 93949 us
+Nov  5 15:41:11 JH kernel: [ 1496.976099] bdbm: ----------------------------------------------
+Nov  5 15:41:11 JH kernel: [ 1496.976104] bdbm: gc-victim: 0 pages, 32 blocks, 88694 us
+Nov  5 15:41:12 JH kernel: [ 1497.630580] bdbm: ----------------------------------------------
+Nov  5 15:41:12 JH kernel: [ 1497.630591] bdbm: gc-victim: 31 pages, 32 blocks, 92547 us
+Nov  5 15:41:12 JH kernel: [ 1498.248219] bdbm: ----------------------------------------------
+Nov  5 15:41:12 JH kernel: [ 1498.248222] bdbm: gc-victim: 31 pages, 32 blocks, 92123 us
+Nov  5 15:41:13 JH kernel: [ 1498.865749] bdbm: ----------------------------------------------
+Nov  5 15:41:13 JH kernel: [ 1498.865753] bdbm: gc-victim: 30 pages, 32 blocks, 93842 us
+Nov  5 15:41:13 JH kernel: [ 1499.463017] bdbm: ----------------------------------------------
+Nov  5 15:41:13 JH kernel: [ 1499.463021] bdbm: gc-victim: 31 pages, 32 blocks, 94536 us
+Nov  5 15:41:14 JH kernel: [ 1499.835018] bdbm: llm_make_req: 3300000, 65
+Nov  5 15:41:14 JH kernel: [ 1500.096112] bdbm: ----------------------------------------------
+Nov  5 15:41:14 JH kernel: [ 1500.096115] bdbm: gc-victim: 32 pages, 32 blocks, 93660 us
+Nov  5 15:41:15 JH kernel: [ 1500.742059] bdbm: ----------------------------------------------
+Nov  5 15:41:15 JH kernel: [ 1500.742063] bdbm: gc-victim: 30 pages, 32 blocks, 94231 us
+Nov  5 15:41:15 JH kernel: [ 1501.352993] bdbm: ----------------------------------------------
+Nov  5 15:41:15 JH kernel: [ 1501.352999] bdbm: gc-victim: 33 pages, 32 blocks, 95942 us
+Nov  5 15:41:16 JH kernel: [ 1501.985468] bdbm: ----------------------------------------------
+Nov  5 15:41:16 JH kernel: [ 1501.985472] bdbm: gc-victim: 36 pages, 32 blocks, 96487 us
+Nov  5 15:41:17 JH kernel: [ 1502.599827] bdbm: ----------------------------------------------
+Nov  5 15:41:17 JH kernel: [ 1502.599831] bdbm: gc-victim: 34 pages, 32 blocks, 95597 us
+Nov  5 15:41:17 JH kernel: [ 1503.225400] bdbm: ----------------------------------------------
+Nov  5 15:41:17 JH kernel: [ 1503.225404] bdbm: gc-victim: 32 pages, 32 blocks, 92637 us
+Nov  5 15:41:18 JH kernel: [ 1503.846524] bdbm: ----------------------------------------------
+Nov  5 15:41:18 JH kernel: [ 1503.846528] bdbm: gc-victim: 34 pages, 32 blocks, 95517 us
+Nov  5 15:41:18 JH kernel: [ 1504.493411] bdbm: ----------------------------------------------
+Nov  5 15:41:18 JH kernel: [ 1504.493416] bdbm: gc-victim: 39 pages, 32 blocks, 95551 us
+Nov  5 15:41:19 JH kernel: [ 1505.118638] bdbm: ----------------------------------------------
+Nov  5 15:41:19 JH kernel: [ 1505.118642] bdbm: gc-victim: 34 pages, 32 blocks, 96155 us
+Nov  5 15:41:20 JH kernel: [ 1505.771366] bdbm: ----------------------------------------------
+Nov  5 15:41:20 JH kernel: [ 1505.771371] bdbm: gc-victim: 36 pages, 32 blocks, 96202 us
+Nov  5 15:41:20 JH kernel: [ 1506.306745] bdbm: ----------------------------------------------
+Nov  5 15:41:20 JH kernel: [ 1506.306749] bdbm: gc-victim: 39 pages, 32 blocks, 93635 us
+Nov  5 15:41:21 JH kernel: [ 1506.944895] bdbm: ----------------------------------------------
+Nov  5 15:41:21 JH kernel: [ 1506.944899] bdbm: gc-victim: 35 pages, 32 blocks, 95507 us
+Nov  5 15:41:21 JH kernel: [ 1507.311500] bdbm: llm_make_req: 3350000, 86
+Nov  5 15:41:22 JH kernel: [ 1507.570682] bdbm: ----------------------------------------------
+Nov  5 15:41:22 JH kernel: [ 1507.570686] bdbm: gc-victim: 37 pages, 32 blocks, 95999 us
+Nov  5 15:41:22 JH kernel: [ 1508.235236] bdbm: ----------------------------------------------
+Nov  5 15:41:22 JH kernel: [ 1508.235240] bdbm: gc-victim: 33 pages, 32 blocks, 94826 us
+Nov  5 15:41:23 JH kernel: [ 1508.854949] bdbm: ----------------------------------------------
+Nov  5 15:41:23 JH kernel: [ 1508.854954] bdbm: gc-victim: 34 pages, 32 blocks, 96088 us
+Nov  5 15:41:23 JH kernel: [ 1509.520699] bdbm: ----------------------------------------------
+Nov  5 15:41:23 JH kernel: [ 1509.520704] bdbm: gc-victim: 35 pages, 32 blocks, 96198 us
+Nov  5 15:41:24 JH kernel: [ 1510.151534] bdbm: ----------------------------------------------
+Nov  5 15:41:24 JH kernel: [ 1510.151537] bdbm: gc-victim: 38 pages, 32 blocks, 96430 us
+Nov  5 15:41:25 JH kernel: [ 1510.742053] bdbm: ----------------------------------------------
+Nov  5 15:41:25 JH kernel: [ 1510.742056] bdbm: gc-victim: 34 pages, 32 blocks, 96062 us
+Nov  5 15:41:25 JH kernel: [ 1511.362257] bdbm: ----------------------------------------------
+Nov  5 15:41:25 JH kernel: [ 1511.362261] bdbm: gc-victim: 38 pages, 32 blocks, 93154 us
+Nov  5 15:41:26 JH kernel: [ 1511.996825] bdbm: ----------------------------------------------
+Nov  5 15:41:26 JH kernel: [ 1511.996829] bdbm: gc-victim: 36 pages, 32 blocks, 94782 us
+Nov  5 15:41:27 JH kernel: [ 1512.628680] bdbm: ----------------------------------------------
+Nov  5 15:41:27 JH kernel: [ 1512.628683] bdbm: gc-victim: 40 pages, 32 blocks, 95398 us
+Nov  5 15:41:27 JH kernel: [ 1513.248640] bdbm: ----------------------------------------------
+Nov  5 15:41:27 JH kernel: [ 1513.248644] bdbm: gc-victim: 37 pages, 32 blocks, 96572 us
+Nov  5 15:41:28 JH kernel: [ 1513.893323] bdbm: ----------------------------------------------
+Nov  5 15:41:28 JH kernel: [ 1513.893327] bdbm: gc-victim: 39 pages, 32 blocks, 96596 us
+Nov  5 15:41:28 JH kernel: [ 1514.530554] bdbm: ----------------------------------------------
+Nov  5 15:41:28 JH kernel: [ 1514.530558] bdbm: gc-victim: 45 pages, 32 blocks, 94849 us
+Nov  5 15:41:29 JH kernel: [ 1514.859569] bdbm: llm_make_req: 3400000, 33
+Nov  5 15:41:29 JH kernel: [ 1515.142736] bdbm: ----------------------------------------------
+Nov  5 15:41:29 JH kernel: [ 1515.142740] bdbm: gc-victim: 40 pages, 32 blocks, 95595 us
+Nov  5 15:41:30 JH kernel: [ 1515.791837] bdbm: ----------------------------------------------
+Nov  5 15:41:30 JH kernel: [ 1515.791842] bdbm: gc-victim: 43 pages, 32 blocks, 94459 us
+Nov  5 15:41:30 JH kernel: [ 1516.465522] bdbm: ----------------------------------------------
+Nov  5 15:41:30 JH kernel: [ 1516.465527] bdbm: gc-victim: 48 pages, 32 blocks, 98114 us
+Nov  5 15:41:31 JH kernel: [ 1516.990785] bdbm: ----------------------------------------------
+Nov  5 15:41:31 JH kernel: [ 1516.990789] bdbm: gc-victim: 45 pages, 32 blocks, 97347 us
+Nov  5 15:41:32 JH kernel: [ 1517.601608] bdbm: ----------------------------------------------
+Nov  5 15:41:32 JH kernel: [ 1517.601611] bdbm: gc-victim: 49 pages, 32 blocks, 97504 us
+Nov  5 15:41:32 JH kernel: [ 1518.215419] bdbm: ----------------------------------------------
+Nov  5 15:41:32 JH kernel: [ 1518.215422] bdbm: gc-victim: 48 pages, 32 blocks, 95125 us
+Nov  5 15:41:33 JH kernel: [ 1518.896872] bdbm: ----------------------------------------------
+Nov  5 15:41:33 JH kernel: [ 1518.896875] bdbm: gc-victim: 46 pages, 32 blocks, 97098 us
+Nov  5 15:41:33 JH kernel: [ 1519.512733] bdbm: ----------------------------------------------
+Nov  5 15:41:33 JH kernel: [ 1519.512736] bdbm: gc-victim: 54 pages, 32 blocks, 97905 us
+Nov  5 15:41:34 JH kernel: [ 1520.146104] bdbm: ----------------------------------------------
+Nov  5 15:41:34 JH kernel: [ 1520.146108] bdbm: gc-victim: 46 pages, 32 blocks, 95876 us
+Nov  5 15:41:35 JH kernel: [ 1520.769119] bdbm: ----------------------------------------------
+Nov  5 15:41:35 JH kernel: [ 1520.769123] bdbm: gc-victim: 50 pages, 32 blocks, 97756 us
+Nov  5 15:41:35 JH kernel: [ 1521.413421] bdbm: ----------------------------------------------
+Nov  5 15:41:35 JH kernel: [ 1521.413425] bdbm: gc-victim: 44 pages, 32 blocks, 95958 us
+Nov  5 15:41:36 JH kernel: [ 1522.061870] bdbm: ----------------------------------------------
+Nov  5 15:41:36 JH kernel: [ 1522.061874] bdbm: gc-victim: 44 pages, 32 blocks, 94668 us
+Nov  5 15:41:36 JH kernel: [ 1522.406989] bdbm: llm_make_req: 3450000, 96
+Nov  5 15:41:37 JH kernel: [ 1522.690076] bdbm: ----------------------------------------------
+Nov  5 15:41:37 JH kernel: [ 1522.690080] bdbm: gc-victim: 46 pages, 32 blocks, 97464 us
+Nov  5 15:41:37 JH kernel: [ 1523.301858] bdbm: ----------------------------------------------
+Nov  5 15:41:37 JH kernel: [ 1523.301862] bdbm: gc-victim: 45 pages, 32 blocks, 96069 us
+Nov  5 15:41:38 JH kernel: [ 1523.963312] bdbm: ----------------------------------------------
+Nov  5 15:41:38 JH kernel: [ 1523.963316] bdbm: gc-victim: 45 pages, 32 blocks, 96308 us
+Nov  5 15:41:39 JH kernel: [ 1524.581213] bdbm: ----------------------------------------------
+Nov  5 15:41:39 JH kernel: [ 1524.581218] bdbm: gc-victim: 44 pages, 32 blocks, 94524 us
+Nov  5 15:41:39 JH kernel: [ 1525.232952] bdbm: ----------------------------------------------
+Nov  5 15:41:39 JH kernel: [ 1525.232956] bdbm: gc-victim: 50 pages, 32 blocks, 95257 us
+Nov  5 15:41:40 JH kernel: [ 1525.891145] bdbm: ----------------------------------------------
+Nov  5 15:41:40 JH kernel: [ 1525.891149] bdbm: gc-victim: 50 pages, 32 blocks, 97628 us
+Nov  5 15:41:40 JH kernel: [ 1526.518337] bdbm: ----------------------------------------------
+Nov  5 15:41:40 JH kernel: [ 1526.518340] bdbm: gc-victim: 50 pages, 32 blocks, 97454 us
+Nov  5 15:41:41 JH kernel: [ 1527.159959] bdbm: ----------------------------------------------
+Nov  5 15:41:41 JH kernel: [ 1527.159963] bdbm: gc-victim: 53 pages, 32 blocks, 95431 us
+Nov  5 15:41:42 JH kernel: [ 1527.695573] bdbm: ----------------------------------------------
+Nov  5 15:41:42 JH kernel: [ 1527.695577] bdbm: gc-victim: 47 pages, 32 blocks, 97250 us
+Nov  5 15:41:42 JH kernel: [ 1528.317022] bdbm: ----------------------------------------------
+Nov  5 15:41:42 JH kernel: [ 1528.317026] bdbm: gc-victim: 47 pages, 32 blocks, 96170 us
+Nov  5 15:41:43 JH kernel: [ 1528.952877] bdbm: ----------------------------------------------
+Nov  5 15:41:43 JH kernel: [ 1528.952881] bdbm: gc-victim: 53 pages, 32 blocks, 98064 us
+Nov  5 15:41:43 JH kernel: [ 1529.555672] bdbm: ----------------------------------------------
+Nov  5 15:41:43 JH kernel: [ 1529.555675] bdbm: gc-victim: 52 pages, 32 blocks, 96313 us
+Nov  5 15:41:44 JH kernel: [ 1529.876363] bdbm: llm_make_req: 3500000, 48
+Nov  5 15:41:44 JH kernel: [ 1530.189545] bdbm: ----------------------------------------------
+Nov  5 15:41:44 JH kernel: [ 1530.189549] bdbm: gc-victim: 55 pages, 32 blocks, 96786 us
+Nov  5 15:41:45 JH kernel: [ 1530.797746] bdbm: ----------------------------------------------
+Nov  5 15:41:45 JH kernel: [ 1530.797751] bdbm: gc-victim: 56 pages, 32 blocks, 94988 us
+Nov  5 15:41:45 JH kernel: [ 1531.390532] bdbm: ----------------------------------------------
+Nov  5 15:41:45 JH kernel: [ 1531.390536] bdbm: gc-victim: 55 pages, 32 blocks, 94914 us
+Nov  5 15:41:46 JH kernel: [ 1532.014152] bdbm: ----------------------------------------------
+Nov  5 15:41:46 JH kernel: [ 1532.014155] bdbm: gc-victim: 52 pages, 32 blocks, 97178 us
+Nov  5 15:41:47 JH kernel: [ 1532.617219] bdbm: ----------------------------------------------
+Nov  5 15:41:47 JH kernel: [ 1532.617222] bdbm: gc-victim: 53 pages, 32 blocks, 95016 us
+Nov  5 15:41:47 JH kernel: [ 1533.232588] bdbm: ----------------------------------------------
+Nov  5 15:41:47 JH kernel: [ 1533.232592] bdbm: gc-victim: 53 pages, 32 blocks, 94828 us
+Nov  5 15:41:48 JH kernel: [ 1533.865882] bdbm: ----------------------------------------------
+Nov  5 15:41:48 JH kernel: [ 1533.865885] bdbm: gc-victim: 54 pages, 32 blocks, 94845 us
+Nov  5 15:41:48 JH kernel: [ 1534.467672] bdbm: ----------------------------------------------
+Nov  5 15:41:48 JH kernel: [ 1534.467675] bdbm: gc-victim: 57 pages, 32 blocks, 98242 us
+Nov  5 15:41:49 JH kernel: [ 1535.109265] bdbm: ----------------------------------------------
+Nov  5 15:41:49 JH kernel: [ 1535.109269] bdbm: gc-victim: 56 pages, 32 blocks, 96851 us
+Nov  5 15:41:50 JH kernel: [ 1535.739223] bdbm: ----------------------------------------------
+Nov  5 15:41:50 JH kernel: [ 1535.739228] bdbm: gc-victim: 55 pages, 32 blocks, 98233 us
+Nov  5 15:41:50 JH kernel: [ 1536.369883] bdbm: ----------------------------------------------
+Nov  5 15:41:50 JH kernel: [ 1536.369887] bdbm: gc-victim: 58 pages, 32 blocks, 96375 us
+Nov  5 15:41:51 JH kernel: [ 1536.993474] bdbm: ----------------------------------------------
+Nov  5 15:41:51 JH kernel: [ 1536.993478] bdbm: gc-victim: 56 pages, 32 blocks, 98058 us
+Nov  5 15:41:51 JH kernel: [ 1537.312691] bdbm: llm_make_req: 3550000, 74
+Nov  5 15:41:52 JH kernel: [ 1537.642174] bdbm: ----------------------------------------------
+Nov  5 15:41:52 JH kernel: [ 1537.642178] bdbm: gc-victim: 60 pages, 32 blocks, 98771 us
+Nov  5 15:41:52 JH kernel: [ 1538.179652] bdbm: ----------------------------------------------
+Nov  5 15:41:52 JH kernel: [ 1538.179655] bdbm: gc-victim: 56 pages, 32 blocks, 97908 us
+Nov  5 15:41:53 JH kernel: [ 1538.839013] bdbm: ----------------------------------------------
+Nov  5 15:41:53 JH kernel: [ 1538.839017] bdbm: gc-victim: 54 pages, 32 blocks, 97162 us
+Nov  5 15:41:53 JH kernel: [ 1539.486620] bdbm: ----------------------------------------------
+Nov  5 15:41:53 JH kernel: [ 1539.486623] bdbm: gc-victim: 52 pages, 32 blocks, 97171 us
+Nov  5 15:41:54 JH kernel: [ 1540.084741] bdbm: ----------------------------------------------
+Nov  5 15:41:54 JH kernel: [ 1540.084745] bdbm: gc-victim: 58 pages, 32 blocks, 95324 us
+Nov  5 15:41:55 JH kernel: [ 1540.753828] bdbm: ----------------------------------------------
+Nov  5 15:41:55 JH kernel: [ 1540.753831] bdbm: gc-victim: 62 pages, 32 blocks, 98050 us
+Nov  5 15:41:55 JH kernel: [ 1541.338951] bdbm: ----------------------------------------------
+Nov  5 15:41:55 JH kernel: [ 1541.338955] bdbm: gc-victim: 60 pages, 32 blocks, 98664 us
+Nov  5 15:41:56 JH kernel: [ 1541.966813] bdbm: ----------------------------------------------
+Nov  5 15:41:56 JH kernel: [ 1541.966818] bdbm: gc-victim: 61 pages, 32 blocks, 98382 us
+Nov  5 15:41:57 JH kernel: [ 1542.571805] bdbm: ----------------------------------------------
+Nov  5 15:41:57 JH kernel: [ 1542.571808] bdbm: gc-victim: 58 pages, 32 blocks, 97060 us
+Nov  5 15:41:57 JH kernel: [ 1543.202514] bdbm: ----------------------------------------------
+Nov  5 15:41:57 JH kernel: [ 1543.202517] bdbm: gc-victim: 63 pages, 32 blocks, 97918 us
+Nov  5 15:41:58 JH kernel: [ 1543.805960] bdbm: ----------------------------------------------
+Nov  5 15:41:58 JH kernel: [ 1543.805964] bdbm: gc-victim: 56 pages, 32 blocks, 98090 us
+Nov  5 15:41:58 JH kernel: [ 1544.445791] bdbm: ----------------------------------------------
+Nov  5 15:41:58 JH kernel: [ 1544.445794] bdbm: gc-victim: 57 pages, 32 blocks, 95744 us
+Nov  5 15:41:59 JH kernel: [ 1544.749527] bdbm: llm_make_req: 3600000, 3
+Nov  5 15:41:59 JH kernel: [ 1545.102972] bdbm: ----------------------------------------------
+Nov  5 15:41:59 JH kernel: [ 1545.102976] bdbm: gc-victim: 58 pages, 32 blocks, 98163 us
+Nov  5 15:42:00 JH kernel: [ 1545.748620] bdbm: ----------------------------------------------
+Nov  5 15:42:00 JH kernel: [ 1545.748631] bdbm: gc-victim: 61 pages, 32 blocks, 98665 us
+Nov  5 15:42:00 JH kernel: [ 1546.366816] bdbm: ----------------------------------------------
+Nov  5 15:42:00 JH kernel: [ 1546.366821] bdbm: gc-victim: 58 pages, 32 blocks, 98406 us
+Nov  5 15:42:01 JH kernel: [ 1547.007616] bdbm: ----------------------------------------------
+Nov  5 15:42:01 JH kernel: [ 1547.007629] bdbm: gc-victim: 61 pages, 32 blocks, 97626 us
+Nov  5 15:42:02 JH kernel: [ 1547.616912] bdbm: ----------------------------------------------
+Nov  5 15:42:02 JH kernel: [ 1547.616916] bdbm: gc-victim: 63 pages, 32 blocks, 99027 us
+Nov  5 15:42:02 JH kernel: [ 1548.213633] bdbm: ----------------------------------------------
+Nov  5 15:42:02 JH kernel: [ 1548.213637] bdbm: gc-victim: 60 pages, 32 blocks, 96578 us
+Nov  5 15:42:03 JH kernel: [ 1548.751513] bdbm: ----------------------------------------------
+Nov  5 15:42:03 JH kernel: [ 1548.751518] bdbm: gc-victim: 64 pages, 32 blocks, 96023 us
+Nov  5 15:42:03 JH kernel: [ 1549.405325] bdbm: ----------------------------------------------
+Nov  5 15:42:03 JH kernel: [ 1549.405329] bdbm: gc-victim: 65 pages, 32 blocks, 100340 us
+Nov  5 15:42:04 JH kernel: [ 1550.027854] bdbm: ----------------------------------------------
+Nov  5 15:42:04 JH kernel: [ 1550.027857] bdbm: gc-victim: 62 pages, 32 blocks, 98156 us
+Nov  5 15:42:05 JH kernel: [ 1550.662057] bdbm: ----------------------------------------------
+Nov  5 15:42:05 JH kernel: [ 1550.662060] bdbm: gc-victim: 63 pages, 32 blocks, 96133 us
+Nov  5 15:42:05 JH kernel: [ 1551.277050] bdbm: ----------------------------------------------
+Nov  5 15:42:05 JH kernel: [ 1551.277054] bdbm: gc-victim: 69 pages, 32 blocks, 100423 us
+Nov  5 15:42:06 JH kernel: [ 1551.872312] bdbm: ----------------------------------------------
+Nov  5 15:42:06 JH kernel: [ 1551.872316] bdbm: gc-victim: 69 pages, 32 blocks, 100903 us
+Nov  5 15:42:06 JH kernel: [ 1552.133352] bdbm: llm_make_req: 3650000, 49
+Nov  5 15:42:06 JH kernel: [ 1552.547849] bdbm: ----------------------------------------------
+Nov  5 15:42:06 JH kernel: [ 1552.547853] bdbm: gc-victim: 66 pages, 32 blocks, 100187 us
+Nov  5 15:42:07 JH kernel: [ 1553.175267] bdbm: ----------------------------------------------
+Nov  5 15:42:07 JH kernel: [ 1553.175271] bdbm: gc-victim: 69 pages, 32 blocks, 99269 us
+Nov  5 15:42:08 JH kernel: [ 1553.749520] bdbm: ----------------------------------------------
+Nov  5 15:42:08 JH kernel: [ 1553.749524] bdbm: gc-victim: 67 pages, 32 blocks, 100240 us
+Nov  5 15:42:08 JH kernel: [ 1554.377966] bdbm: ----------------------------------------------
+Nov  5 15:42:08 JH kernel: [ 1554.377970] bdbm: gc-victim: 69 pages, 32 blocks, 100286 us
+Nov  5 15:42:09 JH kernel: [ 1555.041731] bdbm: ----------------------------------------------
+Nov  5 15:42:09 JH kernel: [ 1555.041735] bdbm: gc-victim: 72 pages, 32 blocks, 101014 us
+Nov  5 15:42:10 JH kernel: [ 1555.674326] bdbm: ----------------------------------------------
+Nov  5 15:42:10 JH kernel: [ 1555.674329] bdbm: gc-victim: 72 pages, 32 blocks, 100871 us
+Nov  5 15:42:10 JH kernel: [ 1556.289786] bdbm: ----------------------------------------------
+Nov  5 15:42:10 JH kernel: [ 1556.289789] bdbm: gc-victim: 71 pages, 32 blocks, 100299 us
+Nov  5 15:42:11 JH kernel: [ 1556.932459] bdbm: ----------------------------------------------
+Nov  5 15:42:11 JH kernel: [ 1556.932463] bdbm: gc-victim: 71 pages, 32 blocks, 100907 us
+Nov  5 15:42:11 JH kernel: [ 1557.528622] bdbm: ----------------------------------------------
+Nov  5 15:42:11 JH kernel: [ 1557.528626] bdbm: gc-victim: 72 pages, 32 blocks, 100491 us
+Nov  5 15:42:12 JH kernel: [ 1558.135575] bdbm: ----------------------------------------------
+Nov  5 15:42:12 JH kernel: [ 1558.135579] bdbm: gc-victim: 74 pages, 32 blocks, 100744 us
+Nov  5 15:42:13 JH kernel: [ 1558.764017] bdbm: ----------------------------------------------
+Nov  5 15:42:13 JH kernel: [ 1558.764021] bdbm: gc-victim: 73 pages, 32 blocks, 99987 us
+Nov  5 15:42:13 JH kernel: [ 1559.318037] bdbm: ----------------------------------------------
+Nov  5 15:42:13 JH kernel: [ 1559.318041] bdbm: gc-victim: 70 pages, 32 blocks, 100128 us
+Nov  5 15:42:13 JH kernel: [ 1559.510520] bdbm: llm_make_req: 3700000, 89
+Nov  5 15:42:14 JH kernel: [ 1559.953509] bdbm: ----------------------------------------------
+Nov  5 15:42:14 JH kernel: [ 1559.953512] bdbm: gc-victim: 78 pages, 32 blocks, 101489 us
+Nov  5 15:42:15 JH kernel: [ 1560.614315] bdbm: ----------------------------------------------
+Nov  5 15:42:15 JH kernel: [ 1560.614325] bdbm: gc-victim: 77 pages, 32 blocks, 99318 us
+Nov  5 15:42:15 JH kernel: [ 1561.210229] bdbm: ----------------------------------------------
+Nov  5 15:42:15 JH kernel: [ 1561.210233] bdbm: gc-victim: 76 pages, 32 blocks, 98768 us
+Nov  5 15:42:16 JH kernel: [ 1561.841314] bdbm: ----------------------------------------------
+Nov  5 15:42:16 JH kernel: [ 1561.841318] bdbm: gc-victim: 73 pages, 32 blocks, 100504 us
+Nov  5 15:42:16 JH kernel: [ 1562.426100] bdbm: ----------------------------------------------
+Nov  5 15:42:16 JH kernel: [ 1562.426105] bdbm: gc-victim: 77 pages, 32 blocks, 101782 us
+Nov  5 15:42:17 JH kernel: [ 1563.036243] bdbm: ----------------------------------------------
+Nov  5 15:42:17 JH kernel: [ 1563.036246] bdbm: gc-victim: 77 pages, 32 blocks, 101587 us
+Nov  5 15:42:18 JH kernel: [ 1563.666898] bdbm: ----------------------------------------------
+Nov  5 15:42:18 JH kernel: [ 1563.666902] bdbm: gc-victim: 78 pages, 32 blocks, 100178 us
+Nov  5 15:42:18 JH kernel: [ 1564.310737] bdbm: ----------------------------------------------
+Nov  5 15:42:18 JH kernel: [ 1564.310741] bdbm: gc-victim: 81 pages, 32 blocks, 101880 us
+Nov  5 15:42:19 JH kernel: [ 1564.951063] bdbm: ----------------------------------------------
+Nov  5 15:42:19 JH kernel: [ 1564.951067] bdbm: gc-victim: 79 pages, 32 blocks, 98499 us
+Nov  5 15:42:20 JH kernel: [ 1565.572656] bdbm: ----------------------------------------------
+Nov  5 15:42:20 JH kernel: [ 1565.572660] bdbm: gc-victim: 78 pages, 32 blocks, 99707 us
+Nov  5 15:42:20 JH kernel: [ 1566.218865] bdbm: ----------------------------------------------
+Nov  5 15:42:20 JH kernel: [ 1566.218870] bdbm: gc-victim: 79 pages, 32 blocks, 100894 us
+Nov  5 15:42:21 JH kernel: [ 1566.915086] bdbm: ----------------------------------------------
+Nov  5 15:42:21 JH kernel: [ 1566.915089] bdbm: gc-victim: 83 pages, 32 blocks, 101481 us
+Nov  5 15:42:21 JH kernel: [ 1567.047465] bdbm: llm_make_req: 3750000, 45
+Nov  5 15:42:22 JH kernel: [ 1567.581409] bdbm: ----------------------------------------------
+Nov  5 15:42:22 JH kernel: [ 1567.581412] bdbm: gc-victim: 82 pages, 32 blocks, 100976 us
+Nov  5 15:42:22 JH kernel: [ 1568.195341] bdbm: ----------------------------------------------
+Nov  5 15:42:22 JH kernel: [ 1568.195344] bdbm: gc-victim: 79 pages, 32 blocks, 101801 us
+Nov  5 15:42:23 JH kernel: [ 1568.853768] bdbm: ----------------------------------------------
+Nov  5 15:42:23 JH kernel: [ 1568.853772] bdbm: gc-victim: 78 pages, 32 blocks, 101022 us
+Nov  5 15:42:23 JH kernel: [ 1569.409582] bdbm: ----------------------------------------------
+Nov  5 15:42:23 JH kernel: [ 1569.409587] bdbm: gc-victim: 81 pages, 32 blocks, 101605 us
+Nov  5 15:42:24 JH kernel: [ 1569.982746] bdbm: ----------------------------------------------
+Nov  5 15:42:24 JH kernel: [ 1569.982750] bdbm: gc-victim: 84 pages, 32 blocks, 99382 us
+Nov  5 15:42:25 JH kernel: [ 1570.602940] bdbm: ----------------------------------------------
+Nov  5 15:42:25 JH kernel: [ 1570.602943] bdbm: gc-victim: 87 pages, 32 blocks, 99723 us
+Nov  5 15:42:25 JH kernel: [ 1571.222733] bdbm: ----------------------------------------------
+Nov  5 15:42:25 JH kernel: [ 1571.222744] bdbm: gc-victim: 81 pages, 32 blocks, 98777 us
+Nov  5 15:42:26 JH kernel: [ 1571.872032] bdbm: ----------------------------------------------
+Nov  5 15:42:26 JH kernel: [ 1571.872036] bdbm: gc-victim: 82 pages, 32 blocks, 101750 us
+Nov  5 15:42:26 JH kernel: [ 1572.520161] bdbm: ----------------------------------------------
+Nov  5 15:42:26 JH kernel: [ 1572.520164] bdbm: gc-victim: 85 pages, 32 blocks, 99081 us
+Nov  5 15:42:27 JH kernel: [ 1573.121026] bdbm: ----------------------------------------------
+Nov  5 15:42:27 JH kernel: [ 1573.121029] bdbm: gc-victim: 88 pages, 32 blocks, 102478 us
+Nov  5 15:42:28 JH kernel: [ 1573.758965] bdbm: ----------------------------------------------
+Nov  5 15:42:28 JH kernel: [ 1573.758969] bdbm: gc-victim: 84 pages, 32 blocks, 101864 us
+Nov  5 15:42:28 JH kernel: [ 1574.395264] bdbm: ----------------------------------------------
+Nov  5 15:42:28 JH kernel: [ 1574.395268] bdbm: gc-victim: 84 pages, 32 blocks, 101262 us
+Nov  5 15:42:28 JH kernel: [ 1574.444304] bdbm: llm_make_req: 3800000, 9
+Nov  5 15:42:29 JH kernel: [ 1575.036480] bdbm: ----------------------------------------------
+Nov  5 15:42:29 JH kernel: [ 1575.036484] bdbm: gc-victim: 79 pages, 32 blocks, 99185 us
+Nov  5 15:42:30 JH kernel: [ 1575.675398] bdbm: ----------------------------------------------
+Nov  5 15:42:30 JH kernel: [ 1575.675401] bdbm: gc-victim: 78 pages, 32 blocks, 101676 us
+Nov  5 15:42:30 JH kernel: [ 1576.335020] bdbm: ----------------------------------------------
+Nov  5 15:42:30 JH kernel: [ 1576.335032] bdbm: gc-victim: 78 pages, 32 blocks, 100686 us
+Nov  5 15:42:31 JH kernel: [ 1576.976104] bdbm: ----------------------------------------------
+Nov  5 15:42:31 JH kernel: [ 1576.976108] bdbm: gc-victim: 81 pages, 32 blocks, 101541 us
+Nov  5 15:42:32 JH kernel: [ 1577.635739] bdbm: ----------------------------------------------
+Nov  5 15:42:32 JH kernel: [ 1577.635743] bdbm: gc-victim: 84 pages, 32 blocks, 100818 us
+Nov  5 15:42:32 JH kernel: [ 1578.282069] bdbm: ----------------------------------------------
+Nov  5 15:42:32 JH kernel: [ 1578.282073] bdbm: gc-victim: 85 pages, 32 blocks, 101650 us
+Nov  5 15:42:33 JH kernel: [ 1578.903311] bdbm: ----------------------------------------------
+Nov  5 15:42:33 JH kernel: [ 1578.903315] bdbm: gc-victim: 82 pages, 32 blocks, 101270 us
+Nov  5 15:42:33 JH kernel: [ 1579.544892] bdbm: ----------------------------------------------
+Nov  5 15:42:33 JH kernel: [ 1579.544895] bdbm: gc-victim: 84 pages, 32 blocks, 101307 us
+Nov  5 15:42:34 JH kernel: [ 1580.099332] bdbm: ----------------------------------------------
+Nov  5 15:42:34 JH kernel: [ 1580.099337] bdbm: gc-victim: 84 pages, 32 blocks, 100710 us
+Nov  5 15:42:35 JH kernel: [ 1580.717302] bdbm: ----------------------------------------------
+Nov  5 15:42:35 JH kernel: [ 1580.717307] bdbm: gc-victim: 89 pages, 32 blocks, 102884 us
+Nov  5 15:42:35 JH kernel: [ 1581.340423] bdbm: ----------------------------------------------
+Nov  5 15:42:35 JH kernel: [ 1581.340429] bdbm: gc-victim: 86 pages, 32 blocks, 101919 us
+Nov  5 15:42:36 JH kernel: [ 1581.883397] bdbm: llm_make_req: 3850000, 64
+Nov  5 15:42:36 JH kernel: [ 1581.980208] bdbm: ----------------------------------------------
+Nov  5 15:42:36 JH kernel: [ 1581.980211] bdbm: gc-victim: 81 pages, 32 blocks, 100786 us
+Nov  5 15:42:37 JH kernel: [ 1582.619381] bdbm: ----------------------------------------------
+Nov  5 15:42:37 JH kernel: [ 1582.619385] bdbm: gc-victim: 85 pages, 32 blocks, 99573 us
+Nov  5 15:42:37 JH kernel: [ 1583.223822] bdbm: ----------------------------------------------
+Nov  5 15:42:37 JH kernel: [ 1583.223825] bdbm: gc-victim: 86 pages, 32 blocks, 102057 us
+Nov  5 15:42:38 JH kernel: [ 1583.818066] bdbm: ----------------------------------------------
+Nov  5 15:42:38 JH kernel: [ 1583.818070] bdbm: gc-victim: 85 pages, 32 blocks, 102614 us
+Nov  5 15:42:38 JH kernel: [ 1584.449269] bdbm: ----------------------------------------------
+Nov  5 15:42:38 JH kernel: [ 1584.449272] bdbm: gc-victim: 83 pages, 32 blocks, 102183 us
+Nov  5 15:42:39 JH kernel: [ 1585.098510] bdbm: ----------------------------------------------
+Nov  5 15:42:39 JH kernel: [ 1585.098513] bdbm: gc-victim: 86 pages, 32 blocks, 99261 us
+Nov  5 15:42:40 JH kernel: [ 1585.721726] bdbm: ----------------------------------------------
+Nov  5 15:42:40 JH kernel: [ 1585.721729] bdbm: gc-victim: 84 pages, 32 blocks, 101564 us
+Nov  5 15:42:40 JH kernel: [ 1586.350642] bdbm: ----------------------------------------------
+Nov  5 15:42:40 JH kernel: [ 1586.350646] bdbm: gc-victim: 82 pages, 32 blocks, 99436 us
+Nov  5 15:42:41 JH kernel: [ 1586.974984] bdbm: ----------------------------------------------
+Nov  5 15:42:41 JH kernel: [ 1586.974988] bdbm: gc-victim: 86 pages, 32 blocks, 101832 us
+Nov  5 15:42:42 JH kernel: [ 1587.591208] bdbm: ----------------------------------------------
+Nov  5 15:42:42 JH kernel: [ 1587.591212] bdbm: gc-victim: 89 pages, 32 blocks, 101224 us
+Nov  5 15:42:42 JH kernel: [ 1588.275121] bdbm: ----------------------------------------------
+Nov  5 15:42:42 JH kernel: [ 1588.275124] bdbm: gc-victim: 85 pages, 32 blocks, 100680 us
+Nov  5 15:42:43 JH kernel: [ 1588.898384] bdbm: ----------------------------------------------
+Nov  5 15:42:43 JH kernel: [ 1588.898387] bdbm: gc-victim: 86 pages, 32 blocks, 101993 us
+Nov  5 15:42:43 JH kernel: [ 1589.360931] bdbm: llm_make_req: 3900000, 96
+Nov  5 15:42:43 JH kernel: [ 1589.533619] bdbm: ----------------------------------------------
+Nov  5 15:42:43 JH kernel: [ 1589.533622] bdbm: gc-victim: 84 pages, 32 blocks, 102390 us
+Nov  5 15:42:44 JH kernel: [ 1590.171070] bdbm: ----------------------------------------------
+Nov  5 15:42:44 JH kernel: [ 1590.171074] bdbm: gc-victim: 84 pages, 32 blocks, 100693 us
+Nov  5 15:42:45 JH kernel: [ 1590.747223] bdbm: ----------------------------------------------
+Nov  5 15:42:45 JH kernel: [ 1590.747227] bdbm: gc-victim: 77 pages, 32 blocks, 101166 us
+Nov  5 15:42:45 JH kernel: [ 1591.310334] bdbm: ----------------------------------------------
+Nov  5 15:42:45 JH kernel: [ 1591.310337] bdbm: gc-victim: 88 pages, 32 blocks, 101212 us
+Nov  5 15:42:46 JH kernel: [ 1591.953913] bdbm: ----------------------------------------------
+Nov  5 15:42:46 JH kernel: [ 1591.953917] bdbm: gc-victim: 88 pages, 32 blocks, 101930 us
+Nov  5 15:42:47 JH kernel: [ 1592.571055] bdbm: ----------------------------------------------
+Nov  5 15:42:47 JH kernel: [ 1592.571058] bdbm: gc-victim: 78 pages, 32 blocks, 101575 us
+Nov  5 15:42:47 JH kernel: [ 1593.179071] bdbm: ----------------------------------------------
+Nov  5 15:42:47 JH kernel: [ 1593.179075] bdbm: gc-victim: 82 pages, 32 blocks, 100642 us
+Nov  5 15:42:48 JH kernel: [ 1593.790004] bdbm: ----------------------------------------------
+Nov  5 15:42:48 JH kernel: [ 1593.790007] bdbm: gc-victim: 87 pages, 32 blocks, 102664 us
+Nov  5 15:42:48 JH kernel: [ 1594.411835] bdbm: ----------------------------------------------
+Nov  5 15:42:48 JH kernel: [ 1594.411839] bdbm: gc-victim: 84 pages, 32 blocks, 101033 us
+Nov  5 15:42:49 JH kernel: [ 1595.020327] bdbm: ----------------------------------------------
+Nov  5 15:42:49 JH kernel: [ 1595.020331] bdbm: gc-victim: 82 pages, 32 blocks, 100780 us
+Nov  5 15:42:50 JH kernel: [ 1595.650812] bdbm: ----------------------------------------------
+Nov  5 15:42:50 JH kernel: [ 1595.650816] bdbm: gc-victim: 85 pages, 32 blocks, 102431 us
+Nov  5 15:42:50 JH kernel: [ 1596.274435] bdbm: ----------------------------------------------
+Nov  5 15:42:50 JH kernel: [ 1596.274439] bdbm: gc-victim: 89 pages, 32 blocks, 99498 us
+Nov  5 15:42:51 JH kernel: [ 1596.679978] bdbm: llm_make_req: 3950000, 65
+Nov  5 15:42:51 JH kernel: [ 1596.890720] bdbm: ----------------------------------------------
+Nov  5 15:42:51 JH kernel: [ 1596.890723] bdbm: gc-victim: 81 pages, 32 blocks, 101571 us
+Nov  5 15:42:51 JH kernel: [ 1597.534145] bdbm: ----------------------------------------------
+Nov  5 15:42:51 JH kernel: [ 1597.534149] bdbm: gc-victim: 87 pages, 32 blocks, 101873 us
+Nov  5 15:42:52 JH kernel: [ 1598.254910] bdbm: ----------------------------------------------
+Nov  5 15:42:52 JH kernel: [ 1598.254914] bdbm: gc-victim: 85 pages, 32 blocks, 101908 us
+Nov  5 15:42:56 JH kernel: [ 1602.464759] bdbm: ----------------------------------------------
+Nov  5 15:42:56 JH kernel: [ 1602.464764] bdbm: gc-victim: 89 pages, 32 blocks, 100401 us
+Nov  5 15:42:57 JH kernel: [ 1602.944586] bdbm: ----------------------------------------------
+Nov  5 15:42:57 JH kernel: [ 1602.944588] bdbm: gc-victim: 86 pages, 32 blocks, 100853 us
+Nov  5 15:42:57 JH kernel: [ 1603.430423] bdbm: ----------------------------------------------
+Nov  5 15:42:57 JH kernel: [ 1603.430427] bdbm: gc-victim: 83 pages, 32 blocks, 102239 us
+Nov  5 15:44:33 JH kernel: [ 1698.931619] bdbm: -----------------------------------------------
+Nov  5 15:44:33 JH kernel: [ 1698.931622] bdbm: < PERFORMANCE SUMMARY >
+Nov  5 15:44:33 JH kernel: [ 1698.931623] bdbm: [0] Execution Time (us): 648.959553
+Nov  5 15:44:33 JH kernel: [ 1698.931624] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931625] bdbm: [1] Total I/Os
+Nov  5 15:44:33 JH kernel: [ 1698.931625] bdbm: # of page reads: 13074
+Nov  5 15:44:33 JH kernel: [ 1698.931626] bdbm: # of page writes: 3939486
+Nov  5 15:44:33 JH kernel: [ 1698.931626] bdbm: # of block erase: 22848
+Nov  5 15:44:33 JH kernel: [ 1698.931627] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931628] bdbm: [2] Normal I/Os
+Nov  5 15:44:33 JH kernel: [ 1698.931628] bdbm: # of page reads: 18
+Nov  5 15:44:33 JH kernel: [ 1698.931629] bdbm: # of page writes: 3926296
+Nov  5 15:44:33 JH kernel: [ 1698.931629] bdbm: # of page rmw reads: 0
+Nov  5 15:44:33 JH kernel: [ 1698.931630] bdbm: # of page rmw writes: 0
+Nov  5 15:44:33 JH kernel: [ 1698.931631] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931631] bdbm: [3] GC I/Os
+Nov  5 15:44:33 JH kernel: [ 1698.931632] bdbm: # of GC invocation: 0
+Nov  5 15:44:33 JH kernel: [ 1698.931632] bdbm: # of page reads: 13056
+Nov  5 15:44:33 JH kernel: [ 1698.931633] bdbm: # of page writes: 13190
+Nov  5 15:44:33 JH kernel: [ 1698.931634] bdbm: # of block erase: 22848
+Nov  5 15:44:33 JH kernel: [ 1698.931634] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931635] bdbm: [4] Meta I/Os
+Nov  5 15:44:33 JH kernel: [ 1698.931635] bdbm: # of meta page reads: 0
+Nov  5 15:44:33 JH kernel: [ 1698.931636] bdbm: # of meta page writes: 0
+Nov  5 15:44:33 JH kernel: [ 1698.931636] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931637] bdbm: [5] Elapsed Time
+Nov  5 15:44:33 JH kernel: [ 1698.931638] bdbm: page read (us): 267 (S:0 + Q:170 + D:97)
+Nov  5 15:44:33 JH kernel: [ 1698.931639] bdbm: page write (us): 1172 (S:0 + Q:1 + D:1171)
+Nov  5 15:44:33 JH kernel: [ 1698.931640] bdbm: rmw (us): 0 (S:0 + Q:0 + D:0)
+Nov  5 15:44:33 JH kernel: [ 1698.931640] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931641] bdbm: [6] Utilization (R)
+Nov  5 15:44:33 JH kernel: [ 1698.931643] bdbm:      390      417      383      444      428      432      377      413 
+Nov  5 15:44:33 JH kernel: [ 1698.931645] bdbm:      404      412      418      387      417      439      437      429 
+Nov  5 15:44:33 JH kernel: [ 1698.931646] bdbm:      410      415      419      416      372      396      400      421 
+Nov  5 15:44:33 JH kernel: [ 1698.931648] bdbm:      390      403      416      418      397      375      410      389 
+Nov  5 15:44:33 JH kernel: [ 1698.931648] bdbm: 
+Nov  5 15:44:33 JH kernel: [ 1698.931649] bdbm: [7] Utilization (W)
+Nov  5 15:44:33 JH kernel: [ 1698.931651] bdbm:   123109   123109   123109   123109   123109   123109   123109   123109 
+Nov  5 15:44:33 JH kernel: [ 1698.931652] bdbm:   123109   123109   123109   123109   123109   123109   123109   123109 
+Nov  5 15:44:33 JH kernel: [ 1698.931654] bdbm:   123109   123109   123109   123109   123109   123109   123109   123109 
+Nov  5 15:44:33 JH kernel: [ 1698.931655] bdbm:   123109   123109   123109   123109   123109   123109   123108   123108 
+Nov  5 15:44:33 JH kernel: [ 1698.931656] bdbm: -----------------------------------------------
+Nov  5 15:44:33 JH kernel: [ 1698.931657] bdbm: -----------------------------------------------
+Nov  5 15:44:33 JH kernel: [ 1699.188656] bdbm: done
+Nov  5 15:44:33 JH kernel: [ 1699.188663] bdbm: [dm_ramdrive_close] closed!
+Nov  5 15:44:33 JH kernel: [ 1699.460892] bdbm: [bdbm_drv_main] bdbm_drv is closed
+Nov  5 15:44:33 JH kernel: [ 1699.460897] bdbm: [bdbm_drv_main] bdbm_drv is removed
+Nov  5 15:44:33 JH kernel: [ 1699.484412] bdbm: bdbm_dm_stub is removed: /dev/bdbm_dm_stub (246 0)
