@@ -177,6 +177,7 @@ typedef struct {
 	//tjkim
 	uint8_t streamID;
 	uint8_t type;
+	uint8_t pcid;
 } bdbm_logaddr_t;
 
 typedef struct {

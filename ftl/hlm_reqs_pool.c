@@ -40,6 +40,7 @@ THE SOFTWARE.
 #include "hlm_reqs_pool.h"
 #include "umemory.h"
 #include "autostream.h"
+#include "pc.h"
 
 
 
@@ -154,6 +155,9 @@ void bdbm_hlm_reqs_pool_destroy (
 	/* free other stuff */
 	bdbm_spin_lock_destory (&pool->lock);
 	bdbm_free (pool);
+
+	print_num_pcs();
+	print_pc_cnt();
 }
 
 bdbm_hlm_req_t* bdbm_hlm_reqs_pool_get_item (
@@ -328,7 +332,7 @@ static int __hlm_reqs_pool_create_write_req (
 	int64_t hole = 0, bvec_cnt = 0, nr_llm_reqs;
 	bdbm_flash_page_main_t* ptr_fm = NULL;
 	bdbm_llm_req_t* ptr_lr = NULL;
-	int8_t sID = 0, type;
+	int8_t sID = 0, type, pcid = 0;
 
 	/* expand boundary sectors */
     //printk("bi_offset=%lld, size=%lld\n", br->bi_offset, br->bi_size);
@@ -351,6 +355,7 @@ static int __hlm_reqs_pool_create_write_req (
 		bdbm_msg("type ID is %d", type);
 	}
 	sID = get_streamid(sec_start / NR_KSECTORS_IN(pool->map_unit));
+	//pcid = get_pcid(br->bi_pc);
 	
 	ptr_lr = &hr->llm_reqs[0];
 	for (i = 0; i < nr_llm_reqs; i++) {
@@ -402,6 +407,7 @@ static int __hlm_reqs_pool_create_write_req (
 		//tjkim
 		ptr_lr->logaddr.type = type;
 		ptr_lr->logaddr.streamID = sID;
+		ptr_lr->logaddr.pcid = pcid;
 
 		/* go to the next */
 		ptr_lr->ptr_hlm_req = (void*)hr;

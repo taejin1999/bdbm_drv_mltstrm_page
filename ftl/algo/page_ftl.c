@@ -88,6 +88,7 @@ typedef struct {
 	int64_t writtentime;
 	uint8_t sID;
 	uint8_t type;
+	uint8_t pcid;
 } bdbm_page_mapping_entry_t;
 
 typedef struct {
@@ -234,6 +235,7 @@ typedef struct {
 	uint64_t invalidtime;
 	uint8_t ID;
 	uint8_t type;
+	uint8_t pcid;
 	uint8_t inv_type;
 }my_work_t;
 
@@ -521,6 +523,7 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 					work->lifetime = lifetime;
 					work->ID = me->sID;
 					work->type = me->type;
+					work->pcid = me->pcid;
 					work->lba = logaddr->lpa[k];
 					work->writtentime = me->writtentime;
 					work->invalidtime = g_logical_wtime;
@@ -529,6 +532,7 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 
 					me->sID = -1;
 					me->type = -1;
+					me->pcid = -1;
 					me->writtentime = -1;
 				}
 			}
@@ -551,6 +555,7 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 				work->lifetime = lifetime;
 				work->ID = me->sID;
 				work->type = me->type;
+				work->pcid = me->pcid;
 				work->lba = logaddr->lpa[k];
 				work->writtentime = me->writtentime;
 				work->invalidtime = g_logical_wtime;
@@ -564,6 +569,7 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 			bdbm_bug_on(ID < 0 || ID > BDBM_STREAM_NUM);
 			me->sID = ID;
 			me->type = logaddr->type;
+			me->pcid = logaddr->pcid;
 			me->writtentime = g_logical_wtime++;
 			//me->writtentime = ktime_to_us(ktime_get());
 
@@ -658,6 +664,7 @@ uint32_t bdbm_page_ftl_invalidate_lpa (
 				work->lifetime = lifetime;
 				work->ID = me->sID;
 				work->type = me->type;
+				work->pcid = me->pcid;
 				work->lba = loop;
 				work->writtentime = me->writtentime;
 				work->invalidtime = g_logical_wtime;
@@ -666,6 +673,7 @@ uint32_t bdbm_page_ftl_invalidate_lpa (
 
 				me->sID = -1;
 				me->type = -1;
+				me->pcid = -1;
 				me->writtentime = -1;
 			}
 		}
