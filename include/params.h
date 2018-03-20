@@ -115,6 +115,8 @@ typedef struct {
 	uint64_t nr_chips_per_channel;
 	uint64_t nr_blocks_per_chip;
 	uint64_t nr_pages_per_block;
+	uint64_t nr_op_blocks; 
+	uint64_t nr_user_blocks_per_chip; 
 	uint64_t page_main_size;
 	uint64_t page_oob_size;
 	uint32_t device_type;

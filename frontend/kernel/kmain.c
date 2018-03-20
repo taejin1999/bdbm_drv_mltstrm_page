@@ -32,8 +32,21 @@ THE SOFTWARE.
 
 bdbm_drv_info_t* _bdi = NULL;
 
+int _param_display_num = 0;
+module_param (_param_display_num, int, 0000);
+MODULE_PARM_DESC (_param_display_num, "number of requests starts to display");
+
+int _param_tech_type = 0;
+module_param (_param_tech_type, int, 0000);
+MODULE_PARM_DESC (_param_tech_type, "stream tech type");
+
 static int __init bdbm_drv_init (void)
 {
+	if(_param_display_num == 0) 
+		_param_display_num = 28000000;
+
+	bdbm_msg("_param_display_num is set to : %d", _param_display_num);
+
 	/* create bdi with default parameters */
 	if ((_bdi = bdbm_drv_create ()) == NULL) {
 		bdbm_error ("[kmain] bdbm_drv_create () failed");

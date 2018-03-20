@@ -69,19 +69,6 @@ static bdbm_blkio_req_t* __get_blkio_req (struct bio *bio)
 	if (br == NULL)
 		goto fail;
 
-	/*
-    if(pmu_get_write_req(_bdi) > 100000){
-        bdbm_msg("REPORT_FOR_HYBRID\n");
-        bdbm_msg("");
-        bdbm_msg("");
-        bdbm_msg("");
-        pmu_display(_bdi);
-        bdbm_msg("");
-        bdbm_msg("");
-        bdbm_msg("");
-    }
-	*/
-
 	/* get the type of the bio request */
 	if (bio->bi_rw & REQ_DISCARD)
 		br->bi_rw = REQTYPE_TRIM;
@@ -90,6 +77,7 @@ static bdbm_blkio_req_t* __get_blkio_req (struct bio *bio)
 	else if (bio_data_dir (bio) == WRITE) {
 		br->bi_rw = REQTYPE_WRITE;
 		br->bi_datatype = bio->bi_datatype;
+		br->bi_pc = bio->bi_pc;
 	}
 	else {
 		bdbm_error ("oops! invalid request type (bi->bi_rw = %lx)", bio->bi_rw);
@@ -208,6 +196,7 @@ void blkio_make_req (bdbm_drv_info_t* bdi, void* bio)
 	bdbm_blkio_private_t* p = (bdbm_blkio_private_t*)BDBM_HOST_PRIV(bdi);
 	bdbm_blkio_req_t* br = NULL;
 	bdbm_hlm_req_t* hr = NULL;
+
 
 	/* get blkio */
 	if ((br = __get_blkio_req ((struct bio*)bio)) == NULL) {

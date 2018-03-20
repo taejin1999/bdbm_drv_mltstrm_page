@@ -59,6 +59,7 @@ enum BDBM_ABM_BLK_STATUS {
 };
 
 typedef struct {
+	int8_t  streamID;
 	uint8_t status;	/* ABM_BLK_STATUS */
 	uint64_t channel_no;
 	uint64_t chip_no;

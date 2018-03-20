@@ -275,6 +275,7 @@ bdbm_abm_block_t* bdbm_abm_get_free_block_prepare (
 	bdbm_abm_block_t* blk = NULL;
 	uint32_t cnt = 0;
 
+	/*
     struct list_head* head = &(bai->list_head_free[channel_no][chip_no]);
 
     for(pos = (head)->next; pos != (head); pos = pos->next) {
@@ -282,6 +283,7 @@ bdbm_abm_block_t* bdbm_abm_get_free_block_prepare (
                         //printk("ch=%llu, chip=%llu, block=%llu\n", blk->channel_no,
                          //                       blk->chip_no, blk->block_no);
                             }
+	*/
 
 
 

@@ -1,0 +1,100 @@
+Feb 27 15:41:34 tjkim kernel: [ 1526.805604] bdbm: # of subpages per page = 1
+Feb 27 15:41:34 tjkim kernel: [ 1526.805606] bdbm: # of subpages per ssd = 2097152
+Feb 27 15:41:34 tjkim kernel: [ 1526.805607] bdbm: page main size  = 4096 bytes
+Feb 27 15:41:34 tjkim kernel: [ 1526.805608] bdbm: page oob size = 64 bytes
+Feb 27 15:41:34 tjkim kernel: [ 1526.805610] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+Feb 27 15:41:34 tjkim kernel: [ 1526.805611] bdbm: # of streams = 8
+Feb 27 15:41:34 tjkim kernel: [ 1526.805612] bdbm: 
+Feb 27 15:41:34 tjkim kernel: [ 1526.805614] bdbm: =====================================================================
+Feb 27 15:41:34 tjkim kernel: [ 1526.805615] bdbm: RAM DISK INFO
+Feb 27 15:41:34 tjkim kernel: [ 1526.805616] bdbm: =====================================================================
+Feb 27 15:41:34 tjkim kernel: [ 1526.805617] bdbm: the SSD capacity: 7680 (MB), 7 (GB)
+Feb 27 15:41:35 tjkim kernel: [ 1527.575101] bdbm: ramssd addr = ffffc9000b701000
+Feb 27 15:41:35 tjkim kernel: [ 1527.575104] bdbm: 
+Feb 27 15:41:35 tjkim kernel: [ 1527.575194] bdbm: [dm_ramdrive_probe] probe done!
+Feb 27 15:41:35 tjkim kernel: [ 1527.575195] bdbm: [dm_ramdrive_open] open done!
+Feb 27 15:41:35 tjkim kernel: [ 1527.744162] bdbm: TRIM is enabled
+Feb 27 15:41:35 tjkim kernel: [ 1527.744370] bdbm: =====================================================================
+Feb 27 15:41:35 tjkim kernel: [ 1527.744372] bdbm: DEVICE PARAMETERS
+Feb 27 15:41:35 tjkim kernel: [ 1527.744374] bdbm: =====================================================================
+Feb 27 15:41:35 tjkim kernel: [ 1527.744375] bdbm: # of channels = 4
+Feb 27 15:41:35 tjkim kernel: [ 1527.744376] bdbm: # of chips per channel = 4
+Feb 27 15:41:35 tjkim kernel: [ 1527.744377] bdbm: # of blocks per chip = 512
+Feb 27 15:41:35 tjkim kernel: [ 1527.744378] bdbm: # of pages per block = 256
+Feb 27 15:41:35 tjkim kernel: [ 1527.744381] bdbm: # of subpages per page = 1
+Feb 27 15:41:35 tjkim kernel: [ 1527.744382] bdbm: # of subpages per ssd = 2097152
+Feb 27 15:41:35 tjkim kernel: [ 1527.744383] bdbm: page main size  = 4096 bytes
+Feb 27 15:41:35 tjkim kernel: [ 1527.744385] bdbm: page oob size = 64 bytes
+Feb 27 15:41:35 tjkim kernel: [ 1527.744386] bdbm: device type = 3 (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)
+Feb 27 15:41:35 tjkim kernel: [ 1527.744415] bdbm: # of streams = 8
+Feb 27 15:41:35 tjkim kernel: [ 1527.744420] bdbm: 
+Feb 27 15:41:35 tjkim kernel: [ 1527.744424] bdbm: =====================================================================
+Feb 27 15:41:35 tjkim kernel: [ 1527.744430] bdbm: FTL CONFIGURATION
+Feb 27 15:41:35 tjkim kernel: [ 1527.744434] bdbm: =====================================================================
+Feb 27 15:41:35 tjkim kernel: [ 1527.744435] bdbm: mapping type = 4 (1: no ftl, 2: block-mapping, 3: RSD, 4: page-mapping, 5: dftl)
+Feb 27 15:41:35 tjkim kernel: [ 1527.744435] bdbm: gc policy = 3 (1: merge 2: random, 3: greedy, 4: cost-benefit)
+Feb 27 15:41:35 tjkim kernel: [ 1527.744436] bdbm: wl policy = 1 (1: none, 2: swap)
+Feb 27 15:41:35 tjkim kernel: [ 1527.744437] bdbm: trim mode = 1 (1: enable, 2: disable)
+Feb 27 15:41:35 tjkim kernel: [ 1527.744437] bdbm: kernel sector = 512 bytes
+Feb 27 15:41:35 tjkim kernel: [ 1527.744438] bdbm: 
+Feb 27 15:41:35 tjkim kernel: [ 1527.744441] bdbm: [bdbm_drv_main] bdbm_drv is registered!
+Feb 27 15:41:35 tjkim kernel: [ 1527.938947] EXT4-fs (robusta): mounted filesystem with ordered data mode. Opts: discard
+Feb 27 15:44:08 tjkim kernel: [ 1680.507787] bdbm: WAF at 21000000: 134
+Feb 27 15:44:18 tjkim kernel: [ 1690.374634] bdbm: WAF at 21500000: 138
+Feb 27 15:44:28 tjkim kernel: [ 1700.008886] bdbm: WAF at 22000000: 141
+Feb 27 15:44:38 tjkim kernel: [ 1710.452073] bdbm: WAF at 22500000: 145
+Feb 27 15:44:50 tjkim kernel: [ 1722.234719] bdbm: WAF at 23000000: 149
+Feb 27 15:45:02 tjkim kernel: [ 1734.633879] bdbm: WAF at 23500000: 154
+Feb 27 15:47:27 tjkim kernel: [ 1878.926041] bdbm: -----------------------------------------------
+Feb 27 15:47:27 tjkim kernel: [ 1878.926044] bdbm: < PERFORMANCE SUMMARY >
+Feb 27 15:47:27 tjkim kernel: [ 1878.926045] bdbm: [0] Execution Time (us): 351.364576
+Feb 27 15:47:27 tjkim kernel: [ 1878.926046] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926047] bdbm: [1] Total I/Os
+Feb 27 15:47:27 tjkim kernel: [ 1878.926047] bdbm: # of page reads: 15617775
+Feb 27 15:47:27 tjkim kernel: [ 1878.926048] bdbm: # of page writes: 36444638
+Feb 27 15:47:27 tjkim kernel: [ 1878.926049] bdbm: # of block erase: 135648
+Feb 27 15:47:27 tjkim kernel: [ 1878.926049] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926050] bdbm: [2] Normal I/Os
+Feb 27 15:47:27 tjkim kernel: [ 1878.926051] bdbm: # of page reads: 2708967
+Feb 27 15:47:27 tjkim kernel: [ 1878.926051] bdbm: # of page writes: 23535830
+Feb 27 15:47:27 tjkim kernel: [ 1878.926052] bdbm: # of page rmw reads: 0
+Feb 27 15:47:27 tjkim kernel: [ 1878.926060] bdbm: # of page rmw writes: 0
+Feb 27 15:47:27 tjkim kernel: [ 1878.926061] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926061] bdbm: [3] GC I/Os
+Feb 27 15:47:27 tjkim kernel: [ 1878.926062] bdbm: # of GC invocation: 8478
+Feb 27 15:47:27 tjkim kernel: [ 1878.926062] bdbm: # of page reads: 12908808
+Feb 27 15:47:27 tjkim kernel: [ 1878.926063] bdbm: # of page writes: 12908808
+Feb 27 15:47:27 tjkim kernel: [ 1878.926064] bdbm: # of block erase: 135648
+Feb 27 15:47:27 tjkim kernel: [ 1878.926064] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926065] bdbm: [4] Meta I/Os
+Feb 27 15:47:27 tjkim kernel: [ 1878.926065] bdbm: # of meta page reads: 0
+Feb 27 15:47:27 tjkim kernel: [ 1878.926066] bdbm: # of meta page writes: 0
+Feb 27 15:47:27 tjkim kernel: [ 1878.926067] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926067] bdbm: [5] Elapsed Time
+Feb 27 15:47:27 tjkim kernel: [ 1878.926068] bdbm: page read (us): 3 (S:0 + Q:1 + D:2)
+Feb 27 15:47:27 tjkim kernel: [ 1878.926069] bdbm: page write (us): 13 (S:0 + Q:0 + D:13)
+Feb 27 15:47:27 tjkim kernel: [ 1878.926070] bdbm: rmw (us): 0 (S:0 + Q:0 + D:0)
+Feb 27 15:47:27 tjkim kernel: [ 1878.926070] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926071] bdbm: [6] Utilization (R)
+Feb 27 15:47:27 tjkim kernel: [ 1878.926072] bdbm:   975664   977043   976148   976367 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926073] bdbm:   976436   976664   976274   975884 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926074] bdbm:   975441   976199   976195   975052 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926075] bdbm:   975886   976465   975905   976152 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926076] bdbm: 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926077] bdbm: [7] Utilization (W)
+Feb 27 15:47:27 tjkim kernel: [ 1878.926078] bdbm:  2277793  2277792  2277791  2277791 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926079] bdbm:  2277791  2277791  2277791  2277790 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926080] bdbm:  2277790  2277789  2277789  2277789 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926081] bdbm:  2277788  2277788  2277788  2277787 
+Feb 27 15:47:27 tjkim kernel: [ 1878.926082] bdbm: -----------------------------------------------
+Feb 27 15:47:27 tjkim kernel: [ 1878.926082] bdbm: [8] WAF
+Feb 27 15:47:27 tjkim kernel: [ 1878.926083] bdbm: written pages & requested pages: 36444638 / 23535830
+Feb 27 15:47:27 tjkim kernel: [ 1878.926084] bdbm: WAF: 154
+Feb 27 15:47:27 tjkim kernel: [ 1878.926084] bdbm: -----------------------------------------------
+Feb 27 15:47:27 tjkim kernel: [ 1878.978685] bdbm: num_pcs: 17
+Feb 27 15:47:27 tjkim kernel: [ 1878.978692] bdbm: pc: af(5)2387, ab(0)1, ec(0)1, b1(0)1, 26(0)128, f0(1)210444, 3d(0)1, 22(2)58912, 9e(3)479731, d(4)28772, 4c(0)139, 15(0)11, c(0)2, fc(0)4, f(0)15, 16(0)28, 28(0)8, 
+Feb 27 15:47:27 tjkim kernel: [ 1878.989900] bdbm: done
+Feb 27 15:47:27 tjkim kernel: [ 1878.989903] bdbm: [dm_ramdrive_close] closed!
+Feb 27 15:47:27 tjkim kernel: [ 1879.115614] bdbm: [bdbm_drv_main] bdbm_drv is closed
+Feb 27 15:47:27 tjkim kernel: [ 1879.115618] bdbm: [bdbm_drv_main] bdbm_drv is removed
+Feb 27 15:47:27 tjkim kernel: [ 1879.119915] bdbm: bdbm_dm_stub is removed: /dev/bdbm_dm_stub (250 0)

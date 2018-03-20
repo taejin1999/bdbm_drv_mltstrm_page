@@ -46,20 +46,24 @@ enum BDBM_DEFAULT_NAND_PARAMS {
 	NAND_PAGE_SIZE = 4096*BDBM_MAX_PAGES,
 	NAND_PAGE_OOB_SIZE = 64*BDBM_MAX_PAGES,
 	NR_PAGES_PER_BLOCK = 256,
-	NR_BLOCKS_PER_CHIP = 128,
-	NR_CHIPS_PER_CHANNEL = 8,
-	NR_CHANNELS = 8,
+	NR_BLOCKS_PER_CHIP = 512,
+	NR_OP_BLOCKS = 32,
+	NR_USER_BLOCKS = NR_BLOCKS_PER_CHIP - NR_OP_BLOCKS,
+	NR_CHIPS_PER_CHANNEL = 4,
+	NR_CHANNELS = 4,
 	NAND_HOST_BUS_TRANS_TIME_US = 0,	/* assume to be 0 */
-	NAND_CHIP_BUS_TRANS_TIME_US = 100,	/* 100us */
-	NAND_PAGE_PROG_TIME_US = 1300,		/* 1.3ms */	
-	NAND_PAGE_READ_TIME_US = 100,		/* 100us */
-	NAND_BLOCK_ERASE_TIME_US = 5000,	/* 5ms */
+	NAND_CHIP_BUS_TRANS_TIME_US = 1,	/* 100us */
+	NAND_PAGE_PROG_TIME_US = 13,		/* 1.3ms */	
+	NAND_PAGE_READ_TIME_US = 1,		/* 100us */
+	NAND_BLOCK_ERASE_TIME_US = 50,	/* 5ms */
 };
 
 int _param_nr_channels 				= NR_CHANNELS;
 int _param_nr_chips_per_channel		= NR_CHIPS_PER_CHANNEL;
 int _param_nr_blocks_per_chip 		= NR_BLOCKS_PER_CHIP;
 int _param_nr_pages_per_block 		= NR_PAGES_PER_BLOCK;
+int _param_nr_op_blocks 			= NR_OP_BLOCKS;
+int _param_nr_user_blocks_per_chip	= NR_USER_BLOCKS;
 int _param_page_main_size 			= NAND_PAGE_SIZE;
 int _param_page_oob_size 			= NAND_PAGE_OOB_SIZE;
 int _param_host_bus_trans_time_us	= NAND_HOST_BUS_TRANS_TIME_US;
@@ -90,6 +94,8 @@ module_param (_param_nr_channels, int, 0000);
 module_param (_param_nr_chips_per_channel, int, 0000);
 module_param (_param_nr_blocks_per_chip, int, 0000);
 module_param (_param_nr_pages_per_block, int, 0000);
+module_param (_param_nr_op_blocks, int, 0000);
+module_param (_param_nr_user_blocks_per_chip, int, 0000);
 module_param (_param_page_main_size, int, 0000);
 module_param (_param_page_oob_size, int, 0000);
 module_param (_param_host_bus_trans_time_us, int, 0000);
@@ -103,6 +109,7 @@ MODULE_PARM_DESC (_param_nr_channels, "# of channels");
 MODULE_PARM_DESC (_param_nr_chips_per_channel, "# of chips per channel");
 MODULE_PARM_DESC (_param_nr_blocks_per_chip, "# of blocks per chip");
 MODULE_PARM_DESC (_param_nr_pages_per_block, "# of pages per block");
+MODULE_PARM_DESC (_param_nr_user_blocks_per_chip, "# of user blocks per chip");
 MODULE_PARM_DESC (_param_page_main_size, "page main size");
 MODULE_PARM_DESC (_param_page_oob_size, "page oob size");
 MODULE_PARM_DESC (_param_ramdrv_timing_mode, "timing mode for ramdrive");
@@ -130,6 +137,8 @@ bdbm_device_params_t get_default_device_params (void)
  	p.page_read_time_us = _param_page_read_time_us;
  	p.block_erase_time_us = _param_block_erase_time_us;
  
+	p.nr_op_blocks = _param_nr_op_blocks;
+	p.nr_user_blocks_per_chip = _param_nr_user_blocks_per_chip;
  	/* other parameters derived from user parameters */
  	p.nr_blocks_per_channel = p.nr_chips_per_channel * p.nr_blocks_per_chip;
 	p.nr_blocks_per_ssd = p.nr_channels * p.nr_chips_per_channel * p.nr_blocks_per_chip;
@@ -147,7 +156,8 @@ bdbm_device_params_t get_default_device_params (void)
 	p.device_capacity_in_byte = 0;
 	p.device_capacity_in_byte += p.nr_channels;
 	p.device_capacity_in_byte *= p.nr_chips_per_channel;
-	p.device_capacity_in_byte *= p.nr_blocks_per_chip;
+	//p.device_capacity_in_byte *= p.nr_blocks_per_chip;
+	p.device_capacity_in_byte *= p.nr_user_blocks_per_chip;
 	p.device_capacity_in_byte *= p.nr_pages_per_block;
 	p.device_capacity_in_byte *= p.page_main_size;
 
@@ -169,6 +179,7 @@ void display_device_params (bdbm_device_params_t* p)
     bdbm_msg ("page oob size = %llu bytes", p->page_oob_size);
 	bdbm_msg ("device type = %u (1: ramdrv, 2: ramdrive (intr), 3: ramdrive (timing), 4: BlueDBM, 5: libdummy, 6: libramdrive)", 
 			p->device_type);
+    bdbm_msg ("# of streams = %d", BDBM_DEV_NR_STREAM);
     bdbm_msg ("");
 }
 

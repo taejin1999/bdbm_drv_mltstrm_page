@@ -430,7 +430,7 @@ static uint32_t __ramssd_send_cmd (
 		break;
 
 	default:
-		bdbm_error ("invalid command");
+		bdbm_error ("invalid command: %d", ptr_req->req_type);
 		ret = 1;
 		break;
 	}

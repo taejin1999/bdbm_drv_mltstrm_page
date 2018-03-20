@@ -117,6 +117,7 @@ fail:
 	return NULL;
 }
 
+int32_t tech_type = 0;
 void bdbm_hlm_reqs_pool_destroy (
 	bdbm_hlm_reqs_pool_t* pool)
 {
@@ -158,6 +159,7 @@ void bdbm_hlm_reqs_pool_destroy (
 
 	print_num_pcs();
 	print_pc_cnt();
+	bdbm_msg("tech_type: %d (0: baseline, 1: baseline+, 2: autostream, 3: autostream+, 4: pcstream 5: pcstream+ 6: manual, 7: manual+)", tech_type);
 }
 
 bdbm_hlm_req_t* bdbm_hlm_reqs_pool_get_item (
@@ -322,6 +324,18 @@ void hlm_reqs_pool_reset_logaddr (bdbm_logaddr_t* logaddr)
 	logaddr->ofs = 0;
 }
 
+//#define BASELINE
+//#define BASELINE_GC
+//#define AUTOSTREAM
+//#define AUTOSTREAM_GC
+//#define PCSTREAM
+//#define PCSTREAM_GC
+//#define MANUAL
+//#define MANUAL_GC
+
+int32_t s_cnt = 0;
+int32_t page_cnt = 0;
+extern int _param_tech_type;
 static int __hlm_reqs_pool_create_write_req (
 	bdbm_hlm_reqs_pool_t* pool, 
 	bdbm_hlm_req_t* hr,
@@ -332,31 +346,60 @@ static int __hlm_reqs_pool_create_write_req (
 	int64_t hole = 0, bvec_cnt = 0, nr_llm_reqs;
 	bdbm_flash_page_main_t* ptr_fm = NULL;
 	bdbm_llm_req_t* ptr_lr = NULL;
-	int8_t sID = 0, type, pcid = 0;
+	int8_t sID = 0, type = 0, pcid = 0, asid = 0;
 
 	/* expand boundary sectors */
     //printk("bi_offset=%lld, size=%lld\n", br->bi_offset, br->bi_size);
 	sec_start = BDBM_ALIGN_DOWN (br->bi_offset, NR_KSECTORS_IN(pool->map_unit));
 	sec_end = BDBM_ALIGN_UP (br->bi_offset + br->bi_size, NR_KSECTORS_IN(pool->map_unit));
+#ifdef DEBUG
 	bdbm_bug_on (sec_start >= sec_end);
+#endif
     //printk("sec_start=%lld, sec_end=%lld\n", sec_start, sec_end);
 
 	pg_start = BDBM_ALIGN_DOWN (br->bi_offset, NR_KSECTORS_IN(KPAGE_SIZE)) / NR_KSECTORS_IN(KPAGE_SIZE);
 	pg_end = BDBM_ALIGN_UP (br->bi_offset + br->bi_size, NR_KSECTORS_IN(KPAGE_SIZE)) / NR_KSECTORS_IN(KPAGE_SIZE);
+#ifdef DEBUG
 	bdbm_bug_on (pg_start >= pg_end);
+#endif
     //printk("pg_start=%lld, pg_end=%lld\n", pg_start, pg_end);
 
 	/* build llm_reqs */
 	nr_llm_reqs = BDBM_ALIGN_UP ((sec_end - sec_start), NR_KSECTORS_IN(pool->io_unit)) / NR_KSECTORS_IN(pool->io_unit);
+#ifdef DEBUG
 	bdbm_bug_on (nr_llm_reqs > BDBM_BLKIO_MAX_VECS);
+#endif
 
 	type = (br->bi_datatype > 10)?br->bi_datatype-10:br->bi_datatype;
-	if(type < 0 || type > BDBM_STREAM_NUM) {
-		bdbm_msg("type ID is %d", type);
+	tech_type = _param_tech_type;
+	switch(_param_tech_type) {
+		case 0:
+		case 1:
+			sID = 0;
+			break;
+		case 2:
+		case 3:
+			asid = autostream_get_streamid(br->bi_offset, br->bi_size);
+			sID = asid;
+			break;
+		case 4:
+		case 5:
+			pcid = get_pcid(br->bi_pc);
+			sID = pcid;
+			break;
+		case 6:
+		case 7:
+			sID = type;
+			break;
+		case 8:
+			type = (type >= 3) ? 3 : type;
+			sID = type;
+			break;
+		default:
+			sID = 0;
+			break;
 	}
-	sID = get_streamid(sec_start / NR_KSECTORS_IN(pool->map_unit));
-	//pcid = get_pcid(br->bi_pc);
-	
+
 	ptr_lr = &hr->llm_reqs[0];
 	for (i = 0; i < nr_llm_reqs; i++) {
 		int fm_ofs = 0;
@@ -376,7 +419,9 @@ static int __hlm_reqs_pool_create_write_req (
                 //printk("(pg_off(%lld) >= pg_start(%lld) && pg_off(%lld) < pg_end)(%lld)]\n",
                   //pg_off, pg_start, pg_off, pg_end);
 				if (pg_off >= pg_start && pg_off < pg_end) {
+#ifdef DEBUG
 					bdbm_bug_on (bvec_cnt >= br->bi_bvec_cnt);
+#endif
 					if (bvec_cnt >= br->bi_bvec_cnt) {
 						bdbm_msg ("%lld %lld", bvec_cnt, br->bi_bvec_cnt);
 					}
@@ -408,13 +453,16 @@ static int __hlm_reqs_pool_create_write_req (
 		ptr_lr->logaddr.type = type;
 		ptr_lr->logaddr.streamID = sID;
 		ptr_lr->logaddr.pcid = pcid;
+		ptr_lr->logaddr.asid = asid;
 
 		/* go to the next */
 		ptr_lr->ptr_hlm_req = (void*)hr;
 		ptr_lr++;
 	}
 
+#ifdef DEBUG
 	bdbm_bug_on (bvec_cnt != br->bi_bvec_cnt);
+#endif
 
 	/* intialize hlm_req */
 	hr->req_type = br->bi_rw;
@@ -439,7 +487,9 @@ static int __hlm_reqs_pool_create_read_req (
 
 	pg_start = BDBM_ALIGN_DOWN (br->bi_offset, NR_KSECTORS_IN(KPAGE_SIZE)) / NR_KSECTORS_IN(KPAGE_SIZE);
 	pg_end = BDBM_ALIGN_UP (br->bi_offset + br->bi_size, NR_KSECTORS_IN(KPAGE_SIZE)) / NR_KSECTORS_IN(KPAGE_SIZE);
+#ifdef DEBUG
 	bdbm_bug_on (pg_start >= pg_end);
+#endif
 
 	/* build llm_reqs */
 	nr_llm_reqs = pg_end - pg_start;
@@ -448,8 +498,10 @@ static int __hlm_reqs_pool_create_read_req (
 	for (i = 0; i < nr_llm_reqs; i++) {
 		offset = pg_start % NR_KPAGES_IN(pool->map_unit);
 
+#ifdef DEBUG
 		if (pool->in_place_rmw == 0) 
 			bdbm_bug_on (offset != 0);
+#endif
 
 		hlm_reqs_pool_reset_fmain (&ptr_lr->fmain);
 		ptr_lr->fmain.kp_stt[offset] = KP_STT_DATA;
@@ -469,7 +521,9 @@ static int __hlm_reqs_pool_create_read_req (
 		ptr_lr++;
 	}
 
+#ifdef DEBUG
 	bdbm_bug_on (bvec_cnt != br->bi_bvec_cnt);
+#endif
 
 	/* intialize hlm_req */
 	hr->req_type = br->bi_rw;
@@ -535,8 +589,9 @@ void hlm_reqs_pool_write_compaction (
 	}
 
 	dst_r = &dst->llm_reqs[0];
-	dst->nr_llm_reqs = 1;
-	for (i = 0; i < nr_punits * np->nr_pages_per_block; i++) {
+	//dst->nr_llm_reqs = 1;
+	//for (i = 0; i < nr_punits * np->nr_pages_per_block; i++) {
+	for (i = 0; i < src->nr_llm_reqs; i++) {
 		src_r = &src->llm_reqs[i];
 
 		for (src_kp = 0; src_kp < np->nr_subpages_per_page; src_kp++) {
@@ -545,8 +600,10 @@ void hlm_reqs_pool_write_compaction (
 				dst_r->fmain.kp_stt[dst_kp] = src_r->fmain.kp_stt[src_kp];
 				dst_r->fmain.kp_ptr[dst_kp] = src_r->fmain.kp_ptr[src_kp];
 				dst_r->logaddr.lpa[dst_kp] = src_r->logaddr.lpa[src_kp];
+				dst_r->sID = src_r->sID;
 				((int64_t*)dst_r->foob.data)[dst_kp] = ((int64_t*)src_r->foob.data)[src_kp];
 			} else {
+				bdbm_bug_on(1);
 				/* otherwise, skip it */
 				continue;
 			}
@@ -561,5 +618,7 @@ void hlm_reqs_pool_write_compaction (
 			}
 		}
 	}
+	//if(src->nr_llm_reqs != dst->nr_llm_reqs) 
+//		bdbm_msg("nr_llm_reqs is not equal, %lld, %lld", src->nr_llm_reqs, dst->nr_llm_reqs);
 }
 

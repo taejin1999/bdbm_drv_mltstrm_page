@@ -89,6 +89,7 @@ typedef struct {
 	uint8_t sID;
 	uint8_t type;
 	uint8_t pcid;
+	uint8_t asid;
 } bdbm_page_mapping_entry_t;
 
 typedef struct {
@@ -99,12 +100,13 @@ typedef struct {
 	uint64_t nr_punits_pages;
 
 	/* for the management of active blocks */
-	uint64_t curr_puid;
-	uint64_t curr_page_ofs;
+	uint64_t curr_puid[BDBM_DEV_NR_STREAM];
+	uint64_t curr_page_ofs[BDBM_DEV_NR_STREAM];
 	bdbm_abm_block_t** ac_bab;
 
 	/* reserved for gc (reused whenever gc is invoked) */
 	bdbm_abm_block_t** gc_bab;
+	int8_t* sID_for_llm_reqs;
 	bdbm_hlm_req_gc_t gc_hlm;
 	bdbm_hlm_req_gc_t gc_hlm_w;
 
@@ -135,6 +137,8 @@ bdbm_page_mapping_entry_t* __bdbm_page_ftl_create_mapping_table (
 		me[loop].sp_off = -1;
 		me[loop].sID = -1;
 		me[loop].type = -1;
+		me[loop].pcid = -1;
+		me[loop].asid = -1;
 		me[loop].writtentime = -1;
 	}
 
@@ -151,21 +155,29 @@ void __bdbm_page_ftl_destroy_mapping_table (
 	bdbm_free (me);
 }
 
+// re-allocate a free block for all the parallel units
 uint32_t __bdbm_page_ftl_get_active_blocks (
 	bdbm_device_params_t* np,
 	bdbm_abm_info_t* bai,
-	bdbm_abm_block_t** bab)
+	bdbm_abm_block_t** bab,
+	int8_t streamID)
 {
 	uint64_t i, j;
 
+	bdbm_bug_on(streamID < 0 || streamID >= BDBM_DEV_NR_STREAM);
+
+	bab += streamID;
 	/* get a set of free blocks for active blocks */
 	for (i = 0; i < np->nr_channels; i++) {
 		for (j = 0; j < np->nr_chips_per_channel; j++) {
 			/* prepare & commit free blocks */
+			//bdbm_msg("get_active_blk: %lld, %lld, %d", i, j, streamID);
 			if ((*bab = bdbm_abm_get_free_block_prepare (bai, i, j))) {
 				bdbm_abm_get_free_block_commit (bai, *bab);
+				(*bab)->streamID = streamID;
+				//bdbm_msg("active_blk (%lld, %lld): %lld", i, j, (*bab)->block_no);
 				/*bdbm_msg ("active blk = %p", *bab);*/
-				bab++;
+				bab += BDBM_DEV_NR_STREAM;
 			} else {
 				bdbm_error ("bdbm_abm_get_free_block_prepare failed");
 				return 1;
@@ -176,14 +188,17 @@ uint32_t __bdbm_page_ftl_get_active_blocks (
 	return 0;
 }
 
+uint64_t g_nr_punits;
 bdbm_abm_block_t** __bdbm_page_ftl_create_active_blocks (
 	bdbm_device_params_t* np,
 	bdbm_abm_info_t* bai)
 {
 	uint64_t nr_punits;
 	bdbm_abm_block_t** bab = NULL;
+	uint8_t i;
 
-	nr_punits = np->nr_chips_per_channel * np->nr_channels;
+	nr_punits = np->nr_chips_per_channel * np->nr_channels * BDBM_DEV_NR_STREAM;
+	g_nr_punits = nr_punits;
 
 	/* create a set of active blocks */
 	if ((bab = (bdbm_abm_block_t**)bdbm_zmalloc 
@@ -193,9 +208,11 @@ bdbm_abm_block_t** __bdbm_page_ftl_create_active_blocks (
 	}
 
 	/* get a set of free blocks for active blocks */
-	if (__bdbm_page_ftl_get_active_blocks (np, bai, bab) != 0) {
-		bdbm_error ("__bdbm_page_ftl_get_active_blocks failed");
-		goto fail;
+	for(i = 0; i < BDBM_DEV_NR_STREAM; i++) {
+		if (__bdbm_page_ftl_get_active_blocks (np, bai, bab, i) != 0) {
+			bdbm_error ("__bdbm_page_ftl_get_active_blocks failed");
+			goto fail;
+		}
 	}
 
 	return bab;
@@ -215,17 +232,24 @@ void __bdbm_page_ftl_destroy_active_blocks (
 	/* TODO: it might be required to save the status of active blocks 
 	 * in order to support rebooting */
 	bdbm_free (bab);
+
 }
 
-bdbm_file_t fp_ID[BDBM_STREAM_NUM];
-uint64_t fp_ID_pos[BDBM_STREAM_NUM] = {0};
-bdbm_file_t fp_type[BDBM_STREAM_NUM];
-uint64_t fp_type_pos[BDBM_STREAM_NUM] = {0};
+bdbm_file_t fp_asID[BDBM_DEV_NR_STREAM];
+uint64_t fp_asID_pos[BDBM_DEV_NR_STREAM] = {0};
+bdbm_file_t fp_pcID[BDBM_DEV_NR_STREAM];
+uint64_t fp_pcID_pos[BDBM_DEV_NR_STREAM] = {0};
+bdbm_file_t fp_type[BDBM_DEV_NR_STREAM];
+uint64_t fp_type_pos[BDBM_DEV_NR_STREAM] = {0};
 bdbm_file_t fp_all;
 uint64_t fp_all_pos = 0;
+bdbm_file_t fp_gc;
+uint64_t fp_gc_pos = 0;
+bdbm_file_t fp_waf;
 
 static void pc_work_handler(struct work_struct *w);
 static struct workqueue_struct *wq = 0;
+static struct workqueue_struct *wq_gc = 0;
 
 typedef struct {
 	struct work_struct my_work;
@@ -233,13 +257,25 @@ typedef struct {
 	uint64_t lba;
 	uint64_t writtentime;
 	uint64_t invalidtime;
-	uint8_t ID;
+	uint8_t sID;
 	uint8_t type;
 	uint8_t pcid;
+	uint8_t asid;
 	uint8_t inv_type;
 }my_work_t;
 
 my_work_t *work;
+
+typedef struct {
+	struct work_struct my_work;
+	uint64_t read_pages;
+	uint64_t written_pages;
+	uint64_t erased_blocks;
+	uint8_t   num_victim_blocks[BDBM_DEV_NR_STREAM];
+	uint32_t  num_valid_page_read[BDBM_DEV_NR_STREAM];
+	uint32_t  num_valid_page_write[BDBM_DEV_NR_STREAM];
+}my_gc_t;
+my_gc_t *work_gc;
 
 #define LIFETIME_BUFFER_SIZE 256
 char buffer[LIFETIME_BUFFER_SIZE] = {0};
@@ -249,28 +285,72 @@ static void pc_work_handler(struct work_struct *w) {
 	uint64_t lba;
 	uint64_t writtentime;
 	uint64_t invalidtime;
-	uint8_t ID;
+	uint8_t sID;
 	uint8_t type;
+	uint8_t pcid;
+	uint8_t asid;
 	uint8_t inv_type;
 
 	temp = container_of(w, my_work_t, my_work);
 	lifetime = temp->lifetime;
-	ID = temp->ID;
+	sID = temp->sID;
 	type = temp->type;
 	lba = temp->lba;
 	writtentime = temp->writtentime;
 	invalidtime = temp->invalidtime;
 	inv_type = temp->inv_type;
+	pcid = temp->pcid;
+	asid = temp->asid;
 
 	if(type != 0 && inv_type == 3) {
-		sprintf(buffer, "%lld %lld %lld %lld %d\n", lba, lifetime, writtentime, invalidtime, inv_type);
+		sprintf(buffer, "%lld %lld %lld %lld %d %d\n", lba, lifetime, writtentime, invalidtime, inv_type, type);
 		fp_type_pos[type] += bdbm_fwrite(fp_type[type], fp_type_pos[type], buffer, strlen(buffer));
-		fp_ID_pos[ID] += bdbm_fwrite(fp_ID[ID], fp_ID_pos[ID], buffer, strlen(buffer));
+		fp_asID_pos[asid] += bdbm_fwrite(fp_asID[asid], fp_asID_pos[asid], buffer, strlen(buffer));
+		fp_pcID_pos[pcid] += bdbm_fwrite(fp_pcID[pcid], fp_pcID_pos[pcid], buffer, strlen(buffer));
 		sprintf(buffer, "%lld %lld %lld %lld %d %d\n", lba, lifetime, writtentime, invalidtime, inv_type, type);
 		fp_all_pos += bdbm_fwrite(fp_all, fp_all_pos, buffer, strlen(buffer));
 		memset(buffer, 0x00, LIFETIME_BUFFER_SIZE);
 	}
 }
+
+#define LIFETIME_BUFFER_SIZE 256
+char buffer_gc[LIFETIME_BUFFER_SIZE] = {0};
+char buffer_gc_format[LIFETIME_BUFFER_SIZE] = {0};
+static void gc_work_handler(struct work_struct *w) {
+	my_gc_t *temp;
+	uint64_t read_pages;
+	uint64_t written_pages;
+	uint64_t erased_blocks;
+	uint8_t *num_victim_blocks;
+	uint32_t *num_valid_page_read;
+	uint32_t *num_valid_page_write;
+	int32_t i;
+
+	temp = container_of(w, my_gc_t, my_work);
+	read_pages = temp->read_pages;
+	written_pages = temp->written_pages;
+	erased_blocks = temp->erased_blocks;
+	num_victim_blocks = temp->num_victim_blocks;
+	num_valid_page_read = temp->num_valid_page_read;
+	num_valid_page_write = temp->num_valid_page_write;
+
+	if(erased_blocks < BDBM_DEV_NR_STREAM+1) {// hot line for writing waf
+		//erased_blocks: tech_type, written_pages: total_writes, read_pages: waf
+		sprintf(buffer_gc, "%lld %lld %lld\n", erased_blocks, written_pages, read_pages);
+		bdbm_fwrite(fp_waf, 0, buffer_gc, strlen(buffer_gc));
+		return;
+	}
+	
+	sprintf(buffer_gc, "%lld %lld %lld ", read_pages, written_pages, erased_blocks);
+	for(i = 0; i < BDBM_DEV_NR_STREAM; i++) {
+		sprintf(buffer_gc_format, "%d:%d:%d:%d, ", i, num_victim_blocks[i], num_valid_page_read[i], num_valid_page_write[i]);
+		strcat(buffer_gc, buffer_gc_format);
+	}
+	strcat(buffer_gc, "\n");
+	fp_gc_pos += bdbm_fwrite(fp_gc, fp_gc_pos, buffer_gc, strlen(buffer_gc));
+	memset(buffer_gc, 0x00, LIFETIME_BUFFER_SIZE);
+}
+
 uint32_t bdbm_page_ftl_create (bdbm_drv_info_t* bdi)
 {
 	uint32_t i;
@@ -283,8 +363,10 @@ uint32_t bdbm_page_ftl_create (bdbm_drv_info_t* bdi)
 		bdbm_error ("bdbm_malloc failed");
 		return 1;
 	}
-	p->curr_puid = 0;
-	p->curr_page_ofs = 0;
+	for( i = 0; i < BDBM_DEV_NR_STREAM; i++){
+		p->curr_puid[i] = 0;
+		p->curr_page_ofs[i] = 0;
+	}
 	p->nr_punits = np->nr_chips_per_channel * np->nr_channels;
 	p->nr_punits_pages = p->nr_punits * np->nr_pages_per_block;
 	bdbm_spin_lock_init (&p->ftl_lock);
@@ -318,6 +400,12 @@ uint32_t bdbm_page_ftl_create (bdbm_drv_info_t* bdi)
 		bdbm_page_ftl_destroy (bdi);
 		return 1;
 	}
+	if ((p->sID_for_llm_reqs = (int8_t*)bdbm_zmalloc 
+			(sizeof (int8_t) * p->nr_punits * np->nr_pages_per_block)) == NULL) {
+		bdbm_error ("bdbm_zmalloc failed");
+		bdbm_page_ftl_destroy (bdi);
+		return 1;
+	}
 
 	if ((p->gc_hlm.llm_reqs = (bdbm_llm_req_t*)bdbm_zmalloc
 			(sizeof (bdbm_llm_req_t) * p->nr_punits_pages)) == NULL) {
@@ -338,9 +426,14 @@ uint32_t bdbm_page_ftl_create (bdbm_drv_info_t* bdi)
 	hlm_reqs_pool_allocate_llm_reqs (p->gc_hlm_w.llm_reqs, p->nr_punits_pages, RP_MEM_PHY);
 
 	//tjkim
-	for (i = 0; i < BDBM_STREAM_NUM; i++) {
-		sprintf(buffer, "/tmp/lifetime_sID%d.dat", i);
-		if((fp_ID[i] = bdbm_fopen(buffer, O_CREAT | O_WRONLY, 0777)) == 0) {
+	for (i = 0; i < BDBM_DEV_NR_STREAM; i++) {
+		sprintf(buffer, "/tmp/lifetime_asID%d.dat", i);
+		if((fp_asID[i] = bdbm_fopen(buffer, O_CREAT | O_WRONLY, 0777)) == 0) {
+			bdbm_error ("bdbm_fopen failed");
+			return 1;
+		}
+		sprintf(buffer, "/tmp/lifetime_pcID%d.dat", i);
+		if((fp_pcID[i] = bdbm_fopen(buffer, O_CREAT | O_WRONLY, 0777)) == 0) {
 			bdbm_error ("bdbm_fopen failed");
 			return 1;
 		}
@@ -355,6 +448,15 @@ uint32_t bdbm_page_ftl_create (bdbm_drv_info_t* bdi)
 		return 1;
 	}
 
+	if((fp_gc = bdbm_fopen("/tmp/gc.dat", O_CREAT | O_WRONLY, 0777)) == 0) {
+		bdbm_error ("bdbm_fopen failed");
+		return 1;
+	}
+	if((fp_waf = bdbm_fopen("/tmp/waf.log", O_CREAT | O_WRONLY | O_APPEND, 0777)) == 0) {
+		bdbm_error ("bdbm_fopen failed");
+		return 1;
+	}
+
 	memset(buffer, 0x00, 128);
 
 	work = (my_work_t*)kmalloc(sizeof(my_work_t), GFP_KERNEL);
@@ -362,10 +464,18 @@ uint32_t bdbm_page_ftl_create (bdbm_drv_info_t* bdi)
 	INIT_WORK( &(work->my_work), pc_work_handler);
 	wq = create_singlethread_workqueue("pc_wq");
 
-	autostream_create_queues(bdi);
+	work_gc = (my_gc_t*)kmalloc(sizeof(my_gc_t), GFP_KERNEL);
+	memset(work_gc, 0, sizeof(my_gc_t));
+	INIT_WORK( &(work_gc->my_work), gc_work_handler);
+	wq_gc = create_singlethread_workqueue("pc_wq_gc");
+
+	autostream_init(bdi);
 	return 0;
 }
 
+int8_t sub_stream[BDBM_DEV_NR_STREAM] = {0};
+extern char format[1024];
+extern char str[1024];
 void bdbm_page_ftl_destroy (bdbm_drv_info_t* bdi)
 {
 	uint32_t i;
@@ -386,6 +496,9 @@ void bdbm_page_ftl_destroy (bdbm_drv_info_t* bdi)
 	}
 	if (p->gc_bab)
 		bdbm_free (p->gc_bab);
+	if (p->sID_for_llm_reqs)
+		bdbm_free (p->sID_for_llm_reqs);
+
 	if (p->ac_bab)
 		__bdbm_page_ftl_destroy_active_blocks (p->ac_bab);
 	if (p->ptr_mapping_table)
@@ -394,23 +507,39 @@ void bdbm_page_ftl_destroy (bdbm_drv_info_t* bdi)
 		bdbm_abm_destroy (p->bai);
 	bdbm_free (p);
 	//tjkim
-	for(i = 0; i < BDBM_STREAM_NUM; i++){
-		bdbm_fclose(fp_ID[i]);
+	sprintf(format, "substreams:");
+	for(i = 0; i < BDBM_DEV_NR_STREAM; i++){
+		bdbm_fclose(fp_asID[i]);
+		bdbm_fclose(fp_pcID[i]);
 		bdbm_fclose(fp_type[i]);
+		if(sub_stream[i] != 0) {
+			sprintf(str, "m%d:s%d, ", i, sub_stream[i]);
+			strcat(format, str);
+			bdbm_memset (str, 0x00, sizeof (str));
+		}
 	}
+	bdbm_msg("%s", format);
+	bdbm_memset (format, 0x00, sizeof (format));
+
 	bdbm_fclose(fp_all);
+	bdbm_fclose(fp_gc);
+	bdbm_fclose(fp_waf);
 	if(wq)
 		destroy_workqueue(wq);
-	kfree(work);
+	if(wq_gc)
+		destroy_workqueue(wq_gc);
 
-	autostream_destroy_queues();
+	kfree(work);
+	kfree(work_gc);
+
+	autostream_destroy();
 }
 
 uint64_t g_logical_wtime;
 uint64_t g_physical_wtime;
 uint32_t bdbm_page_ftl_get_free_ppa (
 	bdbm_drv_info_t* bdi, 
-	int64_t lpa,
+	int8_t streamID,
 	bdbm_phyaddr_t* ppa)
 {
 	bdbm_page_ftl_private_t* p = _ftl_page_ftl.ptr_private;
@@ -418,46 +547,74 @@ uint32_t bdbm_page_ftl_get_free_ppa (
 	bdbm_abm_block_t* b = NULL;
 	uint64_t curr_channel;
 	uint64_t curr_chip;
+	uint64_t bid;
+
+	bdbm_bug_on(streamID < 0 || streamID >= BDBM_DEV_NR_STREAM);
 
 	/* get the channel & chip numbers */
-	curr_channel = p->curr_puid % np->nr_channels;
-	curr_chip = p->curr_puid / np->nr_channels;
+	curr_channel = p->curr_puid[streamID] % np->nr_channels;
+	curr_chip = p->curr_puid[streamID] / np->nr_channels;
 
 	/* get the physical offset of the active blocks */
-	b = p->ac_bab[curr_channel * np->nr_chips_per_channel + curr_chip];
+	bid = curr_channel * np->nr_chips_per_channel * BDBM_DEV_NR_STREAM + curr_chip * BDBM_DEV_NR_STREAM + streamID;
+#ifdef DEBUG
+	bdbm_bug_on(bid < 0 || bid >= np->nr_chips_per_channel*np->nr_channels*BDBM_DEV_NR_STREAM);
+#endif
+	b = p->ac_bab[bid];
+#ifdef DEBUG
+	if(b->streamID != streamID) printk("[get_free_ppa] target streamID %d, streamID %d, %lld, %lld, %d\n", b->streamID, streamID, curr_channel, curr_chip, streamID); //shane part
+#endif
+	//bdbm_msg("free_ppa s:%d (%lld, %lld) b: %lld", streamID, curr_channel, curr_chip, b->block_no);
 	ppa->channel_no =  b->channel_no;
 	ppa->chip_no = b->chip_no;
 	ppa->block_no = b->block_no;
-	ppa->page_no = p->curr_page_ofs;
+	ppa->page_no = p->curr_page_ofs[streamID];
 	ppa->punit_id = BDBM_GET_PUNIT_ID (bdi, ppa);
+
+	bdbm_bug_on(streamID < 0 || streamID >= BDBM_DEV_NR_STREAM);
+#ifdef DEBUG
 
 	/* check some error cases before returning the physical address */
 	bdbm_bug_on (ppa->channel_no != curr_channel);
 	bdbm_bug_on (ppa->chip_no != curr_chip);
 	bdbm_bug_on (ppa->page_no >= np->nr_pages_per_block);
+#endif
 
 	/* go to the next parallel unit */
-	if ((p->curr_puid + 1) == p->nr_punits) {
-		p->curr_puid = 0;
-		p->curr_page_ofs++;	/* go to the next page */
+	if ((p->curr_puid[streamID] + 1) == p->nr_punits) {
+		p->curr_puid[streamID] = 0;
+		p->curr_page_ofs[streamID]++;	/* go to the next page */
 
 		/* see if there are sufficient free pages or not */
-		if (p->curr_page_ofs == np->nr_pages_per_block) {
+		if (p->curr_page_ofs[streamID] == np->nr_pages_per_block) {
 			/* get active blocks */
-			if (__bdbm_page_ftl_get_active_blocks (np, p->bai, p->ac_bab) != 0) {
+			if (__bdbm_page_ftl_get_active_blocks (np, p->bai, p->ac_bab, streamID) != 0) {
 				bdbm_error ("__bdbm_page_ftl_get_active_blocks failed");
 				return 1;
 			}
 			/* ok; go ahead with 0 offset */
 			/*bdbm_msg ("curr_puid = %llu", p->curr_puid);*/
-			p->curr_page_ofs = 0;
+			p->curr_page_ofs[streamID] = 0;
 		}
 	} else {
 		/*bdbm_msg ("curr_puid = %llu", p->curr_puid);*/
-		p->curr_puid++;
+		p->curr_puid[streamID]++;
 	}
 
 	return 0;
+}
+
+uint64_t g_num_write_req = 0;
+extern int32_t tech_type;
+extern int _param_display_num;
+
+void do_log(bdbm_drv_info_t* bdi) {
+	uint64_t total_write = pmu_get_write_req(bdi);
+	bdbm_msg("WAF at %lld: %lld", g_num_write_req, (total_write*100)/g_num_write_req);
+	work_gc->erased_blocks = tech_type; 					//tech_type
+	work_gc->read_pages = (total_write*100)/g_num_write_req;// waf
+	work_gc->written_pages = g_num_write_req;				// total_writes
+	queue_work(wq_gc, &(work_gc->my_work));
 }
 
 uint32_t bdbm_page_ftl_map_lpa_to_ppa (
@@ -513,17 +670,20 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 				bdbm_bug_on(lifetime < 0);
 				*/
 				if(me->writtentime > 0) {
+#ifdef DEBUG
 					bdbm_bug_on(me->writtentime < 0 || me->writtentime > g_logical_wtime);
-					bdbm_bug_on(me->sID < 0 || me->sID > BDBM_STREAM_NUM);
+					bdbm_bug_on(me->sID < 0 || me->sID > BDBM_DEV_NR_STREAM);
+#endif
 					lifetime = g_logical_wtime - me->writtentime;
 #ifdef GET_AVG_LIFETIME
 					lifetimesum_sID[me->sID] += lifetime;
 					discarded_ID_cnt[me->sID]++;
 #endif
 					work->lifetime = lifetime;
-					work->ID = me->sID;
+					work->sID = me->sID;
 					work->type = me->type;
 					work->pcid = me->pcid;
+					work->asid = me->asid;
 					work->lba = logaddr->lpa[k];
 					work->writtentime = me->writtentime;
 					work->invalidtime = g_logical_wtime;
@@ -533,7 +693,14 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 					me->sID = -1;
 					me->type = -1;
 					me->pcid = -1;
+					me->asid = -1;
 					me->writtentime = -1;
+				}
+			}
+			else if(logaddr->ofs == 1) {
+				if(logaddr->streamID >= 0 || logaddr->streamID < BDBM_DEV_NR_STREAM) {
+					me->sID = logaddr->streamID;
+					me->pcid = logaddr->streamID;
 				}
 			}
 		}
@@ -546,16 +713,19 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 
 		//tjkim
 		if(logaddr->ofs == 0) { // count if it's user request (ofs==0), skip for gc req (ofs==wtime).
-			int8_t ID;
+			int8_t sID;
 			if(me->writtentime != -1) {
 				int64_t lifetime;
+#ifdef DEBUG
 				bdbm_bug_on(me->writtentime < 0 || me->writtentime > g_logical_wtime);
+#endif
 				lifetime = g_logical_wtime - me->writtentime;
 
 				work->lifetime = lifetime;
-				work->ID = me->sID;
+				work->sID = me->sID;
 				work->type = me->type;
 				work->pcid = me->pcid;
+				work->asid = me->asid;
 				work->lba = logaddr->lpa[k];
 				work->writtentime = me->writtentime;
 				work->invalidtime = g_logical_wtime;
@@ -564,16 +734,28 @@ uint32_t bdbm_page_ftl_map_lpa_to_ppa (
 				queue_work(wq, &(work->my_work));
 			}
 
-			ID = logaddr->streamID;
+			sID = logaddr->streamID;
 			//if(ID != 0) ID -= 10;
-			bdbm_bug_on(ID < 0 || ID > BDBM_STREAM_NUM);
-			me->sID = ID;
+#ifdef DEBUG
+			bdbm_bug_on(sID < 0 || sID > BDBM_DEV_NR_STREAM);
+#endif
+			me->sID = sID;
 			me->type = logaddr->type;
 			me->pcid = logaddr->pcid;
+			me->asid = logaddr->asid;
 			me->writtentime = g_logical_wtime++;
 			//me->writtentime = ktime_to_us(ktime_get());
 
-			//pmu_inc_ID_cnt(bdi, ID); 
+			//pmu_inc_ID_cnt(bdi, sID); 
+			if(g_num_write_req >= _param_display_num) {
+				if(g_num_write_req % 500000 == 0) {
+					do_log(bdi);
+				}
+				else if(_param_display_num < 5000000 && g_num_write_req % 100000 == 0) {
+					do_log(bdi);
+				}
+			}
+			g_num_write_req++;
 		}
 	}
 
@@ -657,14 +839,17 @@ uint32_t bdbm_page_ftl_invalidate_lpa (
 			me->status = PFTL_PAGE_INVALID;
 
 			if(me->writtentime >= 0) {
+#ifdef DEBUG
 				bdbm_bug_on(me->writtentime > g_logical_wtime);
-				bdbm_bug_on(me->sID < 0 || me->sID > BDBM_STREAM_NUM);
+				bdbm_bug_on(me->sID < 0 || me->sID > BDBM_DEV_NR_STREAM);
+#endif
 				lifetime = g_logical_wtime - me->writtentime;
 
 				work->lifetime = lifetime;
-				work->ID = me->sID;
+				work->sID = me->sID;
 				work->type = me->type;
 				work->pcid = me->pcid;
+				work->asid = me->asid;
 				work->lba = loop;
 				work->writtentime = me->writtentime;
 				work->invalidtime = g_logical_wtime;
@@ -674,6 +859,7 @@ uint32_t bdbm_page_ftl_invalidate_lpa (
 				me->sID = -1;
 				me->type = -1;
 				me->pcid = -1;
+				me->asid = -1;
 				me->writtentime = -1;
 			}
 		}
@@ -689,7 +875,7 @@ uint8_t bdbm_page_ftl_is_gc_needed (bdbm_drv_info_t* bdi, int64_t lpa)
 	uint64_t nr_free_blks = bdbm_abm_get_nr_free_blocks (p->bai);
 
 	/* invoke gc when remaining free blocks are less than 1% of total blocks */
-	if ((nr_free_blks * 100 / nr_total_blks) <= 2) {
+	if ((nr_free_blks * 100 / nr_total_blks) <= (2*BDBM_DEV_NR_STREAM)) {
 		return 1;
 	}
 
@@ -737,27 +923,34 @@ bdbm_abm_block_t* __bdbm_page_ftl_victim_selection_greedy (
 {
 	bdbm_page_ftl_private_t* p = _ftl_page_ftl.ptr_private;
 	bdbm_device_params_t* np = BDBM_GET_DEVICE_PARAMS (bdi);
-	bdbm_abm_block_t* a = NULL;
+	bdbm_abm_block_t* a[BDBM_DEV_NR_STREAM];
 	bdbm_abm_block_t* b = NULL;
 	bdbm_abm_block_t* v = NULL;
 	struct list_head* pos = NULL;
+	uint32_t i;
 
-	a = p->ac_bab[channel_no*np->nr_chips_per_channel + chip_no];
+	for(i = 0; i < BDBM_DEV_NR_STREAM; i++) {
+		a[i] = p->ac_bab[channel_no * np->nr_chips_per_channel * BDBM_DEV_NR_STREAM + chip_no * BDBM_DEV_NR_STREAM + i];
+	}
 
 	bdbm_abm_list_for_each_dirty_block (pos, p->bai, channel_no, chip_no) {
 		b = bdbm_abm_fetch_dirty_block (pos);
-		if (a == b)
-			continue;
+		for(i = 0; i < BDBM_DEV_NR_STREAM; i++){
+			if (a[i] == b)
+				goto cont;
+		}
 		if (b->nr_invalid_subpages == np->nr_subpages_per_block) {
 			v = b;
 			break;
 		}
 		if (v == NULL) {
 			v = b;
-			continue;
+			goto cont;
 		}
 		if (b->nr_invalid_subpages > v->nr_invalid_subpages)
 			v = b;
+cont:
+		continue;
 	}
 
 	return v;
@@ -941,7 +1134,41 @@ erase_blks:
 }
 #endif
 
-uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
+extern int8_t g_id;
+#define SUBSTREAM_THERSHOLD 384
+int8_t get_sID_for_gc(int8_t cur_sID, uint32_t* num_valid_pages_arr) {
+	if(cur_sID == 0) return 0;
+	if(sub_stream[cur_sID] != 0)
+		return sub_stream[cur_sID];
+	if(num_valid_pages_arr[cur_sID] > SUBSTREAM_THERSHOLD) {
+		int8_t i;
+		for(i = 0; i < BDBM_DEV_NR_STREAM; i++){
+			if(cur_sID == sub_stream[i])
+				return cur_sID;
+		}
+		if(g_id < BDBM_DEV_NR_STREAM) {
+			sub_stream[cur_sID] = g_id++;
+			return sub_stream[cur_sID];
+		}
+		//else bdbm_msg("cannot use substream, g_id: %d, sID: %d, validpages: %d",	g_id, cur_sID, num_valid_pages_arr[cur_sID]);
+	}
+	return cur_sID;
+}
+
+int8_t get_sID_for_gc_all(int8_t cur_sID, uint32_t* num_valid_pages_arr) {
+	if(sub_stream[cur_sID] != 0)
+		return sub_stream[cur_sID];
+	if(g_id < BDBM_DEV_NR_STREAM) {
+		sub_stream[cur_sID] = g_id++;
+		return sub_stream[cur_sID];
+	}
+	//else bdbm_msg("cannot use substream, g_id: %d, sID: %d, validpages: %d",	g_id, cur_sID, num_valid_pages_arr[cur_sID]);
+	return cur_sID;
+}
+
+extern int _param_tech_type;
+
+uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi)
 {
 	bdbm_page_ftl_private_t* p = _ftl_page_ftl.ptr_private;
 	bdbm_device_params_t* np = BDBM_GET_DEVICE_PARAMS (bdi);
@@ -952,11 +1179,23 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
 	uint64_t nr_punits = 0;
 	uint64_t i, j, k;
 	bdbm_stopwatch_t sw;
+	uint8_t    num_victim_blocks[BDBM_DEV_NR_STREAM] = {0};
+	uint32_t   num_valid_page_read[BDBM_DEV_NR_STREAM] = {0};
+	uint32_t   num_valid_page_write[BDBM_DEV_NR_STREAM] = {0};
 
 	nr_punits = np->nr_channels * np->nr_chips_per_channel;
 
+	for(i = 0; i < BDBM_DEV_NR_STREAM; i++){
+		work_gc->num_victim_blocks[i] = 0;
+		work_gc->num_valid_page_read[i] = 0;
+		work_gc->num_valid_page_write[i] = 0;
+	}
+	work_gc->written_pages = 0;
+	work_gc->read_pages = 0;
+
 	/* choose victim blocks for individual parallel units */
 	bdbm_memset (p->gc_bab, 0x00, sizeof (bdbm_abm_block_t*) * nr_punits);
+	bdbm_memset (p->sID_for_llm_reqs, 0x00, sizeof (uint8_t) * nr_punits * np->nr_pages_per_block);
 	bdbm_stopwatch_start (&sw);
 	for (i = 0, nr_gc_blks = 0; i < np->nr_channels; i++) {
 		for (j = 0; j < np->nr_chips_per_channel; j++) {
@@ -964,6 +1203,11 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
 			if ((b = __bdbm_page_ftl_victim_selection_greedy (bdi, i, j))) {
 				p->gc_bab[nr_gc_blks] = b;
 				nr_gc_blks++;
+				num_victim_blocks[b->streamID]++;
+#ifdef DEBUG
+				if(b->streamID < 0 || b->streamID >= BDBM_DEV_NR_STREAM)
+					bdbm_msg("b->streamID is abnormal, %d", b->streamID);
+#endif
 			}
 		}
 	}
@@ -973,7 +1217,7 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
 		return 0;
     }
 
-	pmu_inc_gc(bdi);
+	//pmu_inc_gc(bdi);
 
     /* TEMP */
     for (i = 0; i < nr_punits * np->nr_pages_per_block; i++) {
@@ -1012,11 +1256,13 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
                 r->phyaddr.punit_id = BDBM_GET_PUNIT_ID (bdi, (&r->phyaddr));
                 r->ptr_hlm_req = (void*)hlm_gc;
                 r->ret = 0;
+				r->sID = b->streamID;
+				p->sID_for_llm_reqs[nr_llm_reqs] = b->streamID;
+				num_valid_page_read[b->streamID]++;
                 nr_llm_reqs++;
             }
         }
     }
-
 
 
     /* wait until Q in llm becomes empty 
@@ -1040,62 +1286,26 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
     bdbm_sema_lock (&hlm_gc->done);
     bdbm_sema_unlock (&hlm_gc->done);
 
-#if 0
-    /* perform write compaction for gc */
-#include "hlm_reqs_pool.h"
+#ifdef DEBUG
+	if(nr_llm_reqs > nr_punits * np->nr_pages_per_block)
+		bdbm_msg("do_gc: abnormal read page: %lld", nr_llm_reqs);
+#endif
 
-    /* build hlm_req_gc for writes */
-    for (i = 0; i < nr_llm_reqs; i++) {
-        bdbm_llm_req_t* r = &hlm_gc->llm_reqs[i];
-        r->req_type = REQTYPE_GC_WRITE;	/* change to write */
-        for (k = 0; k < np->nr_subpages_per_page; k++) {
-            /* move subpages that contain new data */
-            if (r->fmain.kp_stt[k] == KP_STT_DATA) {
-                r->logaddr.lpa[k] = ((uint64_t*)r->foob.data)[k];
-            } else if (r->fmain.kp_stt[k] == KP_STT_HOLE) {
-                ((uint64_t*)r->foob.data)[k] = -1;
-                r->logaddr.lpa[k] = -1;
-            } else {
-                bdbm_bug_on (1);
-            }
-        }
-        if (bdbm_page_ftl_get_free_ppa (bdi, &r->phyaddr) != 0) {
-            bdbm_error ("bdbm_page_ftl_get_free_ppa failed");
-            bdbm_bug_on (1);
-        }
-        if (bdbm_page_ftl_map_lpa_to_ppa (bdi, &r->logaddr, &r->phyaddr) != 0) {
-            bdbm_error ("bdbm_page_ftl_map_lpa_to_ppa failed");
-            bdbm_bug_on (1);
-        }
-    }
+	work_gc->read_pages = nr_llm_reqs;
 
-    /* send write reqs to llm */
-    hlm_gc->req_type = REQTYPE_GC_WRITE;
-    hlm_gc->nr_llm_reqs = nr_llm_reqs;
-    atomic64_set (&hlm_gc->nr_llm_reqs_done, 0);
-    bdbm_sema_lock (&hlm_gc->done);
-    for (i = 0; i < nr_llm_reqs; i++) {
-        if ((bdi->ptr_llm_inf->make_req (bdi, &hlm_gc->llm_reqs[i])) != 0) {
-            bdbm_error ("llm_make_req failed");
-            bdbm_bug_on (1);
-        }
-    }
-    bdbm_sema_lock (&hlm_gc->done);
-    bdbm_sema_unlock (&hlm_gc->done);
-#else
-
-    /* perform write compaction for gc */
-#include "hlm_reqs_pool.h"
-    /*bdbm_track ();*/
     hlm_reqs_pool_write_compaction (hlm_gc_w, hlm_gc, np);
 
-    /*bdbm_msg ("compaction: %llu => %llu", nr_llm_reqs, hlm_gc_w->nr_llm_reqs);*/
+#ifdef DEBUG
+	if(hlm_gc->nr_llm_reqs != hlm_gc_w->nr_llm_reqs)
+		bdbm_msg("nr_llm_reqs is not equal %lld, %lld", hlm_gc->nr_llm_reqs, hlm_gc_w->nr_llm_reqs);
+#endif
 
     nr_llm_reqs = hlm_gc_w->nr_llm_reqs;
 
     /* build hlm_req_gc for writes */
     for (i = 0; i < nr_llm_reqs; i++) {
 		int32_t old_ofs;
+		int8_t streamID = 0;
         bdbm_llm_req_t* r = &hlm_gc_w->llm_reqs[i];
         r->req_type = REQTYPE_GC_WRITE;	/* change to write */
         for (k = 0; k < np->nr_subpages_per_page; k++) {
@@ -1105,18 +1315,47 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
             } else if (r->fmain.kp_stt[k] == KP_STT_HOLE) {
                 ((uint64_t*)r->foob.data)[k] = -1;
                 r->logaddr.lpa[k] = -1;
+                bdbm_bug_on (1);
             } else {
                 bdbm_bug_on (1);
             }
         }
-        r->ptr_hlm_req = (void*)hlm_gc_w;
-        if (bdbm_page_ftl_get_free_ppa (bdi, 0, &r->phyaddr) != 0) {
+		r->ptr_hlm_req = (void*)hlm_gc_w;
+
+		switch(_param_tech_type) {
+			case 0:
+			case 2:
+			case 4:
+			case 6:
+				streamID = r->sID;
+				break;
+			case 1:
+			case 3:
+				streamID = get_sID_for_gc_all(r->sID, num_valid_page_read);
+				break;
+			case 5:
+				streamID = get_sID_for_gc(r->sID, num_valid_page_read);
+				break;
+			case 7:
+				streamID = (r->sID == 6) ? 7 : r->sID;
+			default:
+				streamID = r->sID;
+				break;
+		}
+
+        if (bdbm_page_ftl_get_free_ppa (bdi, streamID, &r->phyaddr) != 0) {
             bdbm_error ("bdbm_page_ftl_get_free_ppa failed");
             bdbm_bug_on (1);
         }
+#ifdef DEBUG
+		if(streamID < 0 || streamID >= BDBM_DEV_NR_STREAM)
+			bdbm_msg("streamID from llmreq is abnormal, %d", streamID);
+#endif
+		num_valid_page_write[streamID]++;
 
 		old_ofs = r->logaddr.ofs;
 		r->logaddr.ofs = 1;	
+		r->logaddr.streamID = streamID;
         if (bdbm_page_ftl_map_lpa_to_ppa (bdi, &r->logaddr, &r->phyaddr) != 0) {
             bdbm_error ("bdbm_page_ftl_map_lpa_to_ppa failed");
             bdbm_bug_on (1);
@@ -1137,7 +1376,12 @@ uint32_t bdbm_page_ftl_do_gc (bdbm_drv_info_t* bdi, int64_t lpa)
     }
     bdbm_sema_lock (&hlm_gc_w->done);
     bdbm_sema_unlock (&hlm_gc_w->done);
+	
+#ifdef DEBUG
+	if(hlm_gc_w->nr_llm_reqs > nr_punits * np->nr_pages_per_block)
+		bdbm_msg("do_gc: abnormal written page: %lld", nr_llm_reqs);
 #endif
+	work_gc->written_pages = hlm_gc_w->nr_llm_reqs;
 
     /* erase blocks */
 erase_blks:
@@ -1168,6 +1412,16 @@ erase_blks:
     }
     bdbm_sema_lock (&hlm_gc->done);
     bdbm_sema_unlock (&hlm_gc->done);
+	
+	work_gc->erased_blocks = nr_gc_blks;
+
+	for(i = 0; i < BDBM_DEV_NR_STREAM; i++) {
+		work_gc->num_victim_blocks[i] = num_victim_blocks[i];
+		work_gc->num_valid_page_read[i] = num_valid_page_read[i];
+		work_gc->num_valid_page_write[i] = num_valid_page_write[i];
+	}
+
+	queue_work(wq_gc, &(work_gc->my_work));
 
     /* FIXME: what happens if block erasure fails */
     for (i = 0; i < nr_gc_blks; i++) {
@@ -1189,7 +1443,7 @@ erase_blks:
     return 0;
 }
 
-
+#if 0
 /* for snapshot */
 uint32_t bdbm_page_ftl_load (bdbm_drv_info_t* bdi, const char* fn)
 {
@@ -1302,7 +1556,7 @@ uint32_t bdbm_page_ftl_store (bdbm_drv_info_t* bdi, const char* fn)
 
     return ret;
 }
-
+#endif
 void __bdbm_page_badblock_scan_eraseblks (
         bdbm_drv_info_t* bdi,
         uint64_t block_no)
@@ -1425,6 +1679,7 @@ uint32_t bdbm_page_badblock_scan (bdbm_drv_info_t* bdi)
         return 1;
     }
 
+#if 0
     /* step4: get active blocks */
     bdbm_msg ("step2: get active blocks");
     if (__bdbm_page_ftl_get_active_blocks (np, p->bai, p->ac_bab) != 0) {
@@ -1433,6 +1688,8 @@ uint32_t bdbm_page_badblock_scan (bdbm_drv_info_t* bdi)
     }
     p->curr_puid = 0;
     p->curr_page_ofs = 0;
+
+#endif
 
     bdbm_msg ("done");
 

@@ -159,11 +159,10 @@ void pmu_inc (bdbm_drv_info_t* bdi, bdbm_llm_req_t* llm_req)
 
 uint64_t pmu_get_write_req(bdbm_drv_info_t* bdi) 
 {
-    return atomic64_read (&bdi->pm.page_write_cnt) +
-        atomic64_read (&bdi->pm.rmw_write_cnt) +
-        atomic64_read (&bdi->pm.gc_write_cnt) +
-        atomic64_read (&bdi->pm.meta_write_cnt);
-
+    return  atomic64_read (&bdi->pm.page_write_cnt) +
+            atomic64_read (&bdi->pm.rmw_write_cnt) +
+            atomic64_read (&bdi->pm.gc_write_cnt) +
+            atomic64_read (&bdi->pm.meta_write_cnt);
 }
 
 void pmu_inc_read (bdbm_drv_info_t* bdi) 
@@ -437,7 +436,6 @@ void pmu_update_gc_tot (bdbm_drv_info_t* bdi, bdbm_stopwatch_t* sw)
 /* display performance results */
 char format[1024];
 char str[1024];
-
 void pmu_display (bdbm_drv_info_t* bdi) 
 {
     uint64_t i, j;
@@ -537,8 +535,17 @@ void pmu_display (bdbm_drv_info_t* bdi)
         bdbm_msg ("%s", format);
         bdbm_memset (format, 0x00, sizeof (format));
     }
-
     bdbm_msg ("-----------------------------------------------");
+
+    bdbm_msg ("[8] WAF");
+	i = atomic64_read (&bdi->pm.page_write_cnt) +
+		atomic64_read (&bdi->pm.rmw_write_cnt) +
+		atomic64_read (&bdi->pm.gc_write_cnt) +
+		atomic64_read (&bdi->pm.meta_write_cnt);
+	j = atomic64_read (&bdi->pm.page_write_cnt);
+
+    bdbm_msg ("written pages & requested pages: %lld / %lld", i, j);
+    bdbm_msg ("WAF: %lld", (i*100) / j);
     bdbm_msg ("-----------------------------------------------");
 }
 

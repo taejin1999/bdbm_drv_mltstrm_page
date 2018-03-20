@@ -41,6 +41,7 @@ THE SOFTWARE.
 #include "hlm_reqs_pool.h"
 #include "utime.h"
 #include "umemory.h"
+#include "pmu.h"
 
 #include "algo/no_ftl.h"
 #include "algo/block_ftl.h"
@@ -114,6 +115,8 @@ uint32_t __hlm_nobuf_make_rw_req (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 	bdbm_llm_req_t* lr = NULL;
 	uint64_t i = 0, j = 0, sp_ofs;
 	int32_t old_ofs;
+	int8_t streamID = hr->llm_reqs[0].logaddr.streamID; //shane part
+
 
 	/* perform mapping with the FTL */
 	bdbm_hlm_for_each_llm_req (lr, hr, i) {
@@ -129,7 +132,8 @@ uint32_t __hlm_nobuf_make_rw_req (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 					hlm_reqs_pool_relocate_kp (lr, sp_ofs);
 				}
 			} else if (bdbm_is_write (lr->req_type)) {
-				if (ftl->get_free_ppa (bdi, lr->logaddr.lpa[0], &lr->phyaddr) != 0) {
+
+				if (ftl->get_free_ppa (bdi, streamID, &lr->phyaddr) != 0) {
 					bdbm_error ("`ftl->get_free_ppa' failed");
 					goto fail;
 				}
@@ -197,7 +201,9 @@ uint32_t __hlm_nobuf_make_rw_req (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 		}
 	}
 
+#ifdef DEBUG
 	bdbm_bug_on (hr->nr_llm_reqs != i);
+#endif
 
 	return 0;
 
@@ -210,6 +216,7 @@ void __hlm_nobuf_check_ondemand_gc (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 {
 	bdbm_ftl_params* dp = BDBM_GET_DRIVER_PARAMS (bdi);
 	bdbm_ftl_inf_t* ftl = (bdbm_ftl_inf_t*)BDBM_GET_FTL_INF(bdi);
+	int8_t streamID;
 
 	if (dp->mapping_type == MAPPING_POLICY_PAGE) {
 		uint32_t loop;
@@ -220,7 +227,8 @@ void __hlm_nobuf_check_ondemand_gc (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 				ftl->is_gc_needed (bdi, 0)) {
 				/* perform GC before sending requests */ 
 				//bdbm_msg ("[hlm_nobuf_make_req] trigger GC");
-				ftl->do_gc (bdi, 0);
+				streamID = hr->llm_reqs[0].logaddr.streamID; //shane part
+				ftl->do_gc (bdi);
 			} else
 				break;
 		}
@@ -235,7 +243,7 @@ void __hlm_nobuf_check_ondemand_gc (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 				if (ftl->is_gc_needed (bdi, lr->logaddr.lpa[0])) {
 					/* perform GC before sending requests */ 
 					//bdbm_msg ("[hlm_nobuf_make_req] trigger GC");
-					ftl->do_gc (bdi, lr->logaddr.lpa[0]);
+					ftl->do_gc (bdi);
 				}
 			}
 		}
@@ -251,7 +259,9 @@ uint32_t hlm_nobuf_make_req (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 	bdbm_stopwatch_start (&sw);
 
 	/* is req_type correct? */
+#ifdef DEBUg
 	bdbm_bug_on (!bdbm_is_normal (hr->req_type));
+#endif
 
 #if 0
 	/* trigger gc if necessary */

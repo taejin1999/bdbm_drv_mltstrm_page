@@ -60,7 +60,6 @@ struct bdbm_llm_noq_private {
 uint32_t llm_noq_create (bdbm_drv_info_t* bdi)
 {
 	struct bdbm_llm_noq_private* p;
-	uint64_t loop;
 
 	/* create a private info for llm_nt */
 	if ((p = (struct bdbm_llm_noq_private*)bdbm_malloc
@@ -84,7 +83,6 @@ uint32_t llm_noq_create (bdbm_drv_info_t* bdi)
 void llm_noq_destroy (bdbm_drv_info_t* bdi)
 {
 	struct bdbm_llm_noq_private* p;
-	uint64_t loop;
 
 	p = (struct bdbm_llm_noq_private*)BDBM_LLM_PRIV(bdi);
 
@@ -93,13 +91,12 @@ void llm_noq_destroy (bdbm_drv_info_t* bdi)
 
 uint32_t llm_noq_make_req (bdbm_drv_info_t* bdi, bdbm_llm_req_t* llm_req)
 {
-	uint32_t ret;
-	static uint64_t cnt = 0;
+	uint32_t ret = 0;
     bdbm_llm_req_t* r = llm_req;
 
     /* just for display */
-    if (cnt % 50000 == 0) bdbm_msg ("llm_noq_make_req: %llu", cnt);
-    cnt++;
+    //if (cnt % 50000 == 0) bdbm_msg ("llm_noq_make_req: %llu", cnt);
+    //cnt++;
 
     /* update pmu */
     pmu_update_sw (bdi, llm_req);
@@ -114,7 +111,7 @@ uint32_t llm_noq_make_req (bdbm_drv_info_t* bdi, bdbm_llm_req_t* llm_req)
     if (bdbm_is_rmw (r->req_type) && bdbm_is_read (r->req_type)) {
         /* step 1: put READ first */
         r->phyaddr = r->phyaddr_src;
-        if ((ret = ret = bdi->ptr_dm_inf->make_req (bdi, llm_req)) != 0) {
+        if ((ret = bdi->ptr_dm_inf->make_req (bdi, llm_req)) != 0) {
             bdbm_msg ("bdbm_prior_queue_enqueue failed");
         }
         /* step 2: put WRITE second with the same LPA */
@@ -135,7 +132,7 @@ uint32_t llm_noq_make_req (bdbm_drv_info_t* bdi, bdbm_llm_req_t* llm_req)
 
 uint32_t llm_noq_make_reqs (bdbm_drv_info_t* bdi, bdbm_hlm_req_t* hr)
 {
-    uint32_t ret;
+    uint32_t ret = 0;
 
     /* send a request to a device manager */
     if ((ret = bdi->ptr_dm_inf->make_reqs (bdi, hr)) != 0) {

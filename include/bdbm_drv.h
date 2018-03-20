@@ -125,7 +125,8 @@ enum BDBM_REQTYPE {
 
 //tjkim
 /* number of stream that the device can manage */
-#define BDBM_STREAM_NUM 10
+#define BDBM_STREAM_NUM 8
+#define BDBM_DEV_NR_STREAM 8
 
 /* a physical address */
 typedef struct {
@@ -178,6 +179,7 @@ typedef struct {
 	uint8_t streamID;
 	uint8_t type;
 	uint8_t pcid;
+	uint8_t asid;
 } bdbm_logaddr_t;
 
 typedef struct {
@@ -330,11 +332,11 @@ typedef struct {
 	void* ptr_private;
 	uint32_t (*create) (bdbm_drv_info_t* bdi);
 	void (*destroy) (bdbm_drv_info_t* bdi);
-	uint32_t (*get_free_ppa) (bdbm_drv_info_t* bdi, int64_t lpa, bdbm_phyaddr_t* ppa);
+	uint32_t (*get_free_ppa) (bdbm_drv_info_t* bdi, int8_t streamID, bdbm_phyaddr_t* ppa);
 	uint32_t (*get_ppa) (bdbm_drv_info_t* bdi, int64_t lpa, bdbm_phyaddr_t* ppa, uint64_t* sp_off);
 	uint32_t (*map_lpa_to_ppa) (bdbm_drv_info_t* bdi, bdbm_logaddr_t* logaddr, bdbm_phyaddr_t* ppa);
 	uint32_t (*invalidate_lpa) (bdbm_drv_info_t* bdi, int64_t lpa, uint64_t len);
-	uint32_t (*do_gc) (bdbm_drv_info_t* bdi, int64_t lpa);
+	uint32_t (*do_gc) (bdbm_drv_info_t* bdi);
 	uint8_t (*is_gc_needed) (bdbm_drv_info_t* bdi, int64_t lpa);
 
 	/* interfaces for intialization */
